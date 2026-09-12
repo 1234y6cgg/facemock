@@ -1,10 +1,12 @@
 package com.mockinterview.service.interview;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mockinterview.agent.*;
 import com.mockinterview.controller.NotFoundException;
 import com.mockinterview.domain.*;
 import com.mockinterview.domain.dto.MessageDto;
+import com.mockinterview.domain.dto.ReportResponse;
 import com.mockinterview.infrastructure.redis.SessionStateStore;
 import com.mockinterview.repository.*;
 import dev.langchain4j.service.TokenStream;
@@ -15,6 +17,8 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class InterviewService {
@@ -25,17 +29,26 @@ public class InterviewService {
     private final InterviewOrchestrator orchestrator;
     private final ObjectMapper objectMapper;
     private final SessionStateStore stateStore;
+    private final DiagnosisAgent diagnosisAgent;
+    private final DiagnosisParser diagnosisParser;
+    private final InterviewReportRepository reportRepository;
 
     public InterviewService(ResumeRepository resumeRepository,
                             InterviewSessionRepository sessionRepository,
                             InterviewMessageRepository messageRepository,
+                            InterviewReportRepository reportRepository,
                             InterviewOrchestrator orchestrator,
+                            DiagnosisAgent diagnosisAgent,
+                            DiagnosisParser diagnosisParser,
                             ObjectMapper objectMapper,
                             SessionStateStore stateStore) {
         this.resumeRepository = resumeRepository;
         this.sessionRepository = sessionRepository;
         this.messageRepository = messageRepository;
+        this.reportRepository = reportRepository;
         this.orchestrator = orchestrator;
+        this.diagnosisAgent = diagnosisAgent;
+        this.diagnosisParser = diagnosisParser;
         this.objectMapper = objectMapper;
         this.stateStore = stateStore;
     }
@@ -113,6 +126,50 @@ public class InterviewService {
         return messageRepository.findBySessionIdOrderByCreatedAtAsc(sessionId).stream()
                 .map(m -> new MessageDto(m.getRole().name(), m.getContent(), m.getLayer()))
                 .toList();
+    }
+
+    public ReportResponse report(Long sessionId) {
+        InterviewSession session = sessionRepository.findById(sessionId)
+                .orElseThrow(() -> new NotFoundException("会话不存在: " + sessionId));
+        if (session.getStatus() != InterviewStatus.COMPLETED) {
+            throw new IllegalStateException("面试尚未结束");
+        }
+        Optional<InterviewReport> existing = reportRepository.findBySessionId(sessionId);
+        if (existing.isPresent()) {
+            return toResponse(existing.get());
+        }
+
+        Resume resume = resumeRepository.findById(session.getResumeId())
+                .orElseThrow(() -> new NotFoundException("简历不存在: " + session.getResumeId()));
+        String raw = diagnosisAgent.generateReport(resume.getParsedJson(), history(sessionId));
+        DiagnosisReport report = diagnosisParser.parse(raw);
+
+        try {
+            InterviewReport entity = InterviewReport.builder()
+                    .sessionId(sessionId)
+                    .scoresJson(objectMapper.writeValueAsString(report.scores()))
+                    .weaknessesJson(objectMapper.writeValueAsString(report.weaknesses()))
+                    .suggestionsJson(objectMapper.writeValueAsString(report.suggestions()))
+                    .createdAt(LocalDateTime.now())
+                    .build();
+            reportRepository.save(entity);
+        } catch (Exception ignored) {
+        }
+        return new ReportResponse(report.scores(), report.weaknesses(), report.suggestions());
+    }
+
+    private ReportResponse toResponse(InterviewReport r) {
+        try {
+            Map<String, Object> scores = objectMapper.readValue(r.getScoresJson(), new TypeReference<>() {
+            });
+            java.util.List<String> weaknesses = objectMapper.readValue(r.getWeaknessesJson(), new TypeReference<>() {
+            });
+            java.util.List<String> suggestions = objectMapper.readValue(r.getSuggestionsJson(), new TypeReference<>() {
+            });
+            return new ReportResponse(scores, weaknesses, suggestions);
+        } catch (Exception e) {
+            return new ReportResponse(Map.of(), java.util.List.of(), java.util.List.of());
+        }
     }
 
     // ---- 内部辅助 ----

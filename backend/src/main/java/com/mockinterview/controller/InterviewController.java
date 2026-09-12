@@ -40,4 +40,9 @@ public class InterviewController {
     public List<MessageDto> messages(@PathVariable Long id) {
         return service.messages(id);
     }
+
+    @GetMapping("/{id}/report")
+    public ReportResponse report(@PathVariable Long id) {
+        return service.report(id);
+    }
 }

@@ -1,6 +1,7 @@
 package com.mockinterview.config;
 
 import com.mockinterview.agent.AssessmentAgent;
+import com.mockinterview.agent.DiagnosisAgent;
 import com.mockinterview.agent.FollowUpAgent;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.chat.StreamingChatLanguageModel;
@@ -21,6 +22,13 @@ public class AgentConfig {
     @Bean
     public AssessmentAgent assessmentAgent(ChatLanguageModel model) {
         return AiServices.builder(AssessmentAgent.class)
+                .chatLanguageModel(model)
+                .build();
+    }
+
+    @Bean
+    public DiagnosisAgent diagnosisAgent(ChatLanguageModel model) {
+        return AiServices.builder(DiagnosisAgent.class)
                 .chatLanguageModel(model)
                 .build();
     }
