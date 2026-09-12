@@ -4,6 +4,10 @@ target/
 # Node
 node_modules/
 dist/
+# TS build artifacts (tsc -b)
+*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
 # IDE
 .idea/
 .vscode/
