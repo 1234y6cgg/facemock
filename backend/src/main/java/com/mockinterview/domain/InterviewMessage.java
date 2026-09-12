@@ -27,6 +27,7 @@ public class InterviewMessage {
     private MessageRole role;
 
     @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String content;
 
     private String layer;

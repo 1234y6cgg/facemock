@@ -23,11 +23,11 @@ public class Resume {
     private String filename;
 
     @Lob
-    @Column(name = "raw_text")
+    @Column(name = "raw_text", columnDefinition = "LONGTEXT")
     private String rawText;
 
     @Lob
-    @Column(name = "parsed_json")
+    @Column(name = "parsed_json", columnDefinition = "LONGTEXT")
     private String parsedJson;
 
     @Enumerated(EnumType.STRING)

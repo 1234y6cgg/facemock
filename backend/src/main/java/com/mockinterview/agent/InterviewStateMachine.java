@@ -1,5 +1,8 @@
 package com.mockinterview.agent;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class InterviewStateMachine {
 
     public static final int MAX_QUESTIONS = 8;

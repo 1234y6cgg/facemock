@@ -24,15 +24,15 @@ public class InterviewReport {
     private Long sessionId;
 
     @Lob
-    @Column(name = "scores_json")
+    @Column(name = "scores_json", columnDefinition = "LONGTEXT")
     private String scoresJson;
 
     @Lob
-    @Column(name = "weaknesses_json")
+    @Column(name = "weaknesses_json", columnDefinition = "LONGTEXT")
     private String weaknessesJson;
 
     @Lob
-    @Column(name = "suggestions_json")
+    @Column(name = "suggestions_json", columnDefinition = "LONGTEXT")
     private String suggestionsJson;
 
     private LocalDateTime createdAt;
