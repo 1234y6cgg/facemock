@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:mockinterview}?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    username: ${MYSQL_USER:mock}
+    password: ${MYSQL_PASSWORD:mock}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+deepseek:
+  api-key: ${DEEPSEEK_API_KEY:}
+  base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+  model-name: ${DEEPSEEK_MODEL_NAME:deepseek-flash}
+
+chroma:
+  base-url: ${CHROMA_BASE_URL:http://localhost:8000}
