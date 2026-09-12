@@ -1,0 +1,16 @@
+# Java / Maven
+target/
+*.class
+# Node
+node_modules/
+dist/
+# IDE
+.idea/
+.vscode/
+*.iml
+# env & 本地数据
+.env
+*.log
+# 数据卷
+data/
+.superpowers/
