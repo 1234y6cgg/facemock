@@ -41,4 +41,10 @@ public class Resume {
     private ResumeStatus status;
 
     private LocalDateTime createdAt;
+
+    @Column(name = "extraction_method", length = 16)
+    private String extractionMethod;
+
+    @Column(name = "error_message", length = 512)
+    private String errorMessage;
 }

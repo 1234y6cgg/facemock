@@ -17,6 +17,8 @@ export interface ResumeStatus {
   resumeId: number
   status: 'PARSING' | 'PARSED' | 'FAILED'
   parsed: ResumeStructured | null
+  errorMessage?: string | null
+  extractionMethod?: 'TEXT' | 'OCR' | 'MIXED' | null
 }
 
 export interface MessageDto {
@@ -42,7 +44,10 @@ export async function uploadResume(file: File): Promise<{ resumeId: number }> {
   const form = new FormData()
   form.append('file', file)
   const res = await fetch(`${BASE}/resumes`, { method: 'POST', body: form })
-  if (!res.ok) throw new Error('上传失败')
+  if (!res.ok) {
+    const body = await res.json().catch(() => null)
+    throw new Error(body?.message || '上传失败，请检查文件格式和大小。')
+  }
   return res.json()
 }
 

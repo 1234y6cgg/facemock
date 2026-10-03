@@ -1,4 +1,4 @@
-# FaceMock · Java 后端面试训练器
+# FaceMock · 后端面试训练器
 
 用自己的话练八股和项目表达，查看逐项反馈与材料原文，再答一次对比；也可以围绕自己的简历完成整场模拟面试，回看对话与复盘报告。
 
@@ -41,11 +41,17 @@ docker compose up -d --build
 
 ### 简历驱动的模拟面试
 
-上传 PDF 或 Word 简历，填写目标岗位与岗位要求，围绕个人经历完成一场模拟面试。
+上传文字版或扫描 PDF、Word、PNG/JPG/WebP 图片简历，填写目标岗位与岗位要求，围绕个人经历完成一场模拟面试。
 
 - 多 Agent 协作，从背景、方案、细节、难点逐步追问到权衡与扩展。
 - 根据回答质量调整难度，结合压力面和场景设计题练习临场表达。
 - 回答后获得即时点评，结束后查看多维复盘、薄弱点与改进建议；面试记录支持回看与断点续面。
+
+### 图片与扫描简历识别
+
+接入本地 **PaddleOCR**，图片简历直接识别，PDF 按页提取文字并对扫描页补充 OCR，兼容文字与扫描内容混合的 PDF。识别结果继续用于项目经历提取与模拟面试，上传后可先核对提取文字。
+
+OCR 使用 CPU 推理，无需额外 API Key；首次构建下载模型，后续本地识别。支持最大 6 MB 文件、默认最多 10 页 PDF，配置及使用说明见 [简历 OCR](docs/resume-ocr.md)。
 
 ### 语音练习
 
@@ -82,7 +88,7 @@ docker compose up -d --build
 
 ## 技术栈
 
-Spring Boot · LangChain4j · 国内模型兼容接口 · Apache Tika · MySQL · Redis · ChromaDB · React + Vite + TypeScript · Docker Compose
+Spring Boot · LangChain4j · 国内模型兼容接口 · Apache Tika / PDFBox · PaddleOCR · MySQL · Redis · ChromaDB · React + Vite + TypeScript · Docker Compose
 
 ## 技术知识库 RAG
 

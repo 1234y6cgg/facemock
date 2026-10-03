@@ -1,0 +1,74 @@
+{
+  "originalDataUnchanged": true,
+  "backendTests": {
+    "passed": 195,
+    "skipped": 48,
+    "failed": 0
+  },
+  "ocrService": {
+    "enabled": true,
+    "available": true,
+    "engine": "PP-OCRv5_mobile"
+  },
+  "knowledgeChunks": 190,
+  "samples": [
+    {
+      "file": "fixture.png",
+      "resumeId": 25,
+      "status": "PARSED",
+      "method": "OCR",
+      "characters": 215,
+      "projectCount": 2,
+      "originalFilePreserved": true
+    },
+    {
+      "file": "scanned.pdf",
+      "resumeId": 26,
+      "status": "PARSED",
+      "method": "OCR",
+      "characters": 215,
+      "projectCount": 2,
+      "originalFilePreserved": true
+    },
+    {
+      "file": "mixed.pdf",
+      "resumeId": 27,
+      "status": "PARSED",
+      "method": "MIXED",
+      "characters": 461,
+      "projectCount": 2,
+      "originalFilePreserved": true
+    }
+  ],
+  "invalidFormatRejected": true,
+  "fixtureRecordsCleaned": true,
+  "originalDataAfterCleanupUnchanged": true,
+  "imageFormats": [
+    {
+      "format": "png",
+      "characters": 215,
+      "lines": 10,
+      "projectDetected": true,
+      "stackDetected": true
+    },
+    {
+      "format": "jpg",
+      "characters": 213,
+      "lines": 10,
+      "projectDetected": true,
+      "stackDetected": true
+    },
+    {
+      "format": "webp",
+      "characters": 214,
+      "lines": 10,
+      "projectDetected": true,
+      "stackDetected": true
+    }
+  ],
+  "frontend": {
+    "productionBuild": "passed",
+    "audioTestsPassed": 3
+  },
+  "ocrUnitTestsPassed": 3
+}

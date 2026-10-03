@@ -32,12 +32,29 @@ services:
     volumes:
       - chroma_rag_data:/data
 
+  ocr:
+    image: facemock-ocr:latest
+    build: ./ocr
+    shm_size: 512mb
+    volumes:
+      - ocr_models:/root/.paddlex
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 60s
+      retries: 12
+
   app:
     image: facemock-app:latest
     build: .
     ports:
       - "${APP_PORT:-8080}:8080"
     environment:
+      OCR_ENABLED: ${OCR_ENABLED:-true}
+      OCR_BASE_URL: http://ocr:8000
+      OCR_TIMEOUT_SECONDS: ${OCR_TIMEOUT_SECONDS:-120}
+      OCR_MAX_PDF_PAGES: ${OCR_MAX_PDF_PAGES:-10}
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
       MYSQL_DATABASE: ${MYSQL_DATABASE:-mockinterview}
@@ -74,6 +91,8 @@ services:
         condition: service_healthy
       chromadb:
         condition: service_started
+      ocr:
+        condition: service_started
 
 volumes:
   mysql_data:
@@ -81,3 +100,4 @@ volumes:
   chroma_rag_data:
   speech_recordings:
   model_settings:
+  ocr_models:

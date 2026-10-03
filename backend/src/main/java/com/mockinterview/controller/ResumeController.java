@@ -28,9 +28,21 @@ public class ResumeController {
         return new ResumeUploadResponse(service.upload(file));
     }
 
+    @GetMapping("/ocr/status")
+    public com.mockinterview.infrastructure.ocr.PaddleOcrClient.Status ocrStatus() {
+        return service.ocrStatus();
+    }
+
     @GetMapping("/{id}")
     public ResumeStatusResponse get(@PathVariable Long id) {
         return service.get(id);
+    }
+
+    @GetMapping(value = "/{id}/text", produces = "text/plain;charset=UTF-8")
+    public ResponseEntity<String> text(@PathVariable Long id) {
+        Resume resume = service.file(id);
+        if (resume.getRawText() == null) return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().header(HttpHeaders.CACHE_CONTROL, "no-store").body(resume.getRawText());
     }
 
     @GetMapping("/{id}/file")

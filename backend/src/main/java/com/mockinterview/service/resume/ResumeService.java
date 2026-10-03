@@ -6,9 +6,7 @@ import com.mockinterview.domain.Resume;
 import com.mockinterview.domain.ResumeStatus;
 import com.mockinterview.domain.ResumeStructured;
 import com.mockinterview.domain.dto.ResumeStatusResponse;
-import com.mockinterview.infrastructure.tika.TikaTextExtractor;
 import com.mockinterview.repository.ResumeRepository;
-import org.apache.tika.exception.TikaException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,41 +17,37 @@ import java.time.LocalDateTime;
 public class ResumeService {
 
     private final ResumeRepository repository;
-    private final TikaTextExtractor tika;
+    private final ResumeTextExtractor extractor;
     private final ResumeParseWorker worker;
     private final ObjectMapper objectMapper;
 
-    public ResumeService(ResumeRepository repository, TikaTextExtractor tika,
+    public ResumeService(ResumeRepository repository, ResumeTextExtractor extractor,
                          ResumeParseWorker worker, ObjectMapper objectMapper) {
         this.repository = repository;
-        this.tika = tika;
+        this.extractor = extractor;
         this.worker = worker;
         this.objectMapper = objectMapper;
     }
 
     public Long upload(MultipartFile file) {
-        String rawText;
         byte[] bytes;
-        try {
-            rawText = tika.extract(file.getInputStream());
-            bytes = file.getBytes();
-        } catch (IOException | TikaException e) {
-            throw new IllegalStateException("简历文本抽取失败", e);
-        }
-        String trimmed = rawText == null ? "" : rawText.trim();
-        if (trimmed.length() < 30) {
-            throw new IllegalStateException("未能从简历中提取有效文字，请上传文字版 PDF / Word；扫描件或图片型 PDF 暂不支持");
-        }
+        try { bytes = file.getBytes(); }
+        catch (IOException e) { throw new IllegalArgumentException("简历文件无法读取，请重新上传。"); }
+        String contentType = extractor.validate(bytes, file.getOriginalFilename());
         Resume resume = Resume.builder()
                 .filename(file.getOriginalFilename())
-                .rawText(rawText)
                 .fileData(bytes)
-                .contentType(file.getContentType())
+                .contentType(contentType)
                 .status(ResumeStatus.PARSING)
                 .createdAt(LocalDateTime.now())
                 .build();
         repository.save(resume);
-        worker.parse(resume.getId(), rawText);
+        try { worker.parse(resume.getId()); }
+        catch (org.springframework.core.task.TaskRejectedException e) {
+            resume.setStatus(ResumeStatus.FAILED);
+            resume.setErrorMessage("同时解析的简历较多，请稍后重新上传。");
+            repository.save(resume);
+        }
         return resume.getId();
     }
 
@@ -68,7 +62,11 @@ public class ResumeService {
                 // 解析失败时返回 null，前端按 PARSING 处理
             }
         }
-        return new ResumeStatusResponse(resume.getId(), resume.getStatus(), parsed);
+        return new ResumeStatusResponse(resume.getId(), resume.getStatus(), parsed, resume.getErrorMessage(), resume.getExtractionMethod());
+    }
+
+    public com.mockinterview.infrastructure.ocr.PaddleOcrClient.Status ocrStatus() {
+        return extractor.ocrStatus();
     }
 
     public Resume file(Long id) {

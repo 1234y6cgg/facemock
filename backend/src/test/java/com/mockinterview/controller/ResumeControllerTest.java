@@ -43,6 +43,15 @@ class ResumeControllerTest {
     }
 
     @Test
+    void originalRecognizedTextIsAvailableWithoutCaching() throws Exception {
+        when(service.file(42L)).thenReturn(com.mockinterview.domain.Resume.builder().rawText("识别后的简历原文").build());
+        mvc.perform(get("/api/resumes/42/text"))
+                .andExpect(status().isOk())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.header().string("Cache-Control", "no-store"))
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.content().string("识别后的简历原文"));
+    }
+
+    @Test
     void getReturnsStatus() throws Exception {
         when(service.get(42L))
                 .thenReturn(new ResumeStatusResponse(42L, ResumeStatus.PARSED, null));

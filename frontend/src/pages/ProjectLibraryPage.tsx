@@ -22,10 +22,10 @@ export default function ProjectLibraryPage() {
   return <div className="page-scroll"><div className="page-content practice-page">
     <PageHeading eyebrow="YOUR WORK, IN YOUR WORDS" title="把做过的事，讲得具体可信。" description="从简历选一个项目，核对事实和证据，再练个人贡献、选型与结果。" />
     {error && <p className="error-inline" role="alert">{error}<button className="text-button" onClick={() => void load().catch(e => setError(e.message))}>重新加载</button></p>}
-    <section className="project-training-card"><h2>从简历选择项目</h2><p>已上传的简历可直接选择，也可以上传文字版 PDF / Word。提取结果需要本人核对。</p>
+    <section className="project-training-card"><h2>从简历选择项目</h2><p>已上传的简历可直接选择，也可以上传 PDF、Word 或图片简历。提取结果需要本人核对。</p>
       <label>已有简历<select value={resumeId} onChange={e => setResumeId(Number(e.target.value))}><option value={0}>请选择简历</option>{resumes.map(r => <option value={r.id} key={r.id}>{r.filename} · {r.projectNames.length} 个项目</option>)}</select></label>
-      <label className="speech-import">上传简历<input aria-label="上传项目训练简历" type="file" accept=".pdf,.doc,.docx" disabled={busy} onChange={async e => { const file = e.target.files?.[0]; if (!file) return; setBusy(true); setError(''); try { const value = await uploadResume(file); setUpload({ resumeId: value.resumeId, status: 'PARSING', parsed: null }) } catch (err) { setError(err instanceof Error ? err.message : '上传失败') } finally { setBusy(false); e.target.value = '' } }} /></label>
-      {upload?.status === 'PARSING' && <p role="status">简历已保存，正在提取项目，请稍候…</p>}{upload?.status === 'FAILED' && <p role="alert">简历解析失败，文件已保留。可改用文字版简历重新上传，或选择另一份已解析简历。</p>}
+      <label className="speech-import">上传简历<input aria-label="上传项目训练简历" type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp" disabled={busy} onChange={async e => { const file = e.target.files?.[0]; if (!file) return; setBusy(true); setError(''); try { const value = await uploadResume(file); setUpload({ resumeId: value.resumeId, status: 'PARSING', parsed: null }) } catch (err) { setError(err instanceof Error ? err.message : '上传失败') } finally { setBusy(false); e.target.value = '' } }} /></label>
+      {upload?.status === 'PARSED' && <p>识别结果请本人核对。<a href={`/api/resumes/${upload.resumeId}/text`} target="_blank" rel="noreferrer">查看提取文字</a></p>}{upload?.status === 'PARSING' && <p role="status">简历已保存，正在提取项目，请稍候…</p>}{upload?.status === 'FAILED' && <p role="alert">{upload.errorMessage || '简历解析失败，原文件已保留。请检查文件内容或模型配置后重新上传。'}</p>}
       {selected && <div className="project-picker">{selected.projectNames.map((name, index) => <button key={index} className="btn btn-ghost" disabled={busy} onClick={() => void choose(index)}>{name}<Icon name="arrow" size={16} /></button>)}</div>}
     </section>
     <div className="practice-section-heading"><h2>我的项目事实卡</h2><span>{projects.length} 个项目</span></div>
