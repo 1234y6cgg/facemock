@@ -1,0 +1,662 @@
+{
+  "verifiedAt": "2026-10-03T08:50:05Z",
+  "scope": "Warm retrieval recheck, no model calls; does not overwrite the model run or its outage observations.",
+  "datasetSha256": "e7fd2564cd81729c73f24c6bb391b5f1847f8c77661d5b7b1ce5b8ee252e4a43",
+  "cases": [
+    {
+      "caseId": "case-01",
+      "questionId": "redis.lua-stock",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.lua-stock.v1"
+      ],
+      "durationMs": 63
+    },
+    {
+      "caseId": "case-02",
+      "questionId": "redis.lock",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.lock.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "case-03",
+      "questionId": "redis.eviction",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.eviction.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "case-04",
+      "questionId": "redis.persistence",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.persistence.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "case-05",
+      "questionId": "mysql.explain",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.explain.v1"
+      ],
+      "durationMs": 32
+    },
+    {
+      "caseId": "case-06",
+      "questionId": "mysql.composite-index",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 0,
+      "documentIds": [],
+      "durationMs": 46
+    },
+    {
+      "caseId": "case-07",
+      "questionId": "mysql.isolation",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.isolation.v1"
+      ],
+      "durationMs": 32
+    },
+    {
+      "caseId": "case-08",
+      "questionId": "mysql.mvcc-locking",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.mvcc-locking.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "case-09",
+      "questionId": "spring.proxy",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.proxy.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "case-10",
+      "questionId": "spring.rollback",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.rollback.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "case-11",
+      "questionId": "spring.propagation",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.propagation.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "case-12",
+      "questionId": "spring.async",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 0,
+      "documentIds": [],
+      "durationMs": 31
+    },
+    {
+      "caseId": "case-13",
+      "questionId": "kafka.producer",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.producer.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "case-14",
+      "questionId": "kafka.duplicate-consume",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.duplicate-consume.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "case-15",
+      "questionId": "kafka.offset",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.offset.v1"
+      ],
+      "durationMs": 32
+    },
+    {
+      "caseId": "case-16",
+      "questionId": "kafka.order",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.order.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "case-17",
+      "questionId": "java.pool-sizing",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-sizing.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "case-18",
+      "questionId": "java.pool-unbounded",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 0,
+      "documentIds": [],
+      "durationMs": 15
+    },
+    {
+      "caseId": "case-19",
+      "questionId": "java.pool-rejection",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-rejection.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "case-20",
+      "questionId": "java.pool-shutdown",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-shutdown.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "case-21",
+      "questionId": "jvm.gc",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.gc.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "case-22",
+      "questionId": "jvm.memory",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.memory.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "case-23",
+      "questionId": "jvm.leak",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.leak.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "case-24",
+      "questionId": "jvm.heap-dump",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 0,
+      "documentIds": [],
+      "durationMs": 15
+    },
+    {
+      "caseId": "p6-oral-redis.lua-stock",
+      "questionId": "redis.lua-stock",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.lua-stock.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-redis.lock",
+      "questionId": "redis.lock",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.lock.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-redis.eviction",
+      "questionId": "redis.eviction",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.eviction.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "p6-oral-redis.persistence",
+      "questionId": "redis.persistence",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.persistence.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-mysql.explain",
+      "questionId": "mysql.explain",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.explain.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-mysql.composite-index",
+      "questionId": "mysql.composite-index",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.composite-index.v1"
+      ],
+      "durationMs": 62
+    },
+    {
+      "caseId": "p6-oral-mysql.isolation",
+      "questionId": "mysql.isolation",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.isolation.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-mysql.mvcc-locking",
+      "questionId": "mysql.mvcc-locking",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.mvcc-locking.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-oral-spring.proxy",
+      "questionId": "spring.proxy",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.proxy.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-oral-spring.rollback",
+      "questionId": "spring.rollback",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.rollback.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-oral-spring.propagation",
+      "questionId": "spring.propagation",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.propagation.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-spring.async",
+      "questionId": "spring.async",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.async.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-oral-kafka.producer",
+      "questionId": "kafka.producer",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.producer.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-kafka.duplicate-consume",
+      "questionId": "kafka.duplicate-consume",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.duplicate-consume.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-oral-kafka.offset",
+      "questionId": "kafka.offset",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.offset.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-kafka.order",
+      "questionId": "kafka.order",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.order.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "p6-oral-java.pool-sizing",
+      "questionId": "java.pool-sizing",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-sizing.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-java.pool-unbounded",
+      "questionId": "java.pool-unbounded",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-unbounded.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-oral-java.pool-rejection",
+      "questionId": "java.pool-rejection",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-rejection.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-java.pool-shutdown",
+      "questionId": "java.pool-shutdown",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-shutdown.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-jvm.gc",
+      "questionId": "jvm.gc",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.gc.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "p6-oral-jvm.memory",
+      "questionId": "jvm.memory",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.memory.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-oral-jvm.leak",
+      "questionId": "jvm.leak",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.leak.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-oral-jvm.heap-dump",
+      "questionId": "jvm.heap-dump",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.heap-dump.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-wrong-redis.lua-stock",
+      "questionId": "redis.lua-stock",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.lua-stock.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "p6-wrong-redis.eviction",
+      "questionId": "redis.eviction",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.redis.eviction.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-wrong-mysql.explain",
+      "questionId": "mysql.explain",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.explain.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-wrong-mysql.isolation",
+      "questionId": "mysql.isolation",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.mysql.isolation.v1"
+      ],
+      "durationMs": 0
+    },
+    {
+      "caseId": "p6-wrong-spring.proxy",
+      "questionId": "spring.proxy",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.proxy.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-wrong-spring.propagation",
+      "questionId": "spring.propagation",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.spring.propagation.v1"
+      ],
+      "durationMs": 15
+    },
+    {
+      "caseId": "p6-wrong-kafka.producer",
+      "questionId": "kafka.producer",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.producer.v1"
+      ],
+      "durationMs": 0
+    },
+    {
+      "caseId": "p6-wrong-kafka.offset",
+      "questionId": "kafka.offset",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.kafka.offset.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-wrong-java.pool-sizing",
+      "questionId": "java.pool-sizing",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-sizing.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-wrong-java.pool-rejection",
+      "questionId": "java.pool-rejection",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.java.pool-rejection.v1"
+      ],
+      "durationMs": 31
+    },
+    {
+      "caseId": "p6-wrong-jvm.gc",
+      "questionId": "jvm.gc",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.gc.v1"
+      ],
+      "durationMs": 16
+    },
+    {
+      "caseId": "p6-wrong-jvm.leak",
+      "questionId": "jvm.leak",
+      "valid": true,
+      "retrievedCount": 5,
+      "boundHitCount": 1,
+      "documentIds": [
+        "p1.jvm.leak.v1"
+      ],
+      "durationMs": 15
+    }
+  ],
+  "successful": 60,
+  "sourceEligibleCases": 56,
+  "sourceBoundMatches": 56
+}

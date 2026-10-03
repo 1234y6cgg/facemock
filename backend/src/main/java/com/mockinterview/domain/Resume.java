@@ -30,6 +30,13 @@ public class Resume {
     @Column(name = "parsed_json", columnDefinition = "LONGTEXT")
     private String parsedJson;
 
+    @Lob
+    @Column(name = "file_data", columnDefinition = "LONGBLOB")
+    private byte[] fileData;
+
+    @Column(name = "content_type")
+    private String contentType;
+
     @Enumerated(EnumType.STRING)
     private ResumeStatus status;
 

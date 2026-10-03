@@ -1,3 +1,5 @@
+name: facemock
+
 services:
   mysql:
     image: mysql:8.0
@@ -25,11 +27,13 @@ services:
       retries: 10
 
   chromadb:
-    image: chromadb/chroma:latest
+    # Tested Chroma 1.4.4; pin the image so REST API behavior stays reproducible.
+    image: chromadb/chroma@sha256:1e0b73a187a28757c572acba508c46f48c9e8b0acaf5c20e6d95cdedce1acdf6
     volumes:
-      - chroma_data:/chroma/chroma
+      - chroma_rag_data:/data
 
   app:
+    image: facemock-app:latest
     build: .
     ports:
       - "${APP_PORT:-8080}:8080"
@@ -42,9 +46,27 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
       CHROMA_BASE_URL: http://chromadb:8000
-      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY}
+      KNOWLEDGE_ENABLED: ${KNOWLEDGE_ENABLED:-true}
+      KNOWLEDGE_SEED_ON_STARTUP: ${KNOWLEDGE_SEED_ON_STARTUP:-true}
+      KNOWLEDGE_COLLECTION: ${KNOWLEDGE_COLLECTION:-tech_knowledge_bge_zh_v1}
+      KNOWLEDGE_TOP_K: ${KNOWLEDGE_TOP_K:-3}
+      KNOWLEDGE_MIN_SCORE: ${KNOWLEDGE_MIN_SCORE:-0.45}
+      QUESTIONS_SEED_ON_STARTUP: ${QUESTIONS_SEED_ON_STARTUP:-true}
+      QUESTIONS_INDEX_KNOWLEDGE: ${QUESTIONS_INDEX_KNOWLEDGE:-true}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
       DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
       DEEPSEEK_MODEL_NAME: ${DEEPSEEK_MODEL_NAME:-deepseek-flash}
+      SPEECH_ENABLED: ${SPEECH_ENABLED:-false}
+      XFYUN_APP_ID: ${XFYUN_APP_ID:-}
+      XFYUN_API_KEY: ${XFYUN_API_KEY:-}
+      XFYUN_API_SECRET: ${XFYUN_API_SECRET:-}
+      SPEECH_RETENTION_DAYS: ${SPEECH_RETENTION_DAYS:-30}
+      SPEECH_TIMEOUT_SECONDS: ${SPEECH_TIMEOUT_SECONDS:-240}
+      SPEECH_STORAGE_PATH: /app/data/recordings
+      MODEL_SETTINGS_PATH: /app/data/model-settings
+    volumes:
+      - speech_recordings:/app/data/recordings
+      - model_settings:/app/data/model-settings
     depends_on:
       mysql:
         condition: service_healthy
@@ -56,4 +78,6 @@ services:
 volumes:
   mysql_data:
   redis_data:
-  chroma_data:
+  chroma_rag_data:
+  speech_recordings:
+  model_settings:

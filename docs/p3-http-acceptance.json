@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-10-03T04:12:22.3008425Z",
+  "environment": "isolated MySQL 8 / localhost:18081",
+  "realAsr": false,
+  "realMicrophone": false,
+  "realKnowledgeModel": false,
+  "fixture": "3-second generated tone; explicitly labeled UI transcript inserted into test DB; knowledge worker disabled",
+  "checks": {
+    "unconfiguredExplicit": true,
+    "confirmedModeSpeech": true,
+    "originalPreserved": true,
+    "trustedDuration": true,
+    "audioNoStore": true,
+    "audioBytes": true,
+    "confirmIdempotent": true,
+    "unconfiguredUploadConflict": true,
+    "pendingEvaluationPreventsPracticeDeletion": true,
+    "audioDeletionClearsRaw": true,
+    "confirmedAnswerRetained": true,
+    "fileRemoved": true,
+    "textStillUsable": true,
+    "practiceDeletionReportsLinks": true,
+    "practiceDeleted": true
+  }
+}

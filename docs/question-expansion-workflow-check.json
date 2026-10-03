@@ -1,0 +1,99 @@
+{
+  "verifiedAt": "2026-10-03T11:11:33Z",
+  "scope": "18 disposable new-question sessions; no answers or model calls; deleted exact created IDs.",
+  "passed": 18,
+  "existingPracticeCountBefore": 2,
+  "existingPracticeCountAfter": 2,
+  "rows": [
+    {
+      "topic": "JAVA_BASICS",
+      "questionId": "basic.value-pass",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "JAVA_COLLECTIONS",
+      "questionId": "collection.list-choice",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "JAVA_IO",
+      "questionId": "io.byte-character",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "JAVA_CONCURRENCY",
+      "questionId": "concurrency.coordination",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "JVM",
+      "questionId": "jvm.runtime-areas",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "MYSQL",
+      "questionId": "mysql.clustered-index",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "REDIS",
+      "questionId": "redis.data-types",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "SPRING",
+      "questionId": "spring.ioc-di",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "MYBATIS",
+      "questionId": "mybatis.parameter-binding",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "NETWORK",
+      "questionId": "network.tcp-udp",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "OS",
+      "questionId": "os.process-thread",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "DATA_STRUCTURES",
+      "questionId": "algorithm.complexity",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "MESSAGE_QUEUE",
+      "questionId": "mq.why",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "KAFKA",
+      "questionId": "kafka.consumer-groups",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "DISTRIBUTED",
+      "questionId": "distributed.cap",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "SYSTEM_DESIGN",
+      "questionId": "design.short-url",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "SECURITY",
+      "questionId": "security.sql-injection",
+      "createReferenceHintCompletePassed": true
+    },
+    {
+      "topic": "DEVOPS",
+      "questionId": "devops.linux-load",
+      "createReferenceHintCompletePassed": true
+    }
+  ]
+}

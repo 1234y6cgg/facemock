@@ -1,0 +1,905 @@
+{
+  "verifiedAt": "2026-10-02T15:55:20.669540800Z",
+  "model": "deepseek-flash",
+  "promptVersion": "p2-criteria-v5",
+  "caseCount": 24,
+  "modelCalls": 20,
+  "criterionCount": 72,
+  "matchingCriteria": 72,
+  "validOutputs": 24,
+  "modelDurationMs": {
+    "min": 3351,
+    "median": 5612,
+    "max": 11770
+  },
+  "cases": [
+    {
+      "caseId": "case-01",
+      "questionId": "redis.lua-stock",
+      "category": "COLLOQUIAL_CORRECT",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 6093,
+      "expected": [
+        {
+          "criterionId": "race",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "scope",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "bound",
+          "status": "COVERED"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "race",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "scope",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "bound",
+          "status": "COVERED"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-02",
+      "questionId": "redis.lock",
+      "category": "MISSING_POINTS",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 8261,
+      "expected": [
+        {
+          "criterionId": "acquire",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "release",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "expiry",
+          "status": "MISSING"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "acquire",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "release",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "expiry",
+          "status": "MISSING"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-03",
+      "questionId": "redis.eviction",
+      "category": "FACTUAL_ERROR",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 4713,
+      "expected": [
+        {
+          "criterionId": "policy",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "access",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "reject",
+          "status": "INCORRECT"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "policy",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "access",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "reject",
+          "status": "INCORRECT"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-04",
+      "questionId": "redis.persistence",
+      "category": "UNRELATED",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 4443,
+      "expected": [
+        {
+          "criterionId": "rdb",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "aof",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "cost",
+          "status": "MISSING"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "rdb",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "aof",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "cost",
+          "status": "MISSING"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-05",
+      "questionId": "mysql.explain",
+      "category": "WRONG_TERMINOLOGY",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 4382,
+      "expected": [
+        {
+          "criterionId": "plan",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "actual",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "context",
+          "status": "COVERED"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "plan",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "actual",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "context",
+          "status": "COVERED"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-06",
+      "questionId": "mysql.composite-index",
+      "category": "EVIDENCE_INSUFFICIENT",
+      "modelCalled": false,
+      "valid": true,
+      "durationMs": 3,
+      "expected": [
+        {
+          "criterionId": "prefix",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "gap",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "cost",
+          "status": "UNCERTAIN"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "prefix",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "gap",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "cost",
+          "status": "UNCERTAIN"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-07",
+      "questionId": "mysql.isolation",
+      "category": "COLLOQUIAL_CORRECT",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 5114,
+      "expected": [
+        {
+          "criterionId": "default",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "rc",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "rr",
+          "status": "COVERED"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "default",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "rc",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "rr",
+          "status": "COVERED"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-08",
+      "questionId": "mysql.mvcc-locking",
+      "category": "MISSING_POINTS",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 6775,
+      "expected": [
+        {
+          "criterionId": "snapshot",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "locking",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "own",
+          "status": "MISSING"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "snapshot",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "locking",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "own",
+          "status": "MISSING"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-09",
+      "questionId": "spring.proxy",
+      "category": "FACTUAL_ERROR",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 4628,
+      "expected": [
+        {
+          "criterionId": "proxy",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "self",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "fix",
+          "status": "INCORRECT"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "proxy",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "self",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "fix",
+          "status": "INCORRECT"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-10",
+      "questionId": "spring.rollback",
+      "category": "UNRELATED",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 5530,
+      "expected": [
+        {
+          "criterionId": "default",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "rule",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "boundary",
+          "status": "MISSING"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "default",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "rule",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "boundary",
+          "status": "MISSING"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-11",
+      "questionId": "spring.propagation",
+      "category": "WRONG_TERMINOLOGY",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 7752,
+      "expected": [
+        {
+          "criterionId": "required",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "new",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "resources",
+          "status": "COVERED"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "required",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "new",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "resources",
+          "status": "COVERED"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-12",
+      "questionId": "spring.async",
+      "category": "EVIDENCE_INSUFFICIENT",
+      "modelCalled": false,
+      "valid": true,
+      "durationMs": 0,
+      "expected": [
+        {
+          "criterionId": "thread",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "async",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "rollback",
+          "status": "UNCERTAIN"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "thread",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "async",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "rollback",
+          "status": "UNCERTAIN"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-13",
+      "questionId": "kafka.producer",
+      "category": "COLLOQUIAL_CORRECT",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 5689,
+      "expected": [
+        {
+          "criterionId": "acks",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "retry",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "idempotence",
+          "status": "COVERED"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "acks",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "retry",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "idempotence",
+          "status": "COVERED"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-14",
+      "questionId": "kafka.duplicate-consume",
+      "category": "MISSING_POINTS",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 5775,
+      "expected": [
+        {
+          "criterionId": "window",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "idempotent",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "scope",
+          "status": "MISSING"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "window",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "idempotent",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "scope",
+          "status": "MISSING"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-15",
+      "questionId": "kafka.offset",
+      "category": "FACTUAL_ERROR",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 8601,
+      "expected": [
+        {
+          "criterionId": "early",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "late",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "next",
+          "status": "INCORRECT"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "early",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "late",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "next",
+          "status": "INCORRECT"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-16",
+      "questionId": "kafka.order",
+      "category": "UNRELATED",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 3351,
+      "expected": [
+        {
+          "criterionId": "partition",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "key",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "processing",
+          "status": "MISSING"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "partition",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "key",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "processing",
+          "status": "MISSING"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-17",
+      "questionId": "java.pool-sizing",
+      "category": "WRONG_TERMINOLOGY",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 11770,
+      "expected": [
+        {
+          "criterionId": "core",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "queue",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "reject",
+          "status": "COVERED"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "core",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "queue",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "reject",
+          "status": "COVERED"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-18",
+      "questionId": "java.pool-unbounded",
+      "category": "EVIDENCE_INSUFFICIENT",
+      "modelCalled": false,
+      "valid": true,
+      "durationMs": 0,
+      "expected": [
+        {
+          "criterionId": "growth",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "memory",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "bound",
+          "status": "UNCERTAIN"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "growth",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "memory",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "bound",
+          "status": "UNCERTAIN"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-19",
+      "questionId": "java.pool-rejection",
+      "category": "COLLOQUIAL_CORRECT",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 5909,
+      "expected": [
+        {
+          "criterionId": "abort",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "caller",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "discard",
+          "status": "COVERED"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "abort",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "caller",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "discard",
+          "status": "COVERED"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-20",
+      "questionId": "java.pool-shutdown",
+      "category": "MISSING_POINTS",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 9525,
+      "expected": [
+        {
+          "criterionId": "graceful",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "interrupt",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "await",
+          "status": "MISSING"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "graceful",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "interrupt",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "await",
+          "status": "MISSING"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-21",
+      "questionId": "jvm.gc",
+      "category": "FACTUAL_ERROR",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 5535,
+      "expected": [
+        {
+          "criterionId": "observe",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "goal",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "cause",
+          "status": "INCORRECT"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "observe",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "goal",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "cause",
+          "status": "INCORRECT"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-22",
+      "questionId": "jvm.memory",
+      "category": "UNRELATED",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 5184,
+      "expected": [
+        {
+          "criterionId": "regions",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "oom",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "native",
+          "status": "MISSING"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "regions",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "oom",
+          "status": "MISSING"
+        },
+        {
+          "criterionId": "native",
+          "status": "MISSING"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-23",
+      "questionId": "jvm.leak",
+      "category": "WRONG_TERMINOLOGY",
+      "modelCalled": true,
+      "valid": true,
+      "durationMs": 3843,
+      "expected": [
+        {
+          "criterionId": "trend",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "reference",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "fix",
+          "status": "COVERED"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "trend",
+          "status": "INCORRECT"
+        },
+        {
+          "criterionId": "reference",
+          "status": "COVERED"
+        },
+        {
+          "criterionId": "fix",
+          "status": "COVERED"
+        }
+      ],
+      "differences": []
+    },
+    {
+      "caseId": "case-24",
+      "questionId": "jvm.heap-dump",
+      "category": "EVIDENCE_INSUFFICIENT",
+      "modelCalled": false,
+      "valid": true,
+      "durationMs": 0,
+      "expected": [
+        {
+          "criterionId": "command",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "impact",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "content",
+          "status": "UNCERTAIN"
+        }
+      ],
+      "actual": [
+        {
+          "criterionId": "command",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "impact",
+          "status": "UNCERTAIN"
+        },
+        {
+          "criterionId": "content",
+          "status": "UNCERTAIN"
+        }
+      ],
+      "differences": []
+    }
+  ]
+}

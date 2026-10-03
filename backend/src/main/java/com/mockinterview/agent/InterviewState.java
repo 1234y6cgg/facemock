@@ -13,6 +13,8 @@ public class InterviewState {
     int totalProjects;
     int questionCount;
     int consecutiveStuck;
+    int difficulty;
+    boolean pressureUsed;
 
     public static InterviewState initial(int totalProjects) {
         return InterviewState.builder()
@@ -22,6 +24,8 @@ public class InterviewState {
                 .totalProjects(totalProjects)
                 .questionCount(0)
                 .consecutiveStuck(0)
+                .difficulty(2)
+                .pressureUsed(false)
                 .build();
     }
 }

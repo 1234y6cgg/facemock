@@ -23,6 +23,15 @@ public class InterviewSession {
     @Column(name = "resume_id", nullable = false)
     private Long resumeId;
 
+    @Column(name = "target_role")
+    private String targetRole;
+
+    @Column(name = "mode")
+    private String mode;
+
+    @Column(name = "job_detail", columnDefinition = "LONGTEXT")
+    private String jobDetail;
+
     @Enumerated(EnumType.STRING)
     private InterviewStatus status;
 
@@ -40,6 +49,11 @@ public class InterviewSession {
 
     @Column(name = "consecutive_stuck")
     private int consecutiveStuck;
+
+    private Integer difficulty;
+
+    @Column(name = "pressure_used")
+    private Boolean pressureUsed;
 
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;

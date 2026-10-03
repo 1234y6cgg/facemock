@@ -19,7 +19,17 @@ public class InterviewController {
 
     @PostMapping
     public CreateInterviewResponse create(@RequestBody CreateInterviewRequest request) {
-        return new CreateInterviewResponse(service.create(request.resumeId()));
+        return new CreateInterviewResponse(service.create(request));
+    }
+
+    @GetMapping
+    public List<java.util.Map<String, Object>> list() {
+        return service.list();
+    }
+
+    @GetMapping("/{id}")
+    public java.util.Map<String, Object> detail(@PathVariable Long id) {
+        return service.detail(id);
     }
 
     @PostMapping("/{id}/start")
@@ -44,5 +54,15 @@ public class InterviewController {
     @GetMapping("/{id}/report")
     public ReportResponse report(@PathVariable Long id) {
         return service.report(id);
+    }
+
+    @GetMapping("/{id}/resume")
+    public java.util.Map<String, Object> resume(@PathVariable Long id) {
+        return service.resumeOf(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -28,17 +29,18 @@ public class SessionStateStore {
 
     public void saveState(Long sessionId, InterviewState state) {
         try {
-            Map<String, Object> m = Map.of(
-                    "stage", state.getStage().name(),
-                    "layer", state.getLayer().name(),
-                    "currentProjectIdx", state.getCurrentProjectIdx(),
-                    "totalProjects", state.getTotalProjects(),
-                    "questionCount", state.getQuestionCount(),
-                    "consecutiveStuck", state.getConsecutiveStuck());
+            Map<String, Object> m = new LinkedHashMap<>();
+            m.put("stage", state.getStage().name());
+            m.put("layer", state.getLayer().name());
+            m.put("currentProjectIdx", state.getCurrentProjectIdx());
+            m.put("totalProjects", state.getTotalProjects());
+            m.put("questionCount", state.getQuestionCount());
+            m.put("consecutiveStuck", state.getConsecutiveStuck());
+            m.put("difficulty", state.getDifficulty());
+            m.put("pressureUsed", state.isPressureUsed());
             redis.opsForValue().set(KEY.formatted(sessionId),
                     objectMapper.writeValueAsString(m), TTL);
         } catch (Exception ignored) {
-            // Redis 不可用时降级为仅用 MySQL
         }
     }
 
@@ -53,13 +55,27 @@ public class SessionStateStore {
             return Optional.of(InterviewState.builder()
                     .stage(Stage.valueOf((String) m.get("stage")))
                     .layer(Layer.valueOf((String) m.get("layer")))
-                    .currentProjectIdx(((Number) m.get("currentProjectIdx")).intValue())
-                    .totalProjects(((Number) m.get("totalProjects")).intValue())
-                    .questionCount(((Number) m.get("questionCount")).intValue())
-                    .consecutiveStuck(((Number) m.get("consecutiveStuck")).intValue())
+                    .currentProjectIdx(intOf(m.get("currentProjectIdx")))
+                    .totalProjects(intOf(m.get("totalProjects")))
+                    .questionCount(intOf(m.get("questionCount")))
+                    .consecutiveStuck(intOf(m.get("consecutiveStuck")))
+                    .difficulty(intOrDefault(m.get("difficulty"), 2))
+                    .pressureUsed(boolOrDefault(m.get("pressureUsed"), false))
                     .build());
         } catch (Exception e) {
             return Optional.empty();
         }
+    }
+
+    private int intOf(Object o) {
+        return ((Number) o).intValue();
+    }
+
+    private int intOrDefault(Object o, int dft) {
+        return o == null ? dft : ((Number) o).intValue();
+    }
+
+    private boolean boolOrDefault(Object o, boolean dft) {
+        return o == null ? dft : (Boolean) o;
     }
 }

@@ -1,0 +1,10 @@
+{
+  "verifiedAt": "2026-10-03T09:09:36.082485+00:00",
+  "disposableDatabase": "p5check",
+  "restartAfterRedisFlushIdentical": true,
+  "failedEvaluationExcluded": true,
+  "retrySameImmutableAnswer": true,
+  "deleteBaselineReplayed": true,
+  "deleteAllRemovedProgress": true,
+  "actualModelRetry": true
+}

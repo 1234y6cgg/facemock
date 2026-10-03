@@ -1,0 +1,385 @@
+{
+  "verifiedAt": "2026-10-03T11:12:14Z",
+  "scope": "Existing coding deployment; no model calls; private export reduced to counts.",
+  "questions": 180,
+  "topics": [
+    {
+      "topic": "REDIS",
+      "count": 12,
+      "filterPassed": true
+    },
+    {
+      "topic": "MYSQL",
+      "count": 14,
+      "filterPassed": true
+    },
+    {
+      "topic": "SPRING",
+      "count": 14,
+      "filterPassed": true
+    },
+    {
+      "topic": "KAFKA",
+      "count": 8,
+      "filterPassed": true
+    },
+    {
+      "topic": "JAVA_CONCURRENCY",
+      "count": 14,
+      "filterPassed": true
+    },
+    {
+      "topic": "JVM",
+      "count": 12,
+      "filterPassed": true
+    },
+    {
+      "topic": "JAVA_BASICS",
+      "count": 12,
+      "filterPassed": true
+    },
+    {
+      "topic": "JAVA_COLLECTIONS",
+      "count": 10,
+      "filterPassed": true
+    },
+    {
+      "topic": "JAVA_IO",
+      "count": 6,
+      "filterPassed": true
+    },
+    {
+      "topic": "MYBATIS",
+      "count": 6,
+      "filterPassed": true
+    },
+    {
+      "topic": "NETWORK",
+      "count": 12,
+      "filterPassed": true
+    },
+    {
+      "topic": "OS",
+      "count": 10,
+      "filterPassed": true
+    },
+    {
+      "topic": "DATA_STRUCTURES",
+      "count": 8,
+      "filterPassed": true
+    },
+    {
+      "topic": "MESSAGE_QUEUE",
+      "count": 8,
+      "filterPassed": true
+    },
+    {
+      "topic": "DISTRIBUTED",
+      "count": 10,
+      "filterPassed": true
+    },
+    {
+      "topic": "SYSTEM_DESIGN",
+      "count": 8,
+      "filterPassed": true
+    },
+    {
+      "topic": "SECURITY",
+      "count": 8,
+      "filterPassed": true
+    },
+    {
+      "topic": "DEVOPS",
+      "count": 8,
+      "filterPassed": true
+    }
+  ],
+  "knowledgePoints": 540,
+  "knowledge": {
+    "enabled": true,
+    "available": true,
+    "collection": "tech_knowledge_bge_zh_v1",
+    "embeddingModel": "bge-small-zh-v1.5-q:512:v1",
+    "dimensions": 512,
+    "totalChunks": 190,
+    "message": "正常"
+  },
+  "legacyPublicQuestionsUnchanged": 24,
+  "paginationUniqueQuestions": 180,
+  "titleSearchLiteralAndCombinedPassed": true,
+  "longQueryRejected": true,
+  "personalDataCountsBefore": {
+    "resumes": 14,
+    "interviews": 0,
+    "projects": 1,
+    "practiceSessions": 2,
+    "projectSessions": 1,
+    "recordings": 0
+  },
+  "personalDataCountsAfter": {
+    "resumes": 14,
+    "interviews": 0,
+    "projects": 1,
+    "practiceSessions": 2,
+    "projectSessions": 1,
+    "recordings": 0
+  },
+  "modelSettingsUnchanged": true,
+  "retrieval": [
+    {
+      "topic": "REDIS",
+      "questionId": "redis.data-types",
+      "query": "Redis 数据类型怎样按场景选择？ 计数、对象属性、去重成员、排行榜和消费日志各适合哪些类型？选择时还有哪些约束？",
+      "expectedDocumentId": "p1.redis.data-types.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.redis.data-types.v1",
+        "p1.basic.record.v1",
+        "p1.collection.list-choice.v1",
+        "builtin.kafka.delivery",
+        "p1.distributed.cap.v1"
+      ]
+    },
+    {
+      "topic": "MYSQL",
+      "questionId": "mysql.clustered-index",
+      "query": "聚簇索引与回表 InnoDB 主键索引和二级索引叶子保存什么？一次查询什么时候需要回表？",
+      "expectedDocumentId": "p1.mysql.clustered-index.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.mysql.clustered-index.v1",
+        "p1.mysql.btree.v1",
+        "p1.mysql.composite-index.v1",
+        "p1.collection.list-choice.v1",
+        "builtin.mysql.explain"
+      ]
+    },
+    {
+      "topic": "SPRING",
+      "questionId": "spring.ioc-di",
+      "query": "IoC 与依赖注入的价值 为什么让容器组装依赖会比业务对象内部到处 new 更容易测试和替换？BeanFactory 与 ApplicationContext 怎样理解？",
+      "expectedDocumentId": "p1.spring.ioc-di.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.spring.ioc-di.v1",
+        "p1.basic.string-immutable.v1",
+        "p1.collection.arraylist-growth.v1",
+        "p1.spring.bean-lifecycle.v1",
+        "p1.collection.mutable-key.v1"
+      ]
+    },
+    {
+      "topic": "KAFKA",
+      "questionId": "kafka.consumer-groups",
+      "query": "Kafka 消费组与分区分配 同一消费组和不同消费组怎样消费相同 topic？消费者比可分配分区多时为什么可能闲置？",
+      "expectedDocumentId": "p1.kafka.consumer-groups.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.kafka.consumer-groups.v1",
+        "p1.kafka.order.v1",
+        "p1.distributed.cap.v1",
+        "builtin.kafka.delivery",
+        "p1.mq.why.v1"
+      ]
+    },
+    {
+      "topic": "JAVA_CONCURRENCY",
+      "questionId": "concurrency.coordination",
+      "query": "CountDownLatch、Barrier 与 Semaphore 等待多个子任务完成、分轮同步、限制并发各适合什么工具？失败路径如何避免一直等待？",
+      "expectedDocumentId": "p1.concurrency.coordination.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.concurrency.coordination.v1",
+        "p1.kafka.isr-replicas.v1",
+        "p1.network.websocket-sse.v1",
+        "p1.concurrency.completablefuture.v1",
+        "p1.concurrency.aqs.v1"
+      ]
+    },
+    {
+      "topic": "JVM",
+      "questionId": "jvm.runtime-areas",
+      "query": "JVM 运行时内存区域 描述堆、线程栈、程序计数器和方法区的职责。HotSpot 元空间与规范中的方法区是什么关系？",
+      "expectedDocumentId": "p1.jvm.runtime-areas.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.jvm.runtime-areas.v1",
+        "p1.jvm.memory.v1",
+        "p1.algorithm.graph-search.v1",
+        "p1.spring.bean-lifecycle.v1",
+        "p1.jvm.heap-dump.v1"
+      ]
+    },
+    {
+      "topic": "JAVA_BASICS",
+      "questionId": "basic.value-pass",
+      "query": "Java 到底是不是值传递？ 方法里修改对象属性和把参数指向新对象，为什么调用方看到的结果不同？请用一个例子解释。",
+      "expectedDocumentId": "p1.basic.value-pass.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.basic.value-pass.v1",
+        "p1.basic.string-immutable.v1",
+        "p1.security.sql-injection.v1",
+        "p1.mybatis.parameter-binding.v1",
+        "p1.basic.equals-hashcode.v1"
+      ]
+    },
+    {
+      "topic": "JAVA_COLLECTIONS",
+      "questionId": "collection.list-choice",
+      "query": "ArrayList 与 LinkedList 怎么选？ 大量按下标读取、尾部追加和中间插入分别要看哪些成本？为什么“链表插入一定更快”不可靠？",
+      "expectedDocumentId": "p1.collection.list-choice.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.collection.list-choice.v1",
+        "p1.algorithm.tree-balancing.v1",
+        "p1.network.tcp-udp.v1",
+        "p1.algorithm.graph-search.v1",
+        "p1.collection.mutable-key.v1"
+      ]
+    },
+    {
+      "topic": "JAVA_IO",
+      "questionId": "io.byte-character",
+      "query": "字节流、字符流与字符集 读取 UTF-8 文本和上传二进制文件时应选择什么流？为什么不能直接把每个 byte 转成 char？",
+      "expectedDocumentId": "p1.io.byte-character.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.io.byte-character.v1",
+        "p1.security.xss.v1",
+        "p1.io.file-streaming.v1",
+        "p1.network.tcp-udp.v1",
+        "p1.basic.bigdecimal.v1"
+      ]
+    },
+    {
+      "topic": "MYBATIS",
+      "questionId": "mybatis.parameter-binding",
+      "query": "MyBatis 的参数绑定与注入风险 #{value} 与 ${value} 有什么差异？动态排序字段为什么不能直接拼接用户输入？",
+      "expectedDocumentId": "p1.mybatis.parameter-binding.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.mybatis.parameter-binding.v1",
+        "p1.security.sql-injection.v1",
+        "p1.collection.mutable-key.v1",
+        "p1.security.xss.v1",
+        "p1.spring.ioc-di.v1"
+      ]
+    },
+    {
+      "topic": "NETWORK",
+      "questionId": "network.tcp-udp",
+      "query": "TCP 与 UDP 怎样选？ 比较 TCP 的可靠字节流和 UDP 数据报。视频、DNS 或业务 RPC 是否能仅靠协议名字决定正确性？",
+      "expectedDocumentId": "p1.network.tcp-udp.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.network.tcp-udp.v1",
+        "p1.network.websocket-sse.v1",
+        "p1.collection.list-choice.v1",
+        "p1.distributed.cap.v1",
+        "p1.concurrency.coordination.v1"
+      ]
+    },
+    {
+      "topic": "OS",
+      "questionId": "os.process-thread",
+      "query": "进程与线程的区别 从资源隔离、地址空间、调度和通信解释进程与线程，为什么线程更多不等于并行更快？",
+      "expectedDocumentId": "p1.os.process-thread.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.os.process-thread.v1",
+        "p1.os.ipc.v1",
+        "p1.redis.single-thread.v1",
+        "p1.java.pool-sizing.v1",
+        "p1.concurrency.threadlocal.v1"
+      ]
+    },
+    {
+      "topic": "DATA_STRUCTURES",
+      "questionId": "algorithm.complexity",
+      "query": "时间复杂度与空间复杂度 O(n)、O(log n) 与摊还复杂度分别描述什么？为什么不能只看大 O 就判断小数据时谁更快？",
+      "expectedDocumentId": "p1.algorithm.complexity.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.algorithm.complexity.v1",
+        "p1.design.capacity-observability.v1",
+        "p1.collection.arraylist-growth.v1",
+        "p1.distributed.cap.v1",
+        "p1.jvm.safepoint.v1"
+      ]
+    },
+    {
+      "topic": "MESSAGE_QUEUE",
+      "questionId": "mq.why",
+      "query": "为什么引入消息队列？ 异步处理、解耦和削峰分别能改善什么？引入队列以后增加了哪些一致性与运维成本？",
+      "expectedDocumentId": "p1.mq.why.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.mq.why.v1",
+        "p1.concurrency.completablefuture.v1",
+        "p1.concurrency.aqs.v1",
+        "p1.spring.async.v1",
+        "p1.java.pool-sizing.v1"
+      ]
+    },
+    {
+      "topic": "DISTRIBUTED",
+      "questionId": "distributed.cap",
+      "query": "CAP 为什么不是平时随便选两个？ 网络分区发生时，线性一致性与请求可用性有哪些冲突？它与数据库 ACID 的 C 是同一个定义吗？",
+      "expectedDocumentId": "p1.distributed.cap.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.distributed.cap.v1",
+        "p1.distributed.consistent-hash.v1",
+        "p1.security.csrf.v1",
+        "p1.algorithm.graph-search.v1",
+        "p1.collection.list-choice.v1"
+      ]
+    },
+    {
+      "topic": "SYSTEM_DESIGN",
+      "questionId": "design.short-url",
+      "query": "怎样设计短链接服务？ 从唯一短码、映射存储、重定向、缓存和滥用风险解释方案。怎样处理碰撞和链接失效？",
+      "expectedDocumentId": "p1.design.short-url.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.design.short-url.v1",
+        "p1.algorithm.lru.v1",
+        "p1.redis.cache-penetration.v1",
+        "p1.design.capacity-observability.v1",
+        "p1.collection.list-choice.v1"
+      ]
+    },
+    {
+      "topic": "SECURITY",
+      "questionId": "security.sql-injection",
+      "query": "SQL 注入为什么不能只靠转义？ 怎样区分参数值和动态 SQL 结构？参数绑定、白名单和数据库最小权限分别承担什么？",
+      "expectedDocumentId": "p1.security.sql-injection.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.security.sql-injection.v1",
+        "p1.mybatis.parameter-binding.v1",
+        "p1.spring.ioc-di.v1",
+        "p1.basic.interface-polymorphism.v1",
+        "p1.security.authorization.v1"
+      ]
+    },
+    {
+      "topic": "DEVOPS",
+      "questionId": "devops.linux-load",
+      "query": "Linux load average 与 CPU 使用率 load 很高但 CPU 不满时可能在等什么？怎样结合线程、IO 和资源指标判断？",
+      "expectedDocumentId": "p1.devops.linux-load.v1",
+      "rank": 1,
+      "returnedDocumentIds": [
+        "p1.devops.linux-load.v1",
+        "p1.redis.single-thread.v1",
+        "p1.basic.final-immutability.v1",
+        "p1.distributed.cap.v1",
+        "p1.os.io-multiplex.v1"
+      ]
+    }
+  ],
+  "boundRetrievalTop5": 18,
+  "retrievalChecks": 18,
+  "newQuestionModelCalibration": "Pending; historical P6 metrics do not cover these new questions."
+}

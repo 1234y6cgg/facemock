@@ -1,0 +1,41 @@
+{
+  "verifiedAt": "2026-10-03T09:16:12.858820+00:00",
+  "health": {
+    "status": "UP"
+  },
+  "before": {
+    "resumes": 12,
+    "interviews": 0,
+    "projects": 1
+  },
+  "after": {
+    "resumes": 12,
+    "interviews": 0,
+    "projects": 1
+  },
+  "originalCountsPreserved": true,
+  "knowledgePoints": 72,
+  "recommendations": 3,
+  "knowledge": {
+    "enabled": true,
+    "available": true,
+    "collection": "tech_knowledge_bge_zh_v1",
+    "embeddingModel": "bge-small-zh-v1.5-q:512:v1",
+    "dimensions": 512,
+    "totalChunks": 34,
+    "message": "正常"
+  },
+  "ragHits": 3,
+  "frontend": [
+    "/assets/index-Bgno3CK_.js"
+  ],
+  "exportSchema": 1,
+  "exportCounts": {
+    "resumes": 14,
+    "interviews": 0,
+    "practiceSessions": 2,
+    "projects": 1,
+    "projectSessions": 1,
+    "recordings": 0
+  }
+}

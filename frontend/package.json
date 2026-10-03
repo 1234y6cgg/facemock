@@ -1,11 +1,12 @@
 {
-  "name": "mock-interview-frontend",
+  "name": "facemock-frontend",
   "private": true,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "test:audio": "node --test test/audio.test.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -4,6 +4,7 @@ import com.mockinterview.domain.ResumeStatus;
 import com.mockinterview.domain.dto.ResumeStatusResponse;
 import com.mockinterview.service.resume.ResumeService;
 import org.junit.jupiter.api.Test;
+import com.mockinterview.capability.ratelimit.RateLimiterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -19,6 +20,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(ResumeController.class)
 class ResumeControllerTest {
+    @MockBean
+    private RateLimiterService limiter;
 
     @Autowired
     private MockMvc mvc;
@@ -28,6 +31,8 @@ class ResumeControllerTest {
 
     @Test
     void uploadReturnsResumeId() throws Exception {
+        when(limiter.allow(org.mockito.ArgumentMatchers.anyString(), org.mockito.ArgumentMatchers.anyString(),
+                org.mockito.ArgumentMatchers.anyInt(), org.mockito.ArgumentMatchers.anyInt())).thenReturn(true);
         when(service.upload(any())).thenReturn(42L);
 
         mvc.perform(multipart("/api/resumes")

@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface InterviewReportRepository extends JpaRepository<InterviewReport, Long> {
     Optional<InterviewReport> findBySessionId(Long sessionId);
+    void deleteBySessionId(Long sessionId);
 }

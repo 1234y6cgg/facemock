@@ -1,0 +1,39 @@
+{
+  "verifiedAt": "2026-10-02T23:56:58.5794689+08:00",
+  "result": "PASS",
+  "sessionId": "50de89f8-2de4-48e9-bf65-83da7d278253",
+  "followupSessionId": "df901b1b-d89c-4d97-a1b8-dd062e5f32d6",
+  "firstAttemptId": "640e0106-1160-47b4-9f37-63ef2e3ef82d",
+  "secondAttemptId": "d2ff6259-f735-4892-9bec-dd85cd18badc",
+  "duplicateSubmit": "one-attempt-one-evaluation",
+  "firstAnswerPreserved": true,
+  "referenceAssistanceRecorded": true,
+  "followupOriginPreserved": true,
+  "referenceState": "AVAILABLE",
+  "model": "deepseek-flash",
+  "comparison": [
+    {
+      "criterionId": "acquire",
+      "label": "用带独占条件和租期的 SET NX PX 获取锁，令牌区分持有者。",
+      "before": "COVERED",
+      "after": "COVERED",
+      "change": "MAINTAINED"
+    },
+    {
+      "criterionId": "release",
+      "label": "释放锁时必须原子地校验令牌属于自己再删除，避免删掉新持有者的锁。",
+      "before": "MISSING",
+      "after": "COVERED",
+      "change": "NEWLY_COVERED"
+    },
+    {
+      "criterionId": "expiry",
+      "label": "租期过后互斥可能失效；慢执行或暂停不能仅靠过期锁保证外部写入安全。",
+      "before": "MISSING",
+      "after": "COVERED",
+      "change": "NEWLY_COVERED"
+    }
+  ],
+  "invalidRequests": 3,
+  "status": "COMPLETED"
+}

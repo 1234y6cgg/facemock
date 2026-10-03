@@ -1,0 +1,104 @@
+{
+  "cases": 60,
+  "modelCalls": 56,
+  "validOutputs": 60,
+  "agreementAllExpected": {
+    "numerator": 175,
+    "denominator": 180,
+    "rate": 0.9722222222222222
+  },
+  "agreementValidPredictions": {
+    "numerator": 175,
+    "denominator": 180,
+    "rate": 0.9722222222222222
+  },
+  "factualErrorAcceptedAsCovered": {
+    "numerator": 0,
+    "denominator": 28,
+    "rate": 0.0
+  },
+  "factualErrorAcceptedAsCoveredOrPartial": {
+    "numerator": 0,
+    "denominator": 28,
+    "rate": 0.0
+  },
+  "correctColloquialNotCovered": {
+    "numerator": 1,
+    "denominator": 96,
+    "rate": 0.010416666666666666
+  },
+  "uncertain": {
+    "numerator": 12,
+    "denominator": 180,
+    "rate": 0.06666666666666667
+  },
+  "evaluationFailure": {
+    "numerator": 0,
+    "denominator": 60,
+    "rate": 0.0
+  },
+  "retrievalBoundHit": {
+    "numerator": 37,
+    "denominator": 56,
+    "rate": 0.6607142857142857
+  },
+  "validatedCitationOutputs": {
+    "numerator": 60,
+    "denominator": 60,
+    "rate": 1.0
+  },
+  "latency": {
+    "successfulCalledSampleSize": 56,
+    "p50Ms": 6350,
+    "p95Ms": 15276
+  },
+  "usage": {
+    "knownCalls": 56,
+    "missingCalls": 0,
+    "totalTokens": 205244,
+    "promptTokens": 109792,
+    "completionTokens": 95452
+  },
+  "confusionMatrix": {
+    "COVERED -> COVERED": 95,
+    "COVERED -> INCORRECT": 1,
+    "INCORRECT -> INCORRECT": 28,
+    "MISSING -> INCORRECT": 4,
+    "MISSING -> MISSING": 40,
+    "UNCERTAIN -> UNCERTAIN": 12
+  },
+  "differences": [
+    {
+      "caseId": "case-17",
+      "criterionId": "queue",
+      "expected": "COVERED",
+      "actual": "INCORRECT"
+    },
+    {
+      "caseId": "p6-wrong-mysql.isolation",
+      "criterionId": "rc",
+      "expected": "MISSING",
+      "actual": "INCORRECT"
+    },
+    {
+      "caseId": "p6-wrong-mysql.isolation",
+      "criterionId": "rr",
+      "expected": "MISSING",
+      "actual": "INCORRECT"
+    },
+    {
+      "caseId": "p6-wrong-spring.proxy",
+      "criterionId": "self",
+      "expected": "MISSING",
+      "actual": "INCORRECT"
+    },
+    {
+      "caseId": "p6-wrong-spring.propagation",
+      "criterionId": "new",
+      "expected": "MISSING",
+      "actual": "INCORRECT"
+    }
+  ],
+  "annotationStatus": "Rubric-derived expectations; independent human sign-off of new 36 cases pending",
+  "scope": "Fixed development cases; new 36 gold labels await independent human sign-off. No user-study or generalization claim."
+}

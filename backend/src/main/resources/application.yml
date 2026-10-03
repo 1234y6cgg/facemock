@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: facemock
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:mockinterview}?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
     username: ${MYSQL_USER:mock}
@@ -10,6 +12,10 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 6MB
+      max-request-size: 7MB
   data:
     redis:
       host: ${REDIS_HOST:localhost}
@@ -22,3 +28,32 @@ deepseek:
 
 chroma:
   base-url: ${CHROMA_BASE_URL:http://localhost:8000}
+
+models:
+  storage-path: ${MODEL_SETTINGS_PATH:data/model-settings}
+
+speech:
+  enabled: ${SPEECH_ENABLED:false}
+  app-id: ${XFYUN_APP_ID:}
+  api-key: ${XFYUN_API_KEY:}
+  api-secret: ${XFYUN_API_SECRET:}
+  storage-path: ${SPEECH_STORAGE_PATH:data/recordings}
+  retention-days: ${SPEECH_RETENTION_DAYS:30}
+  max-seconds: 180
+  timeout-seconds: ${SPEECH_TIMEOUT_SECONDS:240}
+
+questions:
+  seed-on-startup: ${QUESTIONS_SEED_ON_STARTUP:true}
+  index-knowledge: ${QUESTIONS_INDEX_KNOWLEDGE:true}
+
+knowledge:
+  enabled: ${KNOWLEDGE_ENABLED:true}
+  seed-on-startup: ${KNOWLEDGE_SEED_ON_STARTUP:true}
+  collection: ${KNOWLEDGE_COLLECTION:tech_knowledge_bge_zh_v1}
+  top-k: ${KNOWLEDGE_TOP_K:3}
+  min-score: ${KNOWLEDGE_MIN_SCORE:0.45}
+  chunk-size: 360
+  chunk-overlap: 48
+  max-context-chars: 2400
+  connect-timeout-ms: 2000
+  read-timeout-ms: 5000

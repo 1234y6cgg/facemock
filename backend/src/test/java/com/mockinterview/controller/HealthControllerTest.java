@@ -1,6 +1,8 @@
 package com.mockinterview.controller;
 
 import org.junit.jupiter.api.Test;
+import com.mockinterview.capability.ratelimit.RateLimiterService;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
@@ -11,6 +13,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(HealthController.class)
 class HealthControllerTest {
+    @MockBean
+    private RateLimiterService limiter;
 
     @Autowired
     private MockMvc mvc;

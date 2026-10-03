@@ -1,0 +1,82 @@
+[
+  {
+    "id": "builtin.redis.lua-stock",
+    "title": "Redis Lua 原子扣减库存与秒杀超卖",
+    "source": "Redis 官方文档；项目内整理的面试知识卡",
+    "sourceUrl": "https://redis.io/docs/latest/develop/programmability/eval-intro/",
+    "tags": ["Redis", "Lua", "秒杀", "库存", "并发"],
+    "content": "秒杀库存操作若分为读取库存、判断和扣减多个独立请求，并发时会发生超卖。可以用 Redis Lua 将判断库存是否足够、扣减、记录请求标识放在一个短脚本内执行，其他客户端命令不会穿插执行。原子执行不等于数据库事务回滚，脚本运行时发生错误不会自动撤销此前写入，应先验证参数与数据类型。Redis Cluster 中脚本涉及的键应位于同一 hash slot。库存预扣成功后还要处理订单落库失败、重复请求、超时取消和库存补偿，最终持久化账目不能只依赖缓存。追问应考察候选人如何保证扣减幂等、如何对账以及如何避免长脚本阻塞。"
+  },
+  {
+    "id": "builtin.redis.lock",
+    "title": "Redis 分布式锁的所有权与过期风险",
+    "source": "Redis 官方文档；项目内整理的面试知识卡",
+    "sourceUrl": "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/",
+    "tags": ["Redis", "分布式锁", "幂等", "并发"],
+    "content": "单实例 Redis 锁通常用 SET key 随机令牌 NX PX 超时时间获得锁。释放时要通过 Lua 原子地检查令牌仍属于当前持有者再删除，不能直接 DEL，也不能将 GET 和 DEL 拆开。业务执行超过租期或进程长暂停时，其他客户端可能取得锁，原持有者仍可能继续写入。续租只能降低风险；重要外部写入可配合单调递增的 fencing token，由资源端拒绝旧令牌。Redis 主从异步复制的故障切换可能破坏互斥，需根据业务正确性要求选择数据库约束、条件更新或其他协调机制。面试需讲清锁保护什么资源、异常时如何释放及租期失效后的写入如何处理。"
+  },
+  {
+    "id": "builtin.mysql.explain",
+    "title": "MySQL 慢查询定位、执行计划与索引",
+    "source": "MySQL 8.0 官方手册；项目内整理的面试知识卡",
+    "sourceUrl": "https://dev.mysql.com/doc/refman/8.0/en/explain.html",
+    "tags": ["MySQL", "SQL", "EXPLAIN", "索引", "慢查询"],
+    "content": "定位慢查询先确认真实 SQL、参数、数据分布和耗时，再查看 EXPLAIN 的访问类型、候选索引、实际选用索引、估计扫描行数和 Extra。EXPLAIN ANALYZE 会实际执行支持的语句，应控制数据量和执行环境，用实际行数、循环次数与耗时定位瓶颈。联合索引列顺序要结合过滤条件、排序和选择性设计；覆盖索引可减少回表。不要仅凭看到 filesort 或全表扫描就断定需要加索引，小表或大量结果时优化器的选择可能合理。优化后比较扫描行数、延迟和写入成本，并检查锁等待、网络和连接池等非 SQL 因素。"
+  },
+  {
+    "id": "builtin.mysql.isolation",
+    "title": "MySQL InnoDB 事务隔离、MVCC 与幻读",
+    "source": "MySQL 8.0 官方手册；项目内整理的面试知识卡",
+    "sourceUrl": "https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html",
+    "tags": ["MySQL", "事务", "MVCC", "隔离级别", "锁"],
+    "content": "InnoDB 默认隔离级别是 REPEATABLE READ。普通一致性读取依赖 MVCC 与 read view；READ COMMITTED 每次一致性读取使用新的快照，REPEATABLE READ 通常在事务第一次一致性读取时建立快照并复用。SELECT FOR UPDATE 和修改操作属于锁定读取或写入，不能把它们等同于普通快照读取。REPEATABLE READ 下范围锁定常结合记录锁与间隙锁形成 next-key lock，是否锁间隙取决于索引和查询条件，完整唯一键等值命中通常只需记录锁。分析幻读要区分快照读取和锁定读取；排查死锁应检查锁顺序、索引与事务持锁时长。"
+  },
+  {
+    "id": "builtin.spring.transaction",
+    "title": "Spring Transactional 事务失效与回滚边界",
+    "source": "Spring Framework 官方文档；项目内整理的面试知识卡",
+    "sourceUrl": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html",
+    "tags": ["Spring", "事务", "Transactional", "代理", "回滚"],
+    "content": "Spring 常用的声明式事务通过代理拦截外部方法调用，同一对象内部调用另一个标注 Transactional 的方法通常绕过代理，注解不会因此创建新的事务。默认对 RuntimeException 和 Error 回滚，受检异常需要根据业务配置 rollbackFor；异常被捕获后不再抛出也可能影响事务结果。异步任务在其他线程运行，不会自动继承调用线程绑定的事务。REQUIRES_NEW 需要独立事务资源，应考虑连接池容量与锁等待。数据库事务不能自动回滚已经发送的邮件或 HTTP 请求，跨系统一致性可采用事务消息、outbox 和幂等补偿。"
+  },
+  {
+    "id": "builtin.kafka.delivery",
+    "title": "Kafka 消息可靠性、重复消费与幂等",
+    "source": "Apache Kafka 官方设计文档；项目内整理的面试知识卡",
+    "sourceUrl": "https://kafka.apache.org/41/design/design/",
+    "tags": ["Kafka", "消息队列", "幂等", "消费", "可靠性"],
+    "content": "消息可靠性要分别分析生产者、Broker 副本和消费者。生产端确认与重试配置、幂等生产者可减少重试造成的重复；副本同步策略需结合故障容忍要求。消费者业务成功后再提交 offset 可减少丢失，但业务写入成功后、offset 提交前进程崩溃仍会重复消费。将业务唯一键和处理结果放入数据库事务或使用条件更新，可以使重复处理不产生重复副作用。Kafka 事务可协调 Kafka 内部记录与 offset，但不会自动让外部数据库或第三方接口实现 exactly-once。还需设计失败重试、死信、消费积压监控和顺序要求。"
+  },
+  {
+    "id": "builtin.java.threadpool",
+    "title": "Java 线程池队列、拒绝策略与容量规划",
+    "source": "Java SE 17 API；项目内整理的面试知识卡",
+    "sourceUrl": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html",
+    "tags": ["Java", "线程池", "并发", "ThreadPoolExecutor", "队列"],
+    "content": "ThreadPoolExecutor 通常先扩展到 corePoolSize，再尝试入队；队列满时才继续扩展到 maximumPoolSize，仍无法接受任务时执行拒绝策略。使用无界队列时，最大线程数通常不会起到预想的扩容作用，并可能因积压任务导致内存压力。线程数应结合 CPU 或 IO 特征、任务耗时、下游容量和实测指标设置，不能机械套公式。CallerRunsPolicy 会让提交线程执行任务，若提交者是请求线程就影响响应延迟。需监控活跃线程、队列长度、拒绝次数、等待时间与任务执行时间，并设置业务超时和关闭策略。"
+  },
+  {
+    "id": "builtin.redis.eviction",
+    "title": "Redis 内存淘汰与热点缓存压力",
+    "source": "Redis 官方文档；项目内整理的面试知识卡",
+    "sourceUrl": "https://redis.io/docs/latest/develop/reference/eviction/",
+    "tags": ["Redis", "缓存", "淘汰", "LRU", "LFU", "热点"],
+    "content": "Redis 到达 maxmemory 限制后按配置的淘汰策略处理写入。allkeys 策略可考虑全部键，volatile 策略仅考虑带过期时间的键；LRU 关注最近访问，LFU 关注访问频率，Redis 的实现采用近似采样。noeviction 在无法分配空间时会拒绝相关写入，不能把缓存当作永远成功的存储。缓存容量要结合键数量、值大小、TTL、命中率和淘汰率测量，热点保护与下游限流也很重要。缓存失效后大量请求同时回源，可通过合并同键加载、预热等手段缓解，但仍应保留超时、限流和降级。"
+  },
+  {
+    "id": "builtin.jvm.gc",
+    "title": "JVM GC 停顿与内存问题排查",
+    "source": "Java 17 GC Tuning Guide；项目内整理的面试知识卡",
+    "sourceUrl": "https://docs.oracle.com/en/java/javase/17/gctuning/",
+    "tags": ["Java", "JVM", "GC", "内存", "性能"],
+    "content": "出现长时间 GC 或内存溢出时先收集 GC 日志、堆使用变化、分配速率、暂停时间和进程内存，区分堆内存、元空间与堆外内存。频繁分配、对象长期被引用和内存泄漏具有不同特征。使用堆转储分析保留大小与引用链，结合线程和业务请求判断对象为何无法释放。调整堆大小和收集器参数应以吞吐、暂停和内存目标为依据，不能只通过扩大堆掩盖无界缓存或任务队列问题。线上采集堆转储可能产生停顿和磁盘压力，需规划采集方式。"
+  },
+  {
+    "id": "builtin.redis.persistence",
+    "title": "Redis RDB、AOF 与数据丢失窗口",
+    "source": "Redis 官方文档；项目内整理的面试知识卡",
+    "sourceUrl": "https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/",
+    "tags": ["Redis", "RDB", "AOF", "持久化", "恢复"],
+    "content": "RDB 保存时间点快照，恢复与备份较方便，但异常退出后可能丢失最近一次快照之后的写入。AOF 记录写操作，数据丢失窗口与 fsync 策略和故障类型有关，everysec 常在性能与可靠性之间折中，不能宣称绝对不丢数据。后台持久化和重写涉及 fork、写时复制与磁盘 IO，应观察峰值内存和延迟。复制、持久化与备份解决不同问题；主从复制不替代可验证的备份恢复。承载重要业务时需要说明数据恢复目标、容忍的丢失范围，以及缓存丢失后的重建策略。"
+  }
+]

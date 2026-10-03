@@ -1,0 +1,2241 @@
+{
+  "catalogVersion": 1,
+  "knowledgePoints": [
+    {
+      "id": "redis.inventory.race",
+      "title": "分开读取、判断和扣减会出现并发竞态，应把检查和扣减放在同一短脚本内。",
+      "topic": "REDIS",
+      "description": "分开读取、判断和扣减会出现并发竞态，应把检查和扣减放在同一短脚本内。"
+    },
+    {
+      "id": "redis.lua.atomic-scope",
+      "title": "脚本执行期间其他命令不会穿插；原子性覆盖 Redis 脚本操作，不自动覆盖外…",
+      "topic": "REDIS",
+      "description": "脚本执行期间其他命令不会穿插；原子性覆盖 Redis 脚本操作，不自动覆盖外部数据库事务。"
+    },
+    {
+      "id": "redis.lua.execution-cost",
+      "title": "脚本会阻塞服务器其他活动，必须控制执行时间和输入规模。",
+      "topic": "REDIS",
+      "description": "脚本会阻塞服务器其他活动，必须控制执行时间和输入规模。"
+    },
+    {
+      "id": "redis.lock.acquire",
+      "title": "用带独占条件和租期的 SET NX PX 获取锁，令牌区分持有者。",
+      "topic": "REDIS",
+      "description": "用带独占条件和租期的 SET NX PX 获取锁，令牌区分持有者。"
+    },
+    {
+      "id": "redis.lock.release-owner",
+      "title": "释放锁时必须原子地校验令牌属于自己再删除，避免删掉新持有者的锁。",
+      "topic": "REDIS",
+      "description": "释放锁时必须原子地校验令牌属于自己再删除，避免删掉新持有者的锁。"
+    },
+    {
+      "id": "redis.lock.lease-expiry",
+      "title": "租期过后互斥可能失效；慢执行或暂停不能仅靠过期锁保证外部写入安全。",
+      "topic": "REDIS",
+      "description": "租期过后互斥可能失效；慢执行或暂停不能仅靠过期锁保证外部写入安全。"
+    },
+    {
+      "id": "redis.eviction.key-scope",
+      "title": "allkeys 可以选择全部键，volatile 只在有过期时间的键中选择。",
+      "topic": "REDIS",
+      "description": "allkeys 可以选择全部键，volatile 只在有过期时间的键中选择。"
+    },
+    {
+      "id": "redis.eviction.lru-lfu",
+      "title": "LRU 关注最近访问，LFU 关注访问频率，Redis 使用近似策略而非精确…",
+      "topic": "REDIS",
+      "description": "LRU 关注最近访问，LFU 关注访问频率，Redis 使用近似策略而非精确全局排序。"
+    },
+    {
+      "id": "redis.eviction.noeviction",
+      "title": "noeviction 不淘汰键，超过内存约束时会拒绝需要更多内存的相关写入。",
+      "topic": "REDIS",
+      "description": "noeviction 不淘汰键，超过内存约束时会拒绝需要更多内存的相关写入。"
+    },
+    {
+      "id": "redis.persistence.rdb-window",
+      "title": "RDB 是时间点快照，崩溃时可能丢失最近快照之后的写入。",
+      "topic": "REDIS",
+      "description": "RDB 是时间点快照，崩溃时可能丢失最近快照之后的写入。"
+    },
+    {
+      "id": "redis.persistence.aof-fsync",
+      "title": "AOF 记录写操作，fsync 策略影响性能和故障时的数据丢失窗口；ever…",
+      "topic": "REDIS",
+      "description": "AOF 记录写操作，fsync 策略影响性能和故障时的数据丢失窗口；everysec 不能保证零丢失。"
+    },
+    {
+      "id": "redis.persistence.fork-cost",
+      "title": "后台快照或重写的 fork、写时复制和磁盘 IO 可能增加内存及延迟压力。",
+      "topic": "REDIS",
+      "description": "后台快照或重写的 fork、写时复制和磁盘 IO 可能增加内存及延迟压力。"
+    },
+    {
+      "id": "mysql.explain.access-path",
+      "title": "检查访问方式、实际使用的索引、估计行数与 Extra，结合 SQL 条件解释…",
+      "topic": "MYSQL",
+      "description": "检查访问方式、实际使用的索引、估计行数与 Extra，结合 SQL 条件解释执行计划。"
+    },
+    {
+      "id": "mysql.explain.analyze-executes",
+      "title": "EXPLAIN ANALYZE 会实际执行支持的语句，并提供实际行数、循环次…",
+      "topic": "MYSQL",
+      "description": "EXPLAIN ANALYZE 会实际执行支持的语句，并提供实际行数、循环次数和时间。"
+    },
+    {
+      "id": "mysql.explain.plan-context",
+      "title": "扫描与排序信息要结合数据规模和结果集解释，不能仅凭出现全表扫描或 files…",
+      "topic": "MYSQL",
+      "description": "扫描与排序信息要结合数据规模和结果集解释，不能仅凭出现全表扫描或 filesort 判断错误。"
+    },
+    {
+      "id": "mysql.index.left-prefix",
+      "title": "联合索引支持其左侧连续前缀，如 a、(a,b)、(a,b,c)。",
+      "topic": "MYSQL",
+      "description": "联合索引支持其左侧连续前缀，如 a、(a,b)、(a,b,c)。"
+    },
+    {
+      "id": "mysql.index.nonleading",
+      "title": "只按非前导列过滤通常不能获得相同的左前缀定位效果；实际计划由优化器选择。",
+      "topic": "MYSQL",
+      "description": "只按非前导列过滤通常不能获得相同的左前缀定位效果；实际计划由优化器选择。"
+    },
+    {
+      "id": "mysql.index.design-cost",
+      "title": "列顺序需结合实际过滤条件与选择性设计，索引也带来存储及写入维护成本。",
+      "topic": "MYSQL",
+      "description": "列顺序需结合实际过滤条件与选择性设计，索引也带来存储及写入维护成本。"
+    },
+    {
+      "id": "mysql.isolation.default",
+      "title": "InnoDB 默认事务隔离级别是 REPEATABLE READ。",
+      "topic": "MYSQL",
+      "description": "InnoDB 默认事务隔离级别是 REPEATABLE READ。"
+    },
+    {
+      "id": "mysql.mvcc.rc-read-view",
+      "title": "READ COMMITTED 的每次一致性读取建立新的快照，可能读到别的事务…",
+      "topic": "MYSQL",
+      "description": "READ COMMITTED 的每次一致性读取建立新的快照，可能读到别的事务后来提交的变化。"
+    },
+    {
+      "id": "mysql.mvcc.rr-read-view",
+      "title": "REPEATABLE READ 通常复用事务第一次一致性读取建立的快照，而非…",
+      "topic": "MYSQL",
+      "description": "REPEATABLE READ 通常复用事务第一次一致性读取建立的快照，而非一律在 BEGIN 时建立。"
+    },
+    {
+      "id": "mysql.mvcc.consistent-read",
+      "title": "一致性非锁定读取通过多版本快照看到数据，不能等同于加写锁。",
+      "topic": "MYSQL",
+      "description": "一致性非锁定读取通过多版本快照看到数据，不能等同于加写锁。"
+    },
+    {
+      "id": "mysql.mvcc.locking-read",
+      "title": "FOR UPDATE 属于锁定读取，和普通一致性快照读取有不同的锁与可见性语…",
+      "topic": "MYSQL",
+      "description": "FOR UPDATE 属于锁定读取，和普通一致性快照读取有不同的锁与可见性语义。"
+    },
+    {
+      "id": "mysql.mvcc.own-writes",
+      "title": "事务通常能看到自身此前的修改，快照语义不意味着连自己的新写入也不可见。",
+      "topic": "MYSQL",
+      "description": "事务通常能看到自身此前的修改，快照语义不意味着连自己的新写入也不可见。"
+    },
+    {
+      "id": "spring.tx.proxy-boundary",
+      "title": "默认代理模式通过经代理的外部调用触发事务拦截。",
+      "topic": "SPRING",
+      "description": "默认代理模式通过经代理的外部调用触发事务拦截。"
+    },
+    {
+      "id": "spring.tx.self-invocation",
+      "title": "同一对象的内部自调用通常绕过代理，不会因被调用方法注解而新触发事务拦截。",
+      "topic": "SPRING",
+      "description": "同一对象的内部自调用通常绕过代理，不会因被调用方法注解而新触发事务拦截。"
+    },
+    {
+      "id": "spring.tx.proxy-remedy",
+      "title": "可把需要独立事务边界的逻辑放到另一个受管理 Bean，或采用合适的显式事务方…",
+      "topic": "SPRING",
+      "description": "可把需要独立事务边界的逻辑放到另一个受管理 Bean，或采用合适的显式事务方式。"
+    },
+    {
+      "id": "spring.tx.rollback-default",
+      "title": "默认对 RuntimeException 和 Error 回滚，对受检异常不…",
+      "topic": "SPRING",
+      "description": "默认对 RuntimeException 和 Error 回滚，对受检异常不自动回滚。"
+    },
+    {
+      "id": "spring.tx.rollback-rule",
+      "title": "可用 rollbackFor 等规则显式配置匹配的异常类型，需同时考虑 no…",
+      "topic": "SPRING",
+      "description": "可用 rollbackFor 等规则显式配置匹配的异常类型，需同时考虑 noRollbackFor。"
+    },
+    {
+      "id": "spring.tx.exception-boundary",
+      "title": "异常若被捕获且不再向事务拦截边界传播，不能仅靠原异常类型假定事务自动回滚。",
+      "topic": "SPRING",
+      "description": "异常若被捕获且不再向事务拦截边界传播，不能仅靠原异常类型假定事务自动回滚。"
+    },
+    {
+      "id": "spring.tx.required",
+      "title": "REQUIRED 在已有事务时加入，没有事务时创建事务。",
+      "topic": "SPRING",
+      "description": "REQUIRED 在已有事务时加入，没有事务时创建事务。"
+    },
+    {
+      "id": "spring.tx.requires-new",
+      "title": "REQUIRES_NEW 创建独立事务并挂起存在的外层事务，提交与回滚边界独…",
+      "topic": "SPRING",
+      "description": "REQUIRES_NEW 创建独立事务并挂起存在的外层事务，提交与回滚边界独立。"
+    },
+    {
+      "id": "spring.tx.requires-new-resources",
+      "title": "独立事务需要额外资源，外层持有资源时应考虑连接池容量和等待风险。",
+      "topic": "SPRING",
+      "description": "独立事务需要额外资源，外层持有资源时应考虑连接池容量和等待风险。"
+    },
+    {
+      "id": "spring.tx.thread-bound",
+      "title": "常见 PlatformTransactionManager 事务上下文绑定当…",
+      "topic": "SPRING",
+      "description": "常见 PlatformTransactionManager 事务上下文绑定当前线程，不自动传播到新线程。"
+    },
+    {
+      "id": "spring.tx.async-boundary",
+      "title": "异步执行不能假定继承调用方事务；异步数据库逻辑需要自己的有效事务边界。",
+      "topic": "SPRING",
+      "description": "异步执行不能假定继承调用方事务；异步数据库逻辑需要自己的有效事务边界。"
+    },
+    {
+      "id": "spring.tx.async-outcome",
+      "title": "异步任务的失败不能直接等同于调用者事务回滚，应分别设计异常和提交后的工作。",
+      "topic": "SPRING",
+      "description": "异步任务的失败不能直接等同于调用者事务回滚，应分别设计异常和提交后的工作。"
+    },
+    {
+      "id": "kafka.producer.acks",
+      "title": "acks=all 与同步副本及 min.insync.replicas 等配…",
+      "topic": "KAFKA",
+      "description": "acks=all 与同步副本及 min.insync.replicas 等配置一起决定写入确认边界。"
+    },
+    {
+      "id": "kafka.producer.retry-duplicates",
+      "title": "重试可能因确认丢失等情况造成重复，确认可靠性与去重不是同一问题。",
+      "topic": "KAFKA",
+      "description": "重试可能因确认丢失等情况造成重复，确认可靠性与去重不是同一问题。"
+    },
+    {
+      "id": "kafka.producer.idempotence",
+      "title": "幂等生产者在其约束下避免生产重试重复，不等于外部数据库副作用自动幂等。",
+      "topic": "KAFKA",
+      "description": "幂等生产者在其约束下避免生产重试重复，不等于外部数据库副作用自动幂等。"
+    },
+    {
+      "id": "kafka.consumer.at-least-once",
+      "title": "业务写入后、offset 提交前崩溃仍可能重复消费。",
+      "topic": "KAFKA",
+      "description": "业务写入后、offset 提交前崩溃仍可能重复消费。"
+    },
+    {
+      "id": "kafka.consumer.business-idempotence",
+      "title": "外部数据库副作用要通过业务唯一键、条件写入或同一事务内处理记录等实现幂等。",
+      "topic": "KAFKA",
+      "description": "外部数据库副作用要通过业务唯一键、条件写入或同一事务内处理记录等实现幂等。"
+    },
+    {
+      "id": "kafka.consumer.exactly-once-scope",
+      "title": "Kafka 的事务语义不会自动覆盖任意外部数据库或第三方接口。",
+      "topic": "KAFKA",
+      "description": "Kafka 的事务语义不会自动覆盖任意外部数据库或第三方接口。"
+    },
+    {
+      "id": "kafka.offset.before-processing",
+      "title": "处理业务前提交位置，随后崩溃可能使未完成业务的消息被跳过。",
+      "topic": "KAFKA",
+      "description": "处理业务前提交位置，随后崩溃可能使未完成业务的消息被跳过。"
+    },
+    {
+      "id": "kafka.offset.after-processing",
+      "title": "业务成功后提交位置可以保留重处理机会，但提交前崩溃可能重复处理。",
+      "topic": "KAFKA",
+      "description": "业务成功后提交位置可以保留重处理机会，但提交前崩溃可能重复处理。"
+    },
+    {
+      "id": "kafka.offset.next-record",
+      "title": "提交的位置通常是已完成处理的最后记录 offset 加一，即下一条待读位置。",
+      "topic": "KAFKA",
+      "description": "提交的位置通常是已完成处理的最后记录 offset 加一，即下一条待读位置。"
+    },
+    {
+      "id": "kafka.order.partition-scope",
+      "title": "顺序保证以分区日志为范围，不能推导为整个多分区主题的全局顺序。",
+      "topic": "KAFKA",
+      "description": "顺序保证以分区日志为范围，不能推导为整个多分区主题的全局顺序。"
+    },
+    {
+      "id": "kafka.order.key-partition",
+      "title": "同一业务键通常用于把有关事件路由到同一分区，需考虑分区选择及数量变化。",
+      "topic": "KAFKA",
+      "description": "同一业务键通常用于把有关事件路由到同一分区，需考虑分区选择及数量变化。"
+    },
+    {
+      "id": "kafka.order.processing-order",
+      "title": "日志读取顺序不自动保证应用并发处理或失败重试后的副作用完成顺序。",
+      "topic": "KAFKA",
+      "description": "日志读取顺序不自动保证应用并发处理或失败重试后的副作用完成顺序。"
+    },
+    {
+      "id": "java.pool.core-first",
+      "title": "运行线程少于 corePoolSize 时通常先创建工作线程处理新任务。",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "运行线程少于 corePoolSize 时通常先创建工作线程处理新任务。"
+    },
+    {
+      "id": "java.pool.queue-before-max",
+      "title": "达到核心线程数后先尝试入队，无法入队时才尝试扩展到最大线程数。",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "达到核心线程数后先尝试入队，无法入队时才尝试扩展到最大线程数。"
+    },
+    {
+      "id": "java.pool.saturation",
+      "title": "无法入队且不能再建线程时执行拒绝策略；关闭状态也可能拒绝任务。",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "无法入队且不能再建线程时执行拒绝策略；关闭状态也可能拒绝任务。"
+    },
+    {
+      "id": "java.pool.unbounded-growth",
+      "title": "无界队列通常能持续接收任务，线程一般不会因队列满而扩展到 maximumPo…",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "无界队列通常能持续接收任务，线程一般不会因队列满而扩展到 maximumPoolSize。"
+    },
+    {
+      "id": "java.pool.backlog-memory",
+      "title": "任务积压增加等待时间和内存占用，可能耗尽资源。",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "任务积压增加等待时间和内存占用，可能耗尽资源。"
+    },
+    {
+      "id": "java.pool.capacity-planning",
+      "title": "可结合有界队列、拒绝或背压策略与下游容量控制积压。",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "可结合有界队列、拒绝或背压策略与下游容量控制积压。"
+    },
+    {
+      "id": "java.pool.reject-abort",
+      "title": "AbortPolicy 通过 RejectedExecutionExcept…",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "AbortPolicy 通过 RejectedExecutionException 明确报告无法接受任务。"
+    },
+    {
+      "id": "java.pool.reject-caller",
+      "title": "CallerRunsPolicy 通常让调用 execute 的线程执行任务…",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "CallerRunsPolicy 通常让调用 execute 的线程执行任务，可能阻塞请求提交方；关闭时不执行。"
+    },
+    {
+      "id": "java.pool.reject-discard",
+      "title": "丢弃类策略可能丢失任务，重要业务必须设计可观察的失败处理。",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "丢弃类策略可能丢失任务，重要业务必须设计可观察的失败处理。"
+    },
+    {
+      "id": "java.pool.shutdown-graceful",
+      "title": "shutdown 不接受新任务，通常继续执行已提交任务，不自行等待全部完成。",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "shutdown 不接受新任务，通常继续执行已提交任务，不自行等待全部完成。"
+    },
+    {
+      "id": "java.pool.shutdown-interrupt",
+      "title": "shutdownNow 尝试中断运行中的任务并返回未开始任务，中断不保证强制…",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "shutdownNow 尝试中断运行中的任务并返回未开始任务，中断不保证强制停止。"
+    },
+    {
+      "id": "java.pool.shutdown-await",
+      "title": "awaitTermination 等待关闭后的终止或超时，并返回是否终止。",
+      "topic": "JAVA_CONCURRENCY",
+      "description": "awaitTermination 等待关闭后的终止或超时，并返回是否终止。"
+    },
+    {
+      "id": "jvm.gc.measurements",
+      "title": "结合 GC 日志、暂停、堆占用与分配变化观察现象，而不是只凭一次停顿归因。",
+      "topic": "JVM",
+      "description": "结合 GC 日志、暂停、堆占用与分配变化观察现象，而不是只凭一次停顿归因。"
+    },
+    {
+      "id": "jvm.gc.tradeoffs",
+      "title": "GC 调优需权衡暂停、吞吐和内存，不存在对所有负载都最优的同一参数。",
+      "topic": "JVM",
+      "description": "GC 调优需权衡暂停、吞吐和内存，不存在对所有负载都最优的同一参数。"
+    },
+    {
+      "id": "jvm.gc.retained-pressure",
+      "title": "对象存活、分配压力与容量影响回收效果，扩大堆不能替代查明持续增长原因。",
+      "topic": "JVM",
+      "description": "对象存活、分配压力与容量影响回收效果，扩大堆不能替代查明持续增长原因。"
+    },
+    {
+      "id": "jvm.memory.regions",
+      "title": "进程占用还包含元空间、线程栈和本地等内存，不能把进程大小等同于 Java 堆…",
+      "topic": "JVM",
+      "description": "进程占用还包含元空间、线程栈和本地等内存，不能把进程大小等同于 Java 堆。"
+    },
+    {
+      "id": "jvm.memory.oom-category",
+      "title": "分析 OutOfMemoryError 的具体类型和对应区域，容量不足不必然…",
+      "topic": "JVM",
+      "description": "分析 OutOfMemoryError 的具体类型和对应区域，容量不足不必然是泄漏。"
+    },
+    {
+      "id": "jvm.memory.native-diagnosis",
+      "title": "怀疑本地内存问题需结合进程与本地工具观测，单独堆转储不能解释所有进程内存。",
+      "topic": "JVM",
+      "description": "怀疑本地内存问题需结合进程与本地工具观测，单独堆转储不能解释所有进程内存。"
+    },
+    {
+      "id": "jvm.leak.live-set",
+      "title": "观察稳定负载下回收后存活集持续增长，而不只看瞬时对象总量。",
+      "topic": "JVM",
+      "description": "观察稳定负载下回收后存活集持续增长，而不只看瞬时对象总量。"
+    },
+    {
+      "id": "jvm.leak.reference-path",
+      "title": "通过堆或 JFR 中的引用关系查明对象为何被保留，定位不应长期持有的引用。",
+      "topic": "JVM",
+      "description": "通过堆或 JFR 中的引用关系查明对象为何被保留，定位不应长期持有的引用。"
+    },
+    {
+      "id": "jvm.leak.retention-fix",
+      "title": "按保留原因修复并复测存活趋势，扩大堆只可能推迟资源耗尽。",
+      "topic": "JVM",
+      "description": "按保留原因修复并复测存活趋势，扩大堆只可能推迟资源耗尽。"
+    },
+    {
+      "id": "jvm.dump.collection",
+      "title": "可用 jcmd GC.heap_dump 等工具采集堆，需识别目标进程、权限…",
+      "topic": "JVM",
+      "description": "可用 jcmd GC.heap_dump 等工具采集堆，需识别目标进程、权限和参数。"
+    },
+    {
+      "id": "jvm.dump.operational-cost",
+      "title": "GC.heap_dump 属于高影响操作，转储与可能的 GC 有停顿及磁盘开…",
+      "topic": "JVM",
+      "description": "GC.heap_dump 属于高影响操作，转储与可能的 GC 有停顿及磁盘开销，应规划窗口。"
+    },
+    {
+      "id": "jvm.dump.data-boundary",
+      "title": "堆文件包含对象数据，诊断材料应控制访问与保存范围，不能当作普通公开日志。",
+      "topic": "JVM",
+      "description": "堆文件包含对象数据，诊断材料应控制访问与保存范围，不能当作普通公开日志。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "redis.lua-stock.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.redis.lua-stock.v1",
+        "title": "Lua 与库存超卖",
+        "content": "分开读取、判断和扣减会出现并发竞态，应把检查和扣减放在同一短脚本内。\n脚本执行期间其他命令不会穿插；原子性覆盖 Redis 脚本操作，不自动覆盖外部数据库事务。\n脚本会阻塞服务器其他活动，必须控制执行时间和输入规模。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://redis.io/docs/latest/develop/programmability/eval-intro/",
+        "tags": [
+          "REDIS",
+          "Lua 与库存超卖"
+        ]
+      }
+    },
+    {
+      "id": "redis.lock.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.redis.lock.v1",
+        "title": "锁的所有权与过期",
+        "content": "用带独占条件和租期的 SET NX PX 获取锁，令牌区分持有者。\n释放锁时必须原子地校验令牌属于自己再删除，避免删掉新持有者的锁。\n租期过后互斥可能失效；慢执行或暂停不能仅靠过期锁保证外部写入安全。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/",
+        "tags": [
+          "REDIS",
+          "锁的所有权与过期"
+        ]
+      }
+    },
+    {
+      "id": "redis.eviction.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.redis.eviction.v1",
+        "title": "内存淘汰策略",
+        "content": "allkeys 可以选择全部键，volatile 只在有过期时间的键中选择。\nLRU 关注最近访问，LFU 关注访问频率，Redis 使用近似策略而非精确全局排序。\nnoeviction 不淘汰键，超过内存约束时会拒绝需要更多内存的相关写入。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://redis.io/docs/latest/develop/reference/eviction/",
+        "tags": [
+          "REDIS",
+          "内存淘汰策略"
+        ]
+      }
+    },
+    {
+      "id": "redis.persistence.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.redis.persistence.v1",
+        "title": "RDB 与 AOF",
+        "content": "RDB 是时间点快照，崩溃时可能丢失最近快照之后的写入。\nAOF 记录写操作，fsync 策略影响性能和故障时的数据丢失窗口；everysec 不能保证零丢失。\n后台快照或重写的 fork、写时复制和磁盘 IO 可能增加内存及延迟压力。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/",
+        "tags": [
+          "REDIS",
+          "RDB 与 AOF"
+        ]
+      }
+    },
+    {
+      "id": "mysql.explain.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.mysql.explain.v1",
+        "title": "慢查询与执行计划",
+        "content": "检查访问方式、实际使用的索引、估计行数与 Extra，结合 SQL 条件解释执行计划。\nEXPLAIN ANALYZE 会实际执行支持的语句，并提供实际行数、循环次数和时间。\n扫描与排序信息要结合数据规模和结果集解释，不能仅凭出现全表扫描或 filesort 判断错误。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://dev.mysql.com/doc/refman/8.0/en/explain.html",
+        "tags": [
+          "MYSQL",
+          "慢查询与执行计划"
+        ]
+      }
+    },
+    {
+      "id": "mysql.composite-index.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.mysql.composite-index.v1",
+        "title": "联合索引与左前缀",
+        "content": "联合索引支持其左侧连续前缀，如 a、(a,b)、(a,b,c)。\n只按非前导列过滤通常不能获得相同的左前缀定位效果；实际计划由优化器选择。\n列顺序需结合实际过滤条件与选择性设计，索引也带来存储及写入维护成本。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://dev.mysql.com/doc/refman/8.0/en/multiple-column-indexes.html",
+        "tags": [
+          "MYSQL",
+          "联合索引与左前缀"
+        ]
+      }
+    },
+    {
+      "id": "mysql.isolation.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.mysql.isolation.v1",
+        "title": "事务隔离与快照",
+        "content": "InnoDB 默认事务隔离级别是 REPEATABLE READ。\nREAD COMMITTED 的每次一致性读取建立新的快照，可能读到别的事务后来提交的变化。\nREPEATABLE READ 通常复用事务第一次一致性读取建立的快照，而非一律在 BEGIN 时建立。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://dev.mysql.com/doc/refman/8.0/en/innodb-transaction-isolation-levels.html",
+        "tags": [
+          "MYSQL",
+          "事务隔离与快照"
+        ]
+      }
+    },
+    {
+      "id": "mysql.mvcc-locking.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.mysql.mvcc-locking.v1",
+        "title": "快照读取与锁定读取",
+        "content": "一致性非锁定读取通过多版本快照看到数据，不能等同于加写锁。\nFOR UPDATE 属于锁定读取，和普通一致性快照读取有不同的锁与可见性语义。\n事务通常能看到自身此前的修改，快照语义不意味着连自己的新写入也不可见。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://dev.mysql.com/doc/refman/8.0/en/innodb-consistent-read.html",
+        "tags": [
+          "MYSQL",
+          "快照读取与锁定读取"
+        ]
+      }
+    },
+    {
+      "id": "spring.proxy.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.spring.proxy.v1",
+        "title": "事务代理与自调用",
+        "content": "默认代理模式通过经代理的外部调用触发事务拦截。\n同一对象的内部自调用通常绕过代理，不会因被调用方法注解而新触发事务拦截。\n可把需要独立事务边界的逻辑放到另一个受管理 Bean，或采用合适的显式事务方式。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html",
+        "tags": [
+          "SPRING",
+          "事务代理与自调用"
+        ]
+      }
+    },
+    {
+      "id": "spring.rollback.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.spring.rollback.v1",
+        "title": "异常与事务回滚",
+        "content": "默认对 RuntimeException 和 Error 回滚，对受检异常不自动回滚。\n可用 rollbackFor 等规则显式配置匹配的异常类型，需同时考虑 noRollbackFor。\n异常若被捕获且不再向事务拦截边界传播，不能仅靠原异常类型假定事务自动回滚。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.spring.io/spring-framework/docs/6.1.14/javadoc-api/org/springframework/transaction/annotation/Transactional.html",
+        "tags": [
+          "SPRING",
+          "异常与事务回滚"
+        ]
+      }
+    },
+    {
+      "id": "spring.propagation.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.spring.propagation.v1",
+        "title": "事务传播与独立资源",
+        "content": "REQUIRED 在已有事务时加入，没有事务时创建事务。\nREQUIRES_NEW 创建独立事务并挂起存在的外层事务，提交与回滚边界独立。\n独立事务需要额外资源，外层持有资源时应考虑连接池容量和等待风险。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.spring.io/spring-framework/docs/6.1.14/javadoc-api/org/springframework/transaction/annotation/Propagation.html",
+        "tags": [
+          "SPRING",
+          "事务传播与独立资源"
+        ]
+      }
+    },
+    {
+      "id": "spring.async.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.spring.async.v1",
+        "title": "异步任务与事务边界",
+        "content": "常见 PlatformTransactionManager 事务上下文绑定当前线程，不自动传播到新线程。\n异步执行不能假定继承调用方事务；异步数据库逻辑需要自己的有效事务边界。\n异步任务的失败不能直接等同于调用者事务回滚，应分别设计异常和提交后的工作。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.spring.io/spring-framework/docs/6.1.14/javadoc-api/org/springframework/transaction/annotation/Transactional.html",
+        "tags": [
+          "SPRING",
+          "异步任务与事务边界"
+        ]
+      }
+    },
+    {
+      "id": "kafka.producer.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.kafka.producer.v1",
+        "title": "Kafka 生产可靠性",
+        "content": "acks=all 与同步副本及 min.insync.replicas 等配置一起决定写入确认边界。\n重试可能因确认丢失等情况造成重复，确认可靠性与去重不是同一问题。\n幂等生产者在其约束下避免生产重试重复，不等于外部数据库副作用自动幂等。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://kafka.apache.org/41/configuration/producer-configs/",
+        "tags": [
+          "KAFKA",
+          "Kafka 生产可靠性"
+        ]
+      }
+    },
+    {
+      "id": "kafka.duplicate-consume.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.kafka.duplicate-consume.v1",
+        "title": "重复消费与业务幂等",
+        "content": "业务写入后、offset 提交前崩溃仍可能重复消费。\n外部数据库副作用要通过业务唯一键、条件写入或同一事务内处理记录等实现幂等。\nKafka 的事务语义不会自动覆盖任意外部数据库或第三方接口。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://kafka.apache.org/41/design/design/",
+        "tags": [
+          "KAFKA",
+          "重复消费与业务幂等"
+        ]
+      }
+    },
+    {
+      "id": "kafka.offset.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.kafka.offset.v1",
+        "title": "消费位置提交时机",
+        "content": "处理业务前提交位置，随后崩溃可能使未完成业务的消息被跳过。\n业务成功后提交位置可以保留重处理机会，但提交前崩溃可能重复处理。\n提交的位置通常是已完成处理的最后记录 offset 加一，即下一条待读位置。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://kafka.apache.org/41/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html",
+        "tags": [
+          "KAFKA",
+          "消费位置提交时机"
+        ]
+      }
+    },
+    {
+      "id": "kafka.order.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.kafka.order.v1",
+        "title": "分区与消息顺序",
+        "content": "顺序保证以分区日志为范围，不能推导为整个多分区主题的全局顺序。\n同一业务键通常用于把有关事件路由到同一分区，需考虑分区选择及数量变化。\n日志读取顺序不自动保证应用并发处理或失败重试后的副作用完成顺序。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://kafka.apache.org/41/design/design/",
+        "tags": [
+          "KAFKA",
+          "分区与消息顺序"
+        ]
+      }
+    },
+    {
+      "id": "java.pool-sizing.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.java.pool-sizing.v1",
+        "title": "线程数与队列顺序",
+        "content": "运行线程少于 corePoolSize 时通常先创建工作线程处理新任务。\n达到核心线程数后先尝试入队，无法入队时才尝试扩展到最大线程数。\n无法入队且不能再建线程时执行拒绝策略；关闭状态也可能拒绝任务。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html",
+        "tags": [
+          "JAVA_CONCURRENCY",
+          "线程数与队列顺序"
+        ]
+      }
+    },
+    {
+      "id": "java.pool-unbounded.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.java.pool-unbounded.v1",
+        "title": "无界队列的风险",
+        "content": "无界队列通常能持续接收任务，线程一般不会因队列满而扩展到 maximumPoolSize。\n任务积压增加等待时间和内存占用，可能耗尽资源。\n可结合有界队列、拒绝或背压策略与下游容量控制积压。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html",
+        "tags": [
+          "JAVA_CONCURRENCY",
+          "无界队列的风险"
+        ]
+      }
+    },
+    {
+      "id": "java.pool-rejection.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.java.pool-rejection.v1",
+        "title": "拒绝策略的业务含义",
+        "content": "AbortPolicy 通过 RejectedExecutionException 明确报告无法接受任务。\nCallerRunsPolicy 通常让调用 execute 的线程执行任务，可能阻塞请求提交方；关闭时不执行。\n丢弃类策略可能丢失任务，重要业务必须设计可观察的失败处理。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ThreadPoolExecutor.html",
+        "tags": [
+          "JAVA_CONCURRENCY",
+          "拒绝策略的业务含义"
+        ]
+      }
+    },
+    {
+      "id": "java.pool-shutdown.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.java.pool-shutdown.v1",
+        "title": "关闭与任务取消",
+        "content": "shutdown 不接受新任务，通常继续执行已提交任务，不自行等待全部完成。\nshutdownNow 尝试中断运行中的任务并返回未开始任务，中断不保证强制停止。\nawaitTermination 等待关闭后的终止或超时，并返回是否终止。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html",
+        "tags": [
+          "JAVA_CONCURRENCY",
+          "关闭与任务取消"
+        ]
+      }
+    },
+    {
+      "id": "jvm.gc.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.jvm.gc.v1",
+        "title": "GC 停顿定位",
+        "content": "结合 GC 日志、暂停、堆占用与分配变化观察现象，而不是只凭一次停顿归因。\nGC 调优需权衡暂停、吞吐和内存，不存在对所有负载都最优的同一参数。\n对象存活、分配压力与容量影响回收效果，扩大堆不能替代查明持续增长原因。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.oracle.com/en/java/javase/17/gctuning/",
+        "tags": [
+          "JVM",
+          "GC 停顿定位"
+        ]
+      }
+    },
+    {
+      "id": "jvm.memory.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.jvm.memory.v1",
+        "title": "堆与其他内存",
+        "content": "进程占用还包含元空间、线程栈和本地等内存，不能把进程大小等同于 Java 堆。\n分析 OutOfMemoryError 的具体类型和对应区域，容量不足不必然是泄漏。\n怀疑本地内存问题需结合进程与本地工具观测，单独堆转储不能解释所有进程内存。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.oracle.com/en/java/javase/17/troubleshoot/troubleshooting-memory-leaks.html",
+        "tags": [
+          "JVM",
+          "堆与其他内存"
+        ]
+      }
+    },
+    {
+      "id": "jvm.leak.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.jvm.leak.v1",
+        "title": "内存泄漏与引用链",
+        "content": "观察稳定负载下回收后存活集持续增长，而不只看瞬时对象总量。\n通过堆或 JFR 中的引用关系查明对象为何被保留，定位不应长期持有的引用。\n按保留原因修复并复测存活趋势，扩大堆只可能推迟资源耗尽。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.oracle.com/en/java/javase/17/troubleshoot/troubleshooting-memory-leaks.html",
+        "tags": [
+          "JVM",
+          "内存泄漏与引用链"
+        ]
+      }
+    },
+    {
+      "id": "jvm.heap-dump.official",
+      "version": 1,
+      "verifiedOn": "2026-10-02",
+      "document": {
+        "id": "p1.jvm.heap-dump.v1",
+        "title": "堆转储采集边界",
+        "content": "可用 jcmd GC.heap_dump 等工具采集堆，需识别目标进程、权限和参数。\nGC.heap_dump 属于高影响操作，转储与可能的 GC 有停顿及磁盘开销，应规划窗口。\n堆文件包含对象数据，诊断材料应控制访问与保存范围，不能当作普通公开日志。",
+        "source": "官方资料核对；项目内整理的知识要点",
+        "sourceUrl": "https://docs.oracle.com/en/java/javase/17/docs/specs/man/jcmd.html",
+        "tags": [
+          "JVM",
+          "堆转储采集边界"
+        ]
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "redis.lua-stock",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "REDIS",
+      "difficulty": 3,
+      "title": "Lua 与库存超卖",
+      "prompt": "并发秒杀中，Redis Lua 如何避免库存超卖？它能保证订单数据库也一致吗？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "race",
+          "knowledgePointId": "redis.inventory.race",
+          "expected": "分开读取、判断和扣减会出现并发竞态，应把检查和扣减放在同一短脚本内。",
+          "acceptedExpressions": [
+            "两个人都读到还剩一件就可能一起扣，我会让检查和扣减在一次脚本里完成。"
+          ],
+          "commonMistakes": [
+            "先 GET 再 DECR 是两个原子命令，所以组合起来一定不会超卖。"
+          ],
+          "sourceIds": [
+            "redis.lua-stock.official"
+          ]
+        },
+        {
+          "id": "scope",
+          "knowledgePointId": "redis.lua.atomic-scope",
+          "expected": "脚本执行期间其他命令不会穿插；原子性覆盖 Redis 脚本操作，不自动覆盖外部数据库事务。",
+          "acceptedExpressions": [
+            "执行这小段脚本时别人不能插进来，但订单库不在这个原子范围里。"
+          ],
+          "commonMistakes": [
+            "Lua 会自动把 Redis 和订单数据库放进同一个事务。"
+          ],
+          "sourceIds": [
+            "redis.lua-stock.official"
+          ]
+        },
+        {
+          "id": "bound",
+          "knowledgePointId": "redis.lua.execution-cost",
+          "expected": "脚本会阻塞服务器其他活动，必须控制执行时间和输入规模。",
+          "acceptedExpressions": [
+            "脚本别写成大循环，否则其他请求要等它跑完。"
+          ],
+          "commonMistakes": [
+            "Lua 在后台执行，脚本再长也不影响其他 Redis 请求。"
+          ],
+          "sourceIds": [
+            "redis.lua-stock.official"
+          ]
+        }
+      ],
+      "explanation": "分开读取、判断和扣减会出现并发竞态，应把检查和扣减放在同一短脚本内。\n脚本执行期间其他命令不会穿插；原子性覆盖 Redis 脚本操作，不自动覆盖外部数据库事务。\n脚本会阻塞服务器其他活动，必须控制执行时间和输入规模。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“Lua 在后台执行，脚本再长也不影响其他 Redis 请求。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "redis.lock",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "REDIS",
+      "difficulty": 3,
+      "title": "锁的所有权与过期",
+      "prompt": "Redis 锁为什么要有随机令牌和过期时间？解锁与执行超时分别有什么风险？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "acquire",
+          "knowledgePointId": "redis.lock.acquire",
+          "expected": "用带独占条件和租期的 SET NX PX 获取锁，令牌区分持有者。",
+          "acceptedExpressions": [
+            "我会用 NX 加超时时间一次设置，并放一个只有我知道的随机标记。"
+          ],
+          "commonMistakes": [
+            "先 SETNX 再单独 EXPIRE 永远不会留下没有过期时间的锁。"
+          ],
+          "sourceIds": [
+            "redis.lock.official"
+          ]
+        },
+        {
+          "id": "release",
+          "knowledgePointId": "redis.lock.release-owner",
+          "expected": "释放锁时必须原子地校验令牌属于自己再删除，避免删掉新持有者的锁。",
+          "acceptedExpressions": [
+            "先确认里面还是我的标记再删，这两步要在一个脚本里。"
+          ],
+          "commonMistakes": [
+            "执行完直接 DEL 就行，哪怕锁已过期又被别人取得也安全。"
+          ],
+          "sourceIds": [
+            "redis.lock.official"
+          ]
+        },
+        {
+          "id": "expiry",
+          "knowledgePointId": "redis.lock.lease-expiry",
+          "expected": "租期过后互斥可能失效；慢执行或暂停不能仅靠过期锁保证外部写入安全。",
+          "acceptedExpressions": [
+            "我如果停顿太久，锁可能已经归别人，原来的任务继续写仍有风险。"
+          ],
+          "commonMistakes": [
+            "设了过期时间就能保证任何长任务始终只有一个写入者。"
+          ],
+          "sourceIds": [
+            "redis.lock.official"
+          ]
+        }
+      ],
+      "explanation": "用带独占条件和租期的 SET NX PX 获取锁，令牌区分持有者。\n释放锁时必须原子地校验令牌属于自己再删除，避免删掉新持有者的锁。\n租期过后互斥可能失效；慢执行或暂停不能仅靠过期锁保证外部写入安全。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“设了过期时间就能保证任何长任务始终只有一个写入者。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "redis.eviction",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "REDIS",
+      "difficulty": 2,
+      "title": "内存淘汰策略",
+      "prompt": "Redis 达到 maxmemory 后如何淘汰？allkeys、volatile 和 noeviction 有什么区别？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "policy",
+          "knowledgePointId": "redis.eviction.key-scope",
+          "expected": "allkeys 可以选择全部键，volatile 只在有过期时间的键中选择。",
+          "acceptedExpressions": [
+            "allkeys 连没设过期的也能选，volatile 只看设了过期的。"
+          ],
+          "commonMistakes": [
+            "volatile 会从全部键里挑，是否有过期时间无关。"
+          ],
+          "sourceIds": [
+            "redis.eviction.official"
+          ]
+        },
+        {
+          "id": "access",
+          "knowledgePointId": "redis.eviction.lru-lfu",
+          "expected": "LRU 关注最近访问，LFU 关注访问频率，Redis 使用近似策略而非精确全局排序。",
+          "acceptedExpressions": [
+            "一个看最近有没有用，一个看经常不经常用，Redis 是近似地挑。"
+          ],
+          "commonMistakes": [
+            "LRU 和 LFU 都是按照键的创建时间精确排序。"
+          ],
+          "sourceIds": [
+            "redis.eviction.official"
+          ]
+        },
+        {
+          "id": "reject",
+          "knowledgePointId": "redis.eviction.noeviction",
+          "expected": "noeviction 不淘汰键，超过内存约束时会拒绝需要更多内存的相关写入。",
+          "acceptedExpressions": [
+            "不淘汰不等于无限装，它可能把需要新增内存的写请求拒掉。"
+          ],
+          "commonMistakes": [
+            "noeviction 会自动扩容内存，所以所有写入都能成功。"
+          ],
+          "sourceIds": [
+            "redis.eviction.official"
+          ]
+        }
+      ],
+      "explanation": "allkeys 可以选择全部键，volatile 只在有过期时间的键中选择。\nLRU 关注最近访问，LFU 关注访问频率，Redis 使用近似策略而非精确全局排序。\nnoeviction 不淘汰键，超过内存约束时会拒绝需要更多内存的相关写入。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“noeviction 会自动扩容内存，所以所有写入都能成功。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "redis.persistence",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "REDIS",
+      "difficulty": 2,
+      "title": "RDB 与 AOF",
+      "prompt": "RDB 和 AOF 的数据丢失窗口有什么差别？everysec 是否能保证绝不丢数据？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "rdb",
+          "knowledgePointId": "redis.persistence.rdb-window",
+          "expected": "RDB 是时间点快照，崩溃时可能丢失最近快照之后的写入。",
+          "acceptedExpressions": [
+            "它像给某一刻拍照，之后还没拍进去的修改可能丢。"
+          ],
+          "commonMistakes": [
+            "RDB 每个写命令都同步落盘，因此没有丢失窗口。"
+          ],
+          "sourceIds": [
+            "redis.persistence.official"
+          ]
+        },
+        {
+          "id": "aof",
+          "knowledgePointId": "redis.persistence.aof-fsync",
+          "expected": "AOF 记录写操作，fsync 策略影响性能和故障时的数据丢失窗口；everysec 不能保证零丢失。",
+          "acceptedExpressions": [
+            "日志怎么刷盘决定了风险，每秒刷不是每次写都已安全到磁盘。"
+          ],
+          "commonMistakes": [
+            "AOF everysec 是强同步持久化，任何故障下都绝不丢数据。"
+          ],
+          "sourceIds": [
+            "redis.persistence.official"
+          ]
+        },
+        {
+          "id": "cost",
+          "knowledgePointId": "redis.persistence.fork-cost",
+          "expected": "后台快照或重写的 fork、写时复制和磁盘 IO 可能增加内存及延迟压力。",
+          "acceptedExpressions": [
+            "后台做也有成本，复制页面和写盘都可能让内存或延迟上来。"
+          ],
+          "commonMistakes": [
+            "后台持久化完全不占内存和 IO，不需要监控。"
+          ],
+          "sourceIds": [
+            "redis.persistence.official"
+          ]
+        }
+      ],
+      "explanation": "RDB 是时间点快照，崩溃时可能丢失最近快照之后的写入。\nAOF 记录写操作，fsync 策略影响性能和故障时的数据丢失窗口；everysec 不能保证零丢失。\n后台快照或重写的 fork、写时复制和磁盘 IO 可能增加内存及延迟压力。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“后台持久化完全不占内存和 IO，不需要监控。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "mysql.explain",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "MYSQL",
+      "difficulty": 2,
+      "title": "慢查询与执行计划",
+      "prompt": "一条 SQL 很慢，你会如何用 EXPLAIN 和 EXPLAIN ANALYZE 定位，而不是直接加索引？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "plan",
+          "knowledgePointId": "mysql.explain.access-path",
+          "expected": "检查访问方式、实际使用的索引、估计行数与 Extra，结合 SQL 条件解释执行计划。",
+          "acceptedExpressions": [
+            "我会先看走什么访问路径、选了哪个索引、大概扫多少行。"
+          ],
+          "commonMistakes": [
+            "看到慢 SQL 就直接给所有字段加索引，不需要看计划。"
+          ],
+          "sourceIds": [
+            "mysql.explain.official"
+          ]
+        },
+        {
+          "id": "actual",
+          "knowledgePointId": "mysql.explain.analyze-executes",
+          "expected": "EXPLAIN ANALYZE 会实际执行支持的语句，并提供实际行数、循环次数和时间。",
+          "acceptedExpressions": [
+            "这个分析会真的跑语句，我会注意开销，再比较预计和实际扫描、耗时。"
+          ],
+          "commonMistakes": [
+            "EXPLAIN ANALYZE 只是估算，从不会真正执行语句。"
+          ],
+          "sourceIds": [
+            "mysql.explain.official"
+          ]
+        },
+        {
+          "id": "context",
+          "knowledgePointId": "mysql.explain.plan-context",
+          "expected": "扫描与排序信息要结合数据规模和结果集解释，不能仅凭出现全表扫描或 filesort 判断错误。",
+          "acceptedExpressions": [
+            "如果结果本来就很多，扫描也可能合理，看到排序不能直接断言索引错了。"
+          ],
+          "commonMistakes": [
+            "出现 filesort 就证明数据库一定在磁盘上排序，必须加索引。"
+          ],
+          "sourceIds": [
+            "mysql.explain.official"
+          ]
+        }
+      ],
+      "explanation": "检查访问方式、实际使用的索引、估计行数与 Extra，结合 SQL 条件解释执行计划。\nEXPLAIN ANALYZE 会实际执行支持的语句，并提供实际行数、循环次数和时间。\n扫描与排序信息要结合数据规模和结果集解释，不能仅凭出现全表扫描或 filesort 判断错误。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“出现 filesort 就证明数据库一定在磁盘上排序，必须加索引。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "mysql.composite-index",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "MYSQL",
+      "difficulty": 3,
+      "title": "联合索引与左前缀",
+      "prompt": "索引 (a,b,c) 可以支持哪些查询？如何理解左前缀，而不是只背口诀？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "prefix",
+          "knowledgePointId": "mysql.index.left-prefix",
+          "expected": "联合索引支持其左侧连续前缀，如 a、(a,b)、(a,b,c)。",
+          "acceptedExpressions": [
+            "它先按 a 排，再在 a 里按 b、c 排，所以从左边连续用最自然。"
+          ],
+          "commonMistakes": [
+            "(a,b,c) 与 (c,b,a) 完全等价，列顺序无影响。"
+          ],
+          "sourceIds": [
+            "mysql.composite-index.official"
+          ]
+        },
+        {
+          "id": "gap",
+          "knowledgePointId": "mysql.index.nonleading",
+          "expected": "只按非前导列过滤通常不能获得相同的左前缀定位效果；实际计划由优化器选择。",
+          "acceptedExpressions": [
+            "只给 b、c 时不能直接当成给了 a 的那种定位，最后还得看执行计划。"
+          ],
+          "commonMistakes": [
+            "只要条件里有索引任意一列就一定能精确定位所有记录。"
+          ],
+          "sourceIds": [
+            "mysql.composite-index.official"
+          ]
+        },
+        {
+          "id": "cost",
+          "knowledgePointId": "mysql.index.design-cost",
+          "expected": "列顺序需结合实际过滤条件与选择性设计，索引也带来存储及写入维护成本。",
+          "acceptedExpressions": [
+            "按真正怎么查来选顺序，不能每列都加一遍，还要付维护代价。"
+          ],
+          "commonMistakes": [
+            "索引没有写入或空间成本，建得越多一定越快。"
+          ],
+          "sourceIds": [
+            "mysql.composite-index.official"
+          ]
+        }
+      ],
+      "explanation": "联合索引支持其左侧连续前缀，如 a、(a,b)、(a,b,c)。\n只按非前导列过滤通常不能获得相同的左前缀定位效果；实际计划由优化器选择。\n列顺序需结合实际过滤条件与选择性设计，索引也带来存储及写入维护成本。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“索引没有写入或空间成本，建得越多一定越快。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "mysql.isolation",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "MYSQL",
+      "difficulty": 3,
+      "title": "事务隔离与快照",
+      "prompt": "InnoDB 的 READ COMMITTED 和 REPEATABLE READ 在一致性读取中有什么区别？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "default",
+          "knowledgePointId": "mysql.isolation.default",
+          "expected": "InnoDB 默认事务隔离级别是 REPEATABLE READ。",
+          "acceptedExpressions": [
+            "没另配的话，InnoDB 默认是可重复读。"
+          ],
+          "commonMistakes": [
+            "InnoDB 默认 READ UNCOMMITTED，所以都会读到没提交的数据。"
+          ],
+          "sourceIds": [
+            "mysql.isolation.official"
+          ]
+        },
+        {
+          "id": "rc",
+          "knowledgePointId": "mysql.mvcc.rc-read-view",
+          "expected": "READ COMMITTED 的每次一致性读取建立新的快照，可能读到别的事务后来提交的变化。",
+          "acceptedExpressions": [
+            "读已提交每次读重新看一张快照，两次之间别人提交的修改就可能看到了。"
+          ],
+          "commonMistakes": [
+            "READ COMMITTED 事务内始终复用第一次的快照。"
+          ],
+          "sourceIds": [
+            "mysql.isolation.official"
+          ]
+        },
+        {
+          "id": "rr",
+          "knowledgePointId": "mysql.mvcc.rr-read-view",
+          "expected": "REPEATABLE READ 通常复用事务第一次一致性读取建立的快照，而非一律在 BEGIN 时建立。",
+          "acceptedExpressions": [
+            "可重复读一般从第一次普通快照读开始固定视图，不是只执行 BEGIN 就一定建好了。"
+          ],
+          "commonMistakes": [
+            "REPEATABLE READ 每次查询都用最新快照，完全没有复用。"
+          ],
+          "sourceIds": [
+            "mysql.isolation.official"
+          ]
+        }
+      ],
+      "explanation": "InnoDB 默认事务隔离级别是 REPEATABLE READ。\nREAD COMMITTED 的每次一致性读取建立新的快照，可能读到别的事务后来提交的变化。\nREPEATABLE READ 通常复用事务第一次一致性读取建立的快照，而非一律在 BEGIN 时建立。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“REPEATABLE READ 每次查询都用最新快照，完全没有复用。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "mysql.mvcc-locking",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "MYSQL",
+      "difficulty": 3,
+      "title": "快照读取与锁定读取",
+      "prompt": "普通 SELECT 与 SELECT FOR UPDATE 在 InnoDB 中为什么不能混为一谈？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "snapshot",
+          "knowledgePointId": "mysql.mvcc.consistent-read",
+          "expected": "一致性非锁定读取通过多版本快照看到数据，不能等同于加写锁。",
+          "acceptedExpressions": [
+            "普通快照读看的是对当前视图可见的版本，不是给每行加写锁。"
+          ],
+          "commonMistakes": [
+            "MVCC 就是所有 SELECT 都先给记录加排他锁。"
+          ],
+          "sourceIds": [
+            "mysql.mvcc-locking.official"
+          ]
+        },
+        {
+          "id": "locking",
+          "knowledgePointId": "mysql.mvcc.locking-read",
+          "expected": "FOR UPDATE 属于锁定读取，和普通一致性快照读取有不同的锁与可见性语义。",
+          "acceptedExpressions": [
+            "加 FOR UPDATE 就不能照搬普通快照读的结论，它要拿锁。"
+          ],
+          "commonMistakes": [
+            "FOR UPDATE 和普通 SELECT 完全相同，都只读取历史快照。"
+          ],
+          "sourceIds": [
+            "mysql.mvcc-locking.official"
+          ]
+        },
+        {
+          "id": "own",
+          "knowledgePointId": "mysql.mvcc.own-writes",
+          "expected": "事务通常能看到自身此前的修改，快照语义不意味着连自己的新写入也不可见。",
+          "acceptedExpressions": [
+            "即便快照固定了，我自己的改动通常还是能读到。"
+          ],
+          "commonMistakes": [
+            "可重复读下事务永远看不到自己刚才更新的记录。"
+          ],
+          "sourceIds": [
+            "mysql.mvcc-locking.official"
+          ]
+        }
+      ],
+      "explanation": "一致性非锁定读取通过多版本快照看到数据，不能等同于加写锁。\nFOR UPDATE 属于锁定读取，和普通一致性快照读取有不同的锁与可见性语义。\n事务通常能看到自身此前的修改，快照语义不意味着连自己的新写入也不可见。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“可重复读下事务永远看不到自己刚才更新的记录。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "spring.proxy",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "SPRING",
+      "difficulty": 2,
+      "title": "事务代理与自调用",
+      "prompt": "同一个 Bean 内部调用另一个 @Transactional 方法，为什么可能没有预期的事务效果？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "proxy",
+          "knowledgePointId": "spring.tx.proxy-boundary",
+          "expected": "默认代理模式通过经代理的外部调用触发事务拦截。",
+          "acceptedExpressions": [
+            "事务是在代理那一层拦住外面的调用，再做开始提交这些事。"
+          ],
+          "commonMistakes": [
+            "只要方法贴了注解，任何调用都会被代理拦截。"
+          ],
+          "sourceIds": [
+            "spring.proxy.official"
+          ]
+        },
+        {
+          "id": "self",
+          "knowledgePointId": "spring.tx.self-invocation",
+          "expected": "同一对象的内部自调用通常绕过代理，不会因被调用方法注解而新触发事务拦截。",
+          "acceptedExpressions": [
+            "自己调用自己那个方法没经过外面的代理，所以那个注解不会新增一次拦截。"
+          ],
+          "commonMistakes": [
+            "this 调用内部方法一定会启动一个独立新事务。"
+          ],
+          "sourceIds": [
+            "spring.proxy.official"
+          ]
+        },
+        {
+          "id": "fix",
+          "knowledgePointId": "spring.tx.proxy-remedy",
+          "expected": "可把需要独立事务边界的逻辑放到另一个受管理 Bean，或采用合适的显式事务方式。",
+          "acceptedExpressions": [
+            "我会拆到另一个受管理的对象，让调用真正经过代理，或者显式控制事务。"
+          ],
+          "commonMistakes": [
+            "把 private 方法改个名字就能保证自调用必然被代理拦截。"
+          ],
+          "sourceIds": [
+            "spring.proxy.official"
+          ]
+        }
+      ],
+      "explanation": "默认代理模式通过经代理的外部调用触发事务拦截。\n同一对象的内部自调用通常绕过代理，不会因被调用方法注解而新触发事务拦截。\n可把需要独立事务边界的逻辑放到另一个受管理 Bean，或采用合适的显式事务方式。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“把 private 方法改个名字就能保证自调用必然被代理拦截。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "spring.rollback",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "SPRING",
+      "difficulty": 2,
+      "title": "异常与事务回滚",
+      "prompt": "在 Spring 6.1 的默认规则下，受检异常、运行时异常与被吞掉的异常如何影响回滚？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "default",
+          "knowledgePointId": "spring.tx.rollback-default",
+          "expected": "默认对 RuntimeException 和 Error 回滚，对受检异常不自动回滚。",
+          "acceptedExpressions": [
+            "默认那两类会回滚，普通受检异常不能直接假定也回滚。"
+          ],
+          "commonMistakes": [
+            "默认只要抛出任何 Exception 都自动回滚。"
+          ],
+          "sourceIds": [
+            "spring.rollback.official"
+          ]
+        },
+        {
+          "id": "rule",
+          "knowledgePointId": "spring.tx.rollback-rule",
+          "expected": "可用 rollbackFor 等规则显式配置匹配的异常类型，需同时考虑 noRollbackFor。",
+          "acceptedExpressions": [
+            "我会按业务指定哪些异常要回滚，也看有没有排除规则。"
+          ],
+          "commonMistakes": [
+            "rollbackFor 只能写 RuntimeException，不能指定受检异常。"
+          ],
+          "sourceIds": [
+            "spring.rollback.official"
+          ]
+        },
+        {
+          "id": "boundary",
+          "knowledgePointId": "spring.tx.exception-boundary",
+          "expected": "异常若被捕获且不再向事务拦截边界传播，不能仅靠原异常类型假定事务自动回滚。",
+          "acceptedExpressions": [
+            "如果里面把异常吃掉了，外面的事务边界可能根本没收到那个失败。"
+          ],
+          "commonMistakes": [
+            "异常一出现就一定回滚，捕获并正常返回不会影响结果。"
+          ],
+          "sourceIds": [
+            "spring.rollback.official"
+          ]
+        }
+      ],
+      "explanation": "默认对 RuntimeException 和 Error 回滚，对受检异常不自动回滚。\n可用 rollbackFor 等规则显式配置匹配的异常类型，需同时考虑 noRollbackFor。\n异常若被捕获且不再向事务拦截边界传播，不能仅靠原异常类型假定事务自动回滚。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“异常一出现就一定回滚，捕获并正常返回不会影响结果。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "spring.propagation",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "SPRING",
+      "difficulty": 3,
+      "title": "事务传播与独立资源",
+      "prompt": "REQUIRED 与 REQUIRES_NEW 的事务边界有什么区别？为什么要关注连接池？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "required",
+          "knowledgePointId": "spring.tx.required",
+          "expected": "REQUIRED 在已有事务时加入，没有事务时创建事务。",
+          "acceptedExpressions": [
+            "有事务就跟着用，没有才新开。"
+          ],
+          "commonMistakes": [
+            "REQUIRED 每次调用都挂起外层并创建独立事务。"
+          ],
+          "sourceIds": [
+            "spring.propagation.official"
+          ]
+        },
+        {
+          "id": "new",
+          "knowledgePointId": "spring.tx.requires-new",
+          "expected": "REQUIRES_NEW 创建独立事务并挂起存在的外层事务，提交与回滚边界独立。",
+          "acceptedExpressions": [
+            "它先把外层挂起来，内层自己开一个，所以成败边界不同。"
+          ],
+          "commonMistakes": [
+            "REQUIRES_NEW 与 REQUIRED 一样，始终只共用一个事务。"
+          ],
+          "sourceIds": [
+            "spring.propagation.official"
+          ]
+        },
+        {
+          "id": "resources",
+          "knowledgePointId": "spring.tx.requires-new-resources",
+          "expected": "独立事务需要额外资源，外层持有资源时应考虑连接池容量和等待风险。",
+          "acceptedExpressions": [
+            "外层还占着连接，里面又要一份资源，池子不够就会等。"
+          ],
+          "commonMistakes": [
+            "REQUIRES_NEW 永远复用外层同一个数据库连接，不会增加资源需求。"
+          ],
+          "sourceIds": [
+            "spring.propagation.official"
+          ]
+        }
+      ],
+      "explanation": "REQUIRED 在已有事务时加入，没有事务时创建事务。\nREQUIRES_NEW 创建独立事务并挂起存在的外层事务，提交与回滚边界独立。\n独立事务需要额外资源，外层持有资源时应考虑连接池容量和等待风险。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“REQUIRES_NEW 永远复用外层同一个数据库连接，不会增加资源需求。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "spring.async",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "SPRING",
+      "difficulty": 3,
+      "title": "异步任务与事务边界",
+      "prompt": "@Async 方法里的数据库操作会自动继承调用者的事务吗？为什么？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "thread",
+          "knowledgePointId": "spring.tx.thread-bound",
+          "expected": "常见 PlatformTransactionManager 事务上下文绑定当前线程，不自动传播到新线程。",
+          "acceptedExpressions": [
+            "普通这套事务信息放在线程上，换个线程不能直接拿着用。"
+          ],
+          "commonMistakes": [
+            "普通事务上下文是全 JVM 共享的，所有线程都自动参与。"
+          ],
+          "sourceIds": [
+            "spring.async.official"
+          ]
+        },
+        {
+          "id": "async",
+          "knowledgePointId": "spring.tx.async-boundary",
+          "expected": "异步执行不能假定继承调用方事务；异步数据库逻辑需要自己的有效事务边界。",
+          "acceptedExpressions": [
+            "后台那段需要自己安排有效的事务，不能指望调用方那个自动罩住。"
+          ],
+          "commonMistakes": [
+            "只给调用方加 Transactional，任意异步数据库任务都必然原子提交。"
+          ],
+          "sourceIds": [
+            "spring.async.official"
+          ]
+        },
+        {
+          "id": "rollback",
+          "knowledgePointId": "spring.tx.async-outcome",
+          "expected": "异步任务的失败不能直接等同于调用者事务回滚，应分别设计异常和提交后的工作。",
+          "acceptedExpressions": [
+            "后面线程失败了，不能当成前面那个已结束的事务还能自动回滚。"
+          ],
+          "commonMistakes": [
+            "调用者提交后，只要异步任务失败，数据库会自动撤销之前的提交。"
+          ],
+          "sourceIds": [
+            "spring.async.official"
+          ]
+        }
+      ],
+      "explanation": "常见 PlatformTransactionManager 事务上下文绑定当前线程，不自动传播到新线程。\n异步执行不能假定继承调用方事务；异步数据库逻辑需要自己的有效事务边界。\n异步任务的失败不能直接等同于调用者事务回滚，应分别设计异常和提交后的工作。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“调用者提交后，只要异步任务失败，数据库会自动撤销之前的提交。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "kafka.producer",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "KAFKA",
+      "difficulty": 3,
+      "title": "Kafka 生产可靠性",
+      "prompt": "Kafka 生产者的 acks、重试与幂等分别解决什么问题？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "acks",
+          "knowledgePointId": "kafka.producer.acks",
+          "expected": "acks=all 与同步副本及 min.insync.replicas 等配置一起决定写入确认边界。",
+          "acceptedExpressions": [
+            "all 要结合同步副本要求看，不能只看这一项就宣称任何故障都不丢。"
+          ],
+          "commonMistakes": [
+            "acks=0 表示所有副本都已可靠写入后才返回。"
+          ],
+          "sourceIds": [
+            "kafka.producer.official"
+          ]
+        },
+        {
+          "id": "retry",
+          "knowledgePointId": "kafka.producer.retry-duplicates",
+          "expected": "重试可能因确认丢失等情况造成重复，确认可靠性与去重不是同一问题。",
+          "acceptedExpressions": [
+            "服务端收到了但确认没回来，我再发一次就有重复风险。"
+          ],
+          "commonMistakes": [
+            "只要开启重试，就绝不可能重复消息。"
+          ],
+          "sourceIds": [
+            "kafka.producer.official"
+          ]
+        },
+        {
+          "id": "idempotence",
+          "knowledgePointId": "kafka.producer.idempotence",
+          "expected": "幂等生产者在其约束下避免生产重试重复，不等于外部数据库副作用自动幂等。",
+          "acceptedExpressions": [
+            "生产端幂等管那边重发的重复，不会顺便让消费端数据库也幂等。"
+          ],
+          "commonMistakes": [
+            "enable.idempotence 会自动保证所有消费者的数据库操作只执行一次。"
+          ],
+          "sourceIds": [
+            "kafka.producer.official"
+          ]
+        }
+      ],
+      "explanation": "acks=all 与同步副本及 min.insync.replicas 等配置一起决定写入确认边界。\n重试可能因确认丢失等情况造成重复，确认可靠性与去重不是同一问题。\n幂等生产者在其约束下避免生产重试重复，不等于外部数据库副作用自动幂等。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“enable.idempotence 会自动保证所有消费者的数据库操作只执行一次。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "kafka.duplicate-consume",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "KAFKA",
+      "difficulty": 3,
+      "title": "重复消费与业务幂等",
+      "prompt": "消费者写入订单后崩溃，重新消费同一条消息时如何避免重复订单？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "window",
+          "knowledgePointId": "kafka.consumer.at-least-once",
+          "expected": "业务写入后、offset 提交前崩溃仍可能重复消费。",
+          "acceptedExpressions": [
+            "订单已写好但位置还没报上去就挂了，回来就可能再读到。"
+          ],
+          "commonMistakes": [
+            "只要先执行业务再提交 offset，就绝不会重复消费。"
+          ],
+          "sourceIds": [
+            "kafka.duplicate-consume.official"
+          ]
+        },
+        {
+          "id": "idempotent",
+          "knowledgePointId": "kafka.consumer.business-idempotence",
+          "expected": "外部数据库副作用要通过业务唯一键、条件写入或同一事务内处理记录等实现幂等。",
+          "acceptedExpressions": [
+            "我会用稳定业务号加数据库约束，让重复来的一次不会再产生新订单。"
+          ],
+          "commonMistakes": [
+            "在内存里放一个已消费集合，就能保证跨进程重启后永远不重复。"
+          ],
+          "sourceIds": [
+            "kafka.duplicate-consume.official"
+          ]
+        },
+        {
+          "id": "scope",
+          "knowledgePointId": "kafka.consumer.exactly-once-scope",
+          "expected": "Kafka 的事务语义不会自动覆盖任意外部数据库或第三方接口。",
+          "acceptedExpressions": [
+            "Kafka 内部的事务边界不等于把外面的库和接口也自动包进去了。"
+          ],
+          "commonMistakes": [
+            "Kafka exactly-once 自动包含任意外部数据库事务。"
+          ],
+          "sourceIds": [
+            "kafka.duplicate-consume.official"
+          ]
+        }
+      ],
+      "explanation": "业务写入后、offset 提交前崩溃仍可能重复消费。\n外部数据库副作用要通过业务唯一键、条件写入或同一事务内处理记录等实现幂等。\nKafka 的事务语义不会自动覆盖任意外部数据库或第三方接口。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“Kafka exactly-once 自动包含任意外部数据库事务。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "kafka.offset",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "KAFKA",
+      "difficulty": 2,
+      "title": "消费位置提交时机",
+      "prompt": "消费者什么时候提交 offset？先提交和后提交各有什么故障窗口？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "early",
+          "knowledgePointId": "kafka.offset.before-processing",
+          "expected": "处理业务前提交位置，随后崩溃可能使未完成业务的消息被跳过。",
+          "acceptedExpressions": [
+            "先报处理到这里了但实际没做完就挂，回来可能直接跳过它。"
+          ],
+          "commonMistakes": [
+            "先提交 offset 会让未完成业务的消息必定自动再次处理。"
+          ],
+          "sourceIds": [
+            "kafka.offset.official"
+          ]
+        },
+        {
+          "id": "late",
+          "knowledgePointId": "kafka.offset.after-processing",
+          "expected": "业务成功后提交位置可以保留重处理机会，但提交前崩溃可能重复处理。",
+          "acceptedExpressions": [
+            "做完再报位置，漏报的时候还会回来，但可能要重复做。"
+          ],
+          "commonMistakes": [
+            "业务后提交 offset 可以同时消除一切丢失和重复。"
+          ],
+          "sourceIds": [
+            "kafka.offset.official"
+          ]
+        },
+        {
+          "id": "next",
+          "knowledgePointId": "kafka.offset.next-record",
+          "expected": "提交的位置通常是已完成处理的最后记录 offset 加一，即下一条待读位置。",
+          "acceptedExpressions": [
+            "我报的是下一条要读的位置，通常是最后处理完那条再加一。"
+          ],
+          "commonMistakes": [
+            "应提交当前已处理记录的 offset 减一，表示下一条记录。"
+          ],
+          "sourceIds": [
+            "kafka.offset.official"
+          ]
+        }
+      ],
+      "explanation": "处理业务前提交位置，随后崩溃可能使未完成业务的消息被跳过。\n业务成功后提交位置可以保留重处理机会，但提交前崩溃可能重复处理。\n提交的位置通常是已完成处理的最后记录 offset 加一，即下一条待读位置。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“应提交当前已处理记录的 offset 减一，表示下一条记录。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "kafka.order",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "KAFKA",
+      "difficulty": 2,
+      "title": "分区与消息顺序",
+      "prompt": "Kafka 能保证什么范围内的顺序？同一订单消息怎样避免跨分区乱序？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "partition",
+          "knowledgePointId": "kafka.order.partition-scope",
+          "expected": "顺序保证以分区日志为范围，不能推导为整个多分区主题的全局顺序。",
+          "acceptedExpressions": [
+            "一条分区里的日志有顺序，多条分区合起来没统一先后。"
+          ],
+          "commonMistakes": [
+            "Kafka 的所有主题和分区共享一个严格全局顺序。"
+          ],
+          "sourceIds": [
+            "kafka.order.official"
+          ]
+        },
+        {
+          "id": "key",
+          "knowledgePointId": "kafka.order.key-partition",
+          "expected": "同一业务键通常用于把有关事件路由到同一分区，需考虑分区选择及数量变化。",
+          "acceptedExpressions": [
+            "同一订单尽量用同一个键落到同一条分区里，改分区数时也得重新考虑。"
+          ],
+          "commonMistakes": [
+            "业务键相同就一定跨任意分区数量变化仍保持绝对顺序。"
+          ],
+          "sourceIds": [
+            "kafka.order.official"
+          ]
+        },
+        {
+          "id": "processing",
+          "knowledgePointId": "kafka.order.processing-order",
+          "expected": "日志读取顺序不自动保证应用并发处理或失败重试后的副作用完成顺序。",
+          "acceptedExpressions": [
+            "按顺序读出来，交给多个线程或插入重试，做完的顺序仍可能变。"
+          ],
+          "commonMistakes": [
+            "只要从日志顺序读取，任意线程池并发处理的数据库写入也必定有序。"
+          ],
+          "sourceIds": [
+            "kafka.order.official"
+          ]
+        }
+      ],
+      "explanation": "顺序保证以分区日志为范围，不能推导为整个多分区主题的全局顺序。\n同一业务键通常用于把有关事件路由到同一分区，需考虑分区选择及数量变化。\n日志读取顺序不自动保证应用并发处理或失败重试后的副作用完成顺序。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“只要从日志顺序读取，任意线程池并发处理的数据库写入也必定有序。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "java.pool-sizing",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "JAVA_CONCURRENCY",
+      "difficulty": 3,
+      "title": "线程数与队列顺序",
+      "prompt": "ThreadPoolExecutor 如何决定创建线程、入队和拒绝任务？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "core",
+          "knowledgePointId": "java.pool.core-first",
+          "expected": "运行线程少于 corePoolSize 时通常先创建工作线程处理新任务。",
+          "acceptedExpressions": [
+            "核心数还没到，一般先增加干活的人。"
+          ],
+          "commonMistakes": [
+            "所有任务都必须先排队，核心线程永远不会优先创建。"
+          ],
+          "sourceIds": [
+            "java.pool-sizing.official"
+          ]
+        },
+        {
+          "id": "queue",
+          "knowledgePointId": "java.pool.queue-before-max",
+          "expected": "达到核心线程数后先尝试入队，无法入队时才尝试扩展到最大线程数。",
+          "acceptedExpressions": [
+            "到核心数以后先放队列，队列装不下才再往最大数扩。"
+          ],
+          "commonMistakes": [
+            "一到核心数就必定先扩到最大数，最后才考虑队列。"
+          ],
+          "sourceIds": [
+            "java.pool-sizing.official"
+          ]
+        },
+        {
+          "id": "reject",
+          "knowledgePointId": "java.pool.saturation",
+          "expected": "无法入队且不能再建线程时执行拒绝策略；关闭状态也可能拒绝任务。",
+          "acceptedExpressions": [
+            "队列和线程都没法接，或者关掉了，就要按拒绝策略处理。"
+          ],
+          "commonMistakes": [
+            "达到最大线程数后会自动无上限创建新线程，不会拒绝。"
+          ],
+          "sourceIds": [
+            "java.pool-sizing.official"
+          ]
+        }
+      ],
+      "explanation": "运行线程少于 corePoolSize 时通常先创建工作线程处理新任务。\n达到核心线程数后先尝试入队，无法入队时才尝试扩展到最大线程数。\n无法入队且不能再建线程时执行拒绝策略；关闭状态也可能拒绝任务。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“达到最大线程数后会自动无上限创建新线程，不会拒绝。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "java.pool-unbounded",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "JAVA_CONCURRENCY",
+      "difficulty": 2,
+      "title": "无界队列的风险",
+      "prompt": "为什么使用无界队列时 maximumPoolSize 经常没有预期作用？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "growth",
+          "knowledgePointId": "java.pool.unbounded-growth",
+          "expected": "无界队列通常能持续接收任务，线程一般不会因队列满而扩展到 maximumPoolSize。",
+          "acceptedExpressions": [
+            "它一直能排进去，就没有队列满的那个扩容触发条件。"
+          ],
+          "commonMistakes": [
+            "无界队列会一满就立刻触发 maximumPoolSize 扩容。"
+          ],
+          "sourceIds": [
+            "java.pool-unbounded.official"
+          ]
+        },
+        {
+          "id": "memory",
+          "knowledgePointId": "java.pool.backlog-memory",
+          "expected": "任务积压增加等待时间和内存占用，可能耗尽资源。",
+          "acceptedExpressions": [
+            "任务一直堆着，等得越来越久，任务对象也要占内存。"
+          ],
+          "commonMistakes": [
+            "排队任务不消耗内存，所以积压多少都没风险。"
+          ],
+          "sourceIds": [
+            "java.pool-unbounded.official"
+          ]
+        },
+        {
+          "id": "bound",
+          "knowledgePointId": "java.pool.capacity-planning",
+          "expected": "可结合有界队列、拒绝或背压策略与下游容量控制积压。",
+          "acceptedExpressions": [
+            "我会限制能排多少，并想好满了怎么挡住提交，还要看下游接不接得住。"
+          ],
+          "commonMistakes": [
+            "只把最大线程数设得更大就必定能消除无界队列积压。"
+          ],
+          "sourceIds": [
+            "java.pool-unbounded.official"
+          ]
+        }
+      ],
+      "explanation": "无界队列通常能持续接收任务，线程一般不会因队列满而扩展到 maximumPoolSize。\n任务积压增加等待时间和内存占用，可能耗尽资源。\n可结合有界队列、拒绝或背压策略与下游容量控制积压。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“只把最大线程数设得更大就必定能消除无界队列积压。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "java.pool-rejection",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "JAVA_CONCURRENCY",
+      "difficulty": 2,
+      "title": "拒绝策略的业务含义",
+      "prompt": "AbortPolicy、CallerRunsPolicy 和丢弃策略对业务分别意味着什么？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "abort",
+          "knowledgePointId": "java.pool.reject-abort",
+          "expected": "AbortPolicy 通过 RejectedExecutionException 明确报告无法接受任务。",
+          "acceptedExpressions": [
+            "它会直接抛拒绝异常，让提交者知道没接下。"
+          ],
+          "commonMistakes": [
+            "AbortPolicy 会静默丢掉任务，不通知提交者。"
+          ],
+          "sourceIds": [
+            "java.pool-rejection.official"
+          ]
+        },
+        {
+          "id": "caller",
+          "knowledgePointId": "java.pool.reject-caller",
+          "expected": "CallerRunsPolicy 通常让调用 execute 的线程执行任务，可能阻塞请求提交方；关闭时不执行。",
+          "acceptedExpressions": [
+            "还没关闭时可能让提交的人自己干，所以请求线程也可能被拖住。"
+          ],
+          "commonMistakes": [
+            "CallerRunsPolicy 总是新建后台线程，绝不会影响提交线程。"
+          ],
+          "sourceIds": [
+            "java.pool-rejection.official"
+          ]
+        },
+        {
+          "id": "discard",
+          "knowledgePointId": "java.pool.reject-discard",
+          "expected": "丢弃类策略可能丢失任务，重要业务必须设计可观察的失败处理。",
+          "acceptedExpressions": [
+            "丢掉就是可能没做，重要任务得有失败记录和补救，不能当成功。"
+          ],
+          "commonMistakes": [
+            "DiscardPolicy 会可靠持久化任务，稍后必定补执行。"
+          ],
+          "sourceIds": [
+            "java.pool-rejection.official"
+          ]
+        }
+      ],
+      "explanation": "AbortPolicy 通过 RejectedExecutionException 明确报告无法接受任务。\nCallerRunsPolicy 通常让调用 execute 的线程执行任务，可能阻塞请求提交方；关闭时不执行。\n丢弃类策略可能丢失任务，重要业务必须设计可观察的失败处理。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“DiscardPolicy 会可靠持久化任务，稍后必定补执行。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "java.pool-shutdown",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "JAVA_CONCURRENCY",
+      "difficulty": 3,
+      "title": "关闭与任务取消",
+      "prompt": "shutdown、shutdownNow 和 awaitTermination 有什么区别？中断是不是强制终止？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "graceful",
+          "knowledgePointId": "java.pool.shutdown-graceful",
+          "expected": "shutdown 不接受新任务，通常继续执行已提交任务，不自行等待全部完成。",
+          "acceptedExpressions": [
+            "先不接新的，让原来的继续做，但这个调用本身不是等它们全部结束。"
+          ],
+          "commonMistakes": [
+            "shutdown 会立即强制终止所有已提交任务。"
+          ],
+          "sourceIds": [
+            "java.pool-shutdown.official"
+          ]
+        },
+        {
+          "id": "interrupt",
+          "knowledgePointId": "java.pool.shutdown-interrupt",
+          "expected": "shutdownNow 尝试中断运行中的任务并返回未开始任务，中断不保证强制停止。",
+          "acceptedExpressions": [
+            "它是尽力打断，不理会中断的任务可能还在跑，没开始的会返回来。"
+          ],
+          "commonMistakes": [
+            "shutdownNow 会在任何情况下强制杀死所有任务线程。"
+          ],
+          "sourceIds": [
+            "java.pool-shutdown.official"
+          ]
+        },
+        {
+          "id": "await",
+          "knowledgePointId": "java.pool.shutdown-await",
+          "expected": "awaitTermination 等待关闭后的终止或超时，并返回是否终止。",
+          "acceptedExpressions": [
+            "关了以后可以等一段时间，看返回结果判断有没有真正结束。"
+          ],
+          "commonMistakes": [
+            "awaitTermination 会自动启动新的线程池并接收新任务。"
+          ],
+          "sourceIds": [
+            "java.pool-shutdown.official"
+          ]
+        }
+      ],
+      "explanation": "shutdown 不接受新任务，通常继续执行已提交任务，不自行等待全部完成。\nshutdownNow 尝试中断运行中的任务并返回未开始任务，中断不保证强制停止。\nawaitTermination 等待关闭后的终止或超时，并返回是否终止。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“awaitTermination 会自动启动新的线程池并接收新任务。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "jvm.gc",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "JVM",
+      "difficulty": 3,
+      "title": "GC 停顿定位",
+      "prompt": "服务延迟突然增加，怀疑 GC 时你会收集哪些信息，怎样判断？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "observe",
+          "knowledgePointId": "jvm.gc.measurements",
+          "expected": "结合 GC 日志、暂停、堆占用与分配变化观察现象，而不是只凭一次停顿归因。",
+          "acceptedExpressions": [
+            "先把回收日志和堆变化拿到，看看停顿时间能不能对上请求变慢。"
+          ],
+          "commonMistakes": [
+            "只看到一次请求慢就能证明发生 Full GC。"
+          ],
+          "sourceIds": [
+            "jvm.gc.official"
+          ]
+        },
+        {
+          "id": "goal",
+          "knowledgePointId": "jvm.gc.tradeoffs",
+          "expected": "GC 调优需权衡暂停、吞吐和内存，不存在对所有负载都最优的同一参数。",
+          "acceptedExpressions": [
+            "要先说想少停顿还是吞吐更高，还得看能给多少内存。"
+          ],
+          "commonMistakes": [
+            "任何业务套用同一组最大堆和收集器参数都一定最优。"
+          ],
+          "sourceIds": [
+            "jvm.gc.official"
+          ]
+        },
+        {
+          "id": "cause",
+          "knowledgePointId": "jvm.gc.retained-pressure",
+          "expected": "对象存活、分配压力与容量影响回收效果，扩大堆不能替代查明持续增长原因。",
+          "acceptedExpressions": [
+            "内存调大之前，先看是什么一直分配或一直留着，不然只是晚点再出问题。"
+          ],
+          "commonMistakes": [
+            "出现频繁 GC 只要无限增大堆就无需排查对象存活。"
+          ],
+          "sourceIds": [
+            "jvm.gc.official"
+          ]
+        }
+      ],
+      "explanation": "结合 GC 日志、暂停、堆占用与分配变化观察现象，而不是只凭一次停顿归因。\nGC 调优需权衡暂停、吞吐和内存，不存在对所有负载都最优的同一参数。\n对象存活、分配压力与容量影响回收效果，扩大堆不能替代查明持续增长原因。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“出现频繁 GC 只要无限增大堆就无需排查对象存活。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "jvm.memory",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "JVM",
+      "difficulty": 2,
+      "title": "堆与其他内存",
+      "prompt": "Java 进程内存增长是否一定是堆泄漏？如何区分不同区域？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "regions",
+          "knowledgePointId": "jvm.memory.regions",
+          "expected": "进程占用还包含元空间、线程栈和本地等内存，不能把进程大小等同于 Java 堆。",
+          "acceptedExpressions": [
+            "整个进程比堆大很正常，还有类的信息、线程栈和本地那些。"
+          ],
+          "commonMistakes": [
+            "进程占用严格等于 Java 堆大小，其他区域不占内存。"
+          ],
+          "sourceIds": [
+            "jvm.memory.official"
+          ]
+        },
+        {
+          "id": "oom",
+          "knowledgePointId": "jvm.memory.oom-category",
+          "expected": "分析 OutOfMemoryError 的具体类型和对应区域，容量不足不必然是泄漏。",
+          "acceptedExpressions": [
+            "先看报哪种内存不够，也可能只是配小了，不是见到 OOM 就断定泄漏。"
+          ],
+          "commonMistakes": [
+            "所有 OutOfMemoryError 都证明业务对象发生了堆泄漏。"
+          ],
+          "sourceIds": [
+            "jvm.memory.official"
+          ]
+        },
+        {
+          "id": "native",
+          "knowledgePointId": "jvm.memory.native-diagnosis",
+          "expected": "怀疑本地内存问题需结合进程与本地工具观测，单独堆转储不能解释所有进程内存。",
+          "acceptedExpressions": [
+            "堆里的东西解释不完的话还要查本地和进程指标，不能只盯一份堆文件。"
+          ],
+          "commonMistakes": [
+            "只看 Java 堆转储即可精确覆盖所有 native 内存分配。"
+          ],
+          "sourceIds": [
+            "jvm.memory.official"
+          ]
+        }
+      ],
+      "explanation": "进程占用还包含元空间、线程栈和本地等内存，不能把进程大小等同于 Java 堆。\n分析 OutOfMemoryError 的具体类型和对应区域，容量不足不必然是泄漏。\n怀疑本地内存问题需结合进程与本地工具观测，单独堆转储不能解释所有进程内存。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“只看 Java 堆转储即可精确覆盖所有 native 内存分配。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "jvm.leak",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "JVM",
+      "difficulty": 3,
+      "title": "内存泄漏与引用链",
+      "prompt": "对象越来越多时，怎样证明是泄漏，并定位为什么没有被回收？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "trend",
+          "knowledgePointId": "jvm.leak.live-set",
+          "expected": "观察稳定负载下回收后存活集持续增长，而不只看瞬时对象总量。",
+          "acceptedExpressions": [
+            "业务稳定了但回收完剩下的还一直涨，才是值得追的信号。"
+          ],
+          "commonMistakes": [
+            "请求高峰时临时对象增加一次，就足以证明永久泄漏。"
+          ],
+          "sourceIds": [
+            "jvm.leak.official"
+          ]
+        },
+        {
+          "id": "reference",
+          "knowledgePointId": "jvm.leak.reference-path",
+          "expected": "通过堆或 JFR 中的引用关系查明对象为何被保留，定位不应长期持有的引用。",
+          "acceptedExpressions": [
+            "我要顺着是谁还引用着它去找，看看是否缓存或别的对象不该一直握住它。"
+          ],
+          "commonMistakes": [
+            "对象能被 GC root 到达也会必然立即回收，不用看引用链。"
+          ],
+          "sourceIds": [
+            "jvm.leak.official"
+          ]
+        },
+        {
+          "id": "fix",
+          "knowledgePointId": "jvm.leak.retention-fix",
+          "expected": "按保留原因修复并复测存活趋势，扩大堆只可能推迟资源耗尽。",
+          "acceptedExpressions": [
+            "把不该保留的引用处理掉，再看稳态回收后是不是还涨，单纯加堆只能拖时间。"
+          ],
+          "commonMistakes": [
+            "只增大堆就是永久消除引用泄漏，不需要改代码或复测。"
+          ],
+          "sourceIds": [
+            "jvm.leak.official"
+          ]
+        }
+      ],
+      "explanation": "观察稳定负载下回收后存活集持续增长，而不只看瞬时对象总量。\n通过堆或 JFR 中的引用关系查明对象为何被保留，定位不应长期持有的引用。\n按保留原因修复并复测存活趋势，扩大堆只可能推迟资源耗尽。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“只增大堆就是永久消除引用泄漏，不需要改代码或复测。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    },
+    {
+      "id": "jvm.heap-dump",
+      "version": 1,
+      "rubricVersion": 1,
+      "topic": "JVM",
+      "difficulty": 3,
+      "title": "堆转储采集边界",
+      "prompt": "线上采集堆转储如何兼顾故障定位、停顿、磁盘与敏感数据？",
+      "suggestedSeconds": 120,
+      "active": true,
+      "criteria": [
+        {
+          "id": "command",
+          "knowledgePointId": "jvm.dump.collection",
+          "expected": "可用 jcmd GC.heap_dump 等工具采集堆，需识别目标进程、权限和参数。",
+          "acceptedExpressions": [
+            "先确认要抓的是哪个进程、我有没有权限，再用对应的堆转储命令。"
+          ],
+          "commonMistakes": [
+            "随便对任何 PID 执行任意命令都能无权限获取完整堆。"
+          ],
+          "sourceIds": [
+            "jvm.heap-dump.official"
+          ]
+        },
+        {
+          "id": "impact",
+          "knowledgePointId": "jvm.dump.operational-cost",
+          "expected": "GC.heap_dump 属于高影响操作，转储与可能的 GC 有停顿及磁盘开销，应规划窗口。",
+          "acceptedExpressions": [
+            "这不是零成本操作，要留磁盘，想好停顿和采集时机。"
+          ],
+          "commonMistakes": [
+            "GC.heap_dump 永远不会产生 GC、暂停或磁盘占用。"
+          ],
+          "sourceIds": [
+            "jvm.heap-dump.official"
+          ]
+        },
+        {
+          "id": "content",
+          "knowledgePointId": "jvm.dump.data-boundary",
+          "expected": "堆文件包含对象数据，诊断材料应控制访问与保存范围，不能当作普通公开日志。",
+          "acceptedExpressions": [
+            "里面可能有运行时对象内容，我不会随便公开分享，会管好访问和保存。"
+          ],
+          "commonMistakes": [
+            "堆转储只包含类名，不会有任何对象内容，可以任意公开。"
+          ],
+          "sourceIds": [
+            "jvm.heap-dump.official"
+          ]
+        }
+      ],
+      "explanation": "可用 jcmd GC.heap_dump 等工具采集堆，需识别目标进程、权限和参数。\nGC.heap_dump 属于高影响操作，转储与可能的 GC 有停顿及磁盘开销，应规划窗口。\n堆文件包含对象数据，诊断材料应控制访问与保存范围，不能当作普通公开日志。\n回答时先说明机制，再给场景，最后讲适用边界；正确的不同措辞同样可以被认可。",
+      "followups": [
+        "有人认为“堆转储只包含类名，不会有任何对象内容，可以任意公开。”你同意吗？请说明适用条件或故障边界。"
+      ]
+    }
+  ]
+}

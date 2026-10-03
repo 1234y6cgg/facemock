@@ -1,0 +1,295 @@
+{
+  "tests": 191,
+  "scope": "Full backend run plus relevant final-change reruns; latest per-suite Surefire reports, not one final all-suite run.",
+  "errors": 0,
+  "suites": [
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.agent.AssessmentParserTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.agent.DiagnosisParserTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 9,
+      "skipped": 0,
+      "suite": "com.mockinterview.agent.InterviewStateMachineTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 1,
+      "suite": "com.mockinterview.capability.evaluation.PracticeModelIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 0,
+      "suite": "com.mockinterview.capability.evaluation.PracticeModelTransportTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 49,
+      "skipped": 0,
+      "suite": "com.mockinterview.capability.evaluation.TrainingEvaluationParserTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 4,
+      "skipped": 4,
+      "suite": "com.mockinterview.capability.knowledge.ChromaRagIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 0,
+      "suite": "com.mockinterview.capability.knowledge.InterviewKnowledgeQueryTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 3,
+      "skipped": 0,
+      "suite": "com.mockinterview.capability.knowledge.KnowledgeChunkerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 5,
+      "skipped": 0,
+      "suite": "com.mockinterview.capability.knowledge.TechKnowledgeServiceTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 3,
+      "skipped": 0,
+      "suite": "com.mockinterview.capability.llm.JsonExtractorTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.capability.speech.AudioRulesTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 0,
+      "suite": "com.mockinterview.controller.HealthControllerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.controller.InterviewControllerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 5,
+      "skipped": 0,
+      "suite": "com.mockinterview.controller.KnowledgeControllerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 3,
+      "skipped": 0,
+      "suite": "com.mockinterview.controller.PracticeControllerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 3,
+      "skipped": 0,
+      "suite": "com.mockinterview.controller.ProjectControllerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.controller.QuestionControllerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.controller.ResumeControllerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 4,
+      "skipped": 0,
+      "suite": "com.mockinterview.controller.SpeechControllerTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 0,
+      "suite": "com.mockinterview.domain.ResumeStructuredTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 3,
+      "skipped": 0,
+      "suite": "com.mockinterview.infrastructure.speech.IatProtocolTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 1,
+      "suite": "com.mockinterview.infrastructure.speech.XfyunIatIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 0,
+      "suite": "com.mockinterview.infrastructure.tika.TikaTextExtractorTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 4,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.interview.InterviewOrchestratorTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 8,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.practice.PracticeFlowTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 8,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.practice.PracticeMysqlIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.practice.PracticeReferencesTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 5,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.project.ProjectAssessmentParserTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 3,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.project.ProjectChromaIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 9,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.project.ProjectFlowTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.project.ProjectModelIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 9,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.project.ProjectMysqlIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.question.QuestionCatalogTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 1,
+      "suite": "com.mockinterview.service.question.QuestionChromaIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 6,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.question.QuestionImportServiceTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 1,
+      "skipped": 1,
+      "suite": "com.mockinterview.service.question.QuestionMysqlIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 2,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.resume.ResumeParserTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 10,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.speech.SpeechFlowTest",
+      "errors": 0,
+      "failures": 0
+    },
+    {
+      "tests": 10,
+      "skipped": 0,
+      "suite": "com.mockinterview.service.speech.SpeechMysqlIntegrationTest",
+      "errors": 0,
+      "failures": 0
+    }
+  ],
+  "verifiedAt": "2026-10-03T05:42:53.6800717+00:00",
+  "frontend": {
+    "audioRegressionTests": 3,
+    "productionBuild": "passed"
+  },
+  "passed": 183,
+  "failures": 0,
+  "skipped": 8
+}

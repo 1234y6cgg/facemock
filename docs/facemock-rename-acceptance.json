@@ -1,0 +1,26 @@
+{
+  "countsMatch": true,
+  "dataHashMatch": true,
+  "modelSettingsMatch": true,
+  "speechSettingsMatch": true,
+  "knowledgeChunks": 190,
+  "knowledgeAvailable": true,
+  "counts": {
+    "interviewMessages": 6,
+    "interviewReports": 1,
+    "interviews": 1,
+    "practiceAttempts": 1,
+    "practiceEvaluations": 1,
+    "practiceSessions": 4,
+    "projectAttempts": 0,
+    "projectEvaluations": 0,
+    "projectMaterials": 1,
+    "projectRevisions": 3,
+    "projectSessions": 1,
+    "projects": 1,
+    "recordings": 2,
+    "resumes": 15,
+    "transcriptions": 2
+  },
+  "health": "UP"
+}

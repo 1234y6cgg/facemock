@@ -4,6 +4,7 @@ import com.mockinterview.domain.dto.CreateInterviewRequest;
 import com.mockinterview.domain.dto.MessageDto;
 import com.mockinterview.service.interview.InterviewService;
 import org.junit.jupiter.api.Test;
+import com.mockinterview.capability.ratelimit.RateLimiterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -21,6 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(InterviewController.class)
 class InterviewControllerTest {
+    @MockBean
+    private RateLimiterService limiter;
 
     @Autowired
     private MockMvc mvc;

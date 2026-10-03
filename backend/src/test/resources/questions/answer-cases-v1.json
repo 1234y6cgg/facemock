@@ -1,0 +1,1013 @@
+{
+  "datasetVersion": 1,
+  "cases": [
+    {
+      "id": "case-01",
+      "questionId": "redis.lua-stock",
+      "questionVersion": 1,
+      "category": "COLLOQUIAL_CORRECT",
+      "answer": "两个人都读到还剩一件就可能一起扣，我会让检查和扣减在一次脚本里完成。 执行这小段脚本时别人不能插进来，但订单库不在这个原子范围里。 脚本别写成大循环，否则其他请求要等它跑完。",
+      "availableSourceIds": [
+        "redis.lua-stock.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "race",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "两个人都读到还剩一件就可能一起扣，我会让检查和扣减在一次脚本里完成。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "redis.lua-stock.official"
+          ]
+        },
+        {
+          "criterionId": "scope",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "执行这小段脚本时别人不能插进来，但订单库不在这个原子范围里。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "redis.lua-stock.official"
+          ]
+        },
+        {
+          "criterionId": "bound",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "脚本别写成大循环，否则其他请求要等它跑完。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "redis.lua-stock.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-02",
+      "questionId": "redis.lock",
+      "questionVersion": 1,
+      "category": "MISSING_POINTS",
+      "answer": "我会用 NX 加超时时间一次设置，并放一个只有我知道的随机标记。",
+      "availableSourceIds": [
+        "redis.lock.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "acquire",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "我会用 NX 加超时时间一次设置，并放一个只有我知道的随机标记。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "redis.lock.official"
+          ]
+        },
+        {
+          "criterionId": "release",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "redis.lock.official"
+          ]
+        },
+        {
+          "criterionId": "expiry",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "redis.lock.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-03",
+      "questionId": "redis.eviction",
+      "questionVersion": 1,
+      "category": "FACTUAL_ERROR",
+      "answer": "volatile 会从全部键里挑，是否有过期时间无关。 LRU 和 LFU 都是按照键的创建时间精确排序。 noeviction 会自动扩容内存，所以所有写入都能成功。",
+      "availableSourceIds": [
+        "redis.eviction.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "policy",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "volatile 会从全部键里挑，是否有过期时间无关。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "redis.eviction.official"
+          ]
+        },
+        {
+          "criterionId": "access",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "LRU 和 LFU 都是按照键的创建时间精确排序。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "redis.eviction.official"
+          ]
+        },
+        {
+          "criterionId": "reject",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "noeviction 会自动扩容内存，所以所有写入都能成功。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "redis.eviction.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-04",
+      "questionId": "redis.persistence",
+      "questionVersion": 1,
+      "category": "UNRELATED",
+      "answer": "我周末喜欢散步，今天午饭吃了面条，想聊聊旅行。",
+      "availableSourceIds": [
+        "redis.persistence.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "rdb",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "redis.persistence.official"
+          ]
+        },
+        {
+          "criterionId": "aof",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "redis.persistence.official"
+          ]
+        },
+        {
+          "criterionId": "cost",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "redis.persistence.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-05",
+      "questionId": "mysql.explain",
+      "questionVersion": 1,
+      "category": "WRONG_TERMINOLOGY",
+      "answer": "EXPLAIN 的 rows 就是查询最终返回的行数，完全不用看扫描量。 这个分析会真的跑语句，我会注意开销，再比较预计和实际扫描、耗时。 如果结果本来就很多，扫描也可能合理，看到排序不能直接断言索引错了。",
+      "availableSourceIds": [
+        "mysql.explain.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "plan",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "EXPLAIN 的 rows 就是查询最终返回的行数，完全不用看扫描量。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "mysql.explain.official"
+          ]
+        },
+        {
+          "criterionId": "actual",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "这个分析会真的跑语句，我会注意开销，再比较预计和实际扫描、耗时。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "mysql.explain.official"
+          ]
+        },
+        {
+          "criterionId": "context",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "如果结果本来就很多，扫描也可能合理，看到排序不能直接断言索引错了。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "mysql.explain.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-06",
+      "questionId": "mysql.composite-index",
+      "questionVersion": 1,
+      "category": "EVIDENCE_INSUFFICIENT",
+      "answer": "它先按 a 排，再在 a 里按 b、c 排，所以从左边连续用最自然。 只给 b、c 时不能直接当成给了 a 的那种定位，最后还得看执行计划。 按真正怎么查来选顺序，不能每列都加一遍，还要付维护代价。",
+      "availableSourceIds": [],
+      "expected": [
+        {
+          "criterionId": "prefix",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        },
+        {
+          "criterionId": "gap",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        },
+        {
+          "criterionId": "cost",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-07",
+      "questionId": "mysql.isolation",
+      "questionVersion": 1,
+      "category": "COLLOQUIAL_CORRECT",
+      "answer": "没另配的话，InnoDB 默认是可重复读。 读已提交每次读重新看一张快照，两次之间别人提交的修改就可能看到了。 可重复读一般从第一次普通快照读开始固定视图，不是只执行 BEGIN 就一定建好了。",
+      "availableSourceIds": [
+        "mysql.isolation.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "default",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "没另配的话，InnoDB 默认是可重复读。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "mysql.isolation.official"
+          ]
+        },
+        {
+          "criterionId": "rc",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "读已提交每次读重新看一张快照，两次之间别人提交的修改就可能看到了。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "mysql.isolation.official"
+          ]
+        },
+        {
+          "criterionId": "rr",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "可重复读一般从第一次普通快照读开始固定视图，不是只执行 BEGIN 就一定建好了。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "mysql.isolation.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-08",
+      "questionId": "mysql.mvcc-locking",
+      "questionVersion": 1,
+      "category": "MISSING_POINTS",
+      "answer": "普通快照读看的是对当前视图可见的版本，不是给每行加写锁。",
+      "availableSourceIds": [
+        "mysql.mvcc-locking.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "snapshot",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "普通快照读看的是对当前视图可见的版本，不是给每行加写锁。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "mysql.mvcc-locking.official"
+          ]
+        },
+        {
+          "criterionId": "locking",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "mysql.mvcc-locking.official"
+          ]
+        },
+        {
+          "criterionId": "own",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "mysql.mvcc-locking.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-09",
+      "questionId": "spring.proxy",
+      "questionVersion": 1,
+      "category": "FACTUAL_ERROR",
+      "answer": "只要方法贴了注解，任何调用都会被代理拦截。 this 调用内部方法一定会启动一个独立新事务。 把 private 方法改个名字就能保证自调用必然被代理拦截。",
+      "availableSourceIds": [
+        "spring.proxy.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "proxy",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "只要方法贴了注解，任何调用都会被代理拦截。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "spring.proxy.official"
+          ]
+        },
+        {
+          "criterionId": "self",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "this 调用内部方法一定会启动一个独立新事务。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "spring.proxy.official"
+          ]
+        },
+        {
+          "criterionId": "fix",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "把 private 方法改个名字就能保证自调用必然被代理拦截。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "spring.proxy.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-10",
+      "questionId": "spring.rollback",
+      "questionVersion": 1,
+      "category": "UNRELATED",
+      "answer": "我周末喜欢散步，今天午饭吃了面条，想聊聊旅行。",
+      "availableSourceIds": [
+        "spring.rollback.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "default",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "spring.rollback.official"
+          ]
+        },
+        {
+          "criterionId": "rule",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "spring.rollback.official"
+          ]
+        },
+        {
+          "criterionId": "boundary",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "spring.rollback.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-11",
+      "questionId": "spring.propagation",
+      "questionVersion": 1,
+      "category": "WRONG_TERMINOLOGY",
+      "answer": "REQUIRED 就是 REQUIRES_NEW，会挂起外层并创建独立事务。 它先把外层挂起来，内层自己开一个，所以成败边界不同。 外层还占着连接，里面又要一份资源，池子不够就会等。",
+      "availableSourceIds": [
+        "spring.propagation.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "required",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "REQUIRED 就是 REQUIRES_NEW，会挂起外层并创建独立事务。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "spring.propagation.official"
+          ]
+        },
+        {
+          "criterionId": "new",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "它先把外层挂起来，内层自己开一个，所以成败边界不同。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "spring.propagation.official"
+          ]
+        },
+        {
+          "criterionId": "resources",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "外层还占着连接，里面又要一份资源，池子不够就会等。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "spring.propagation.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-12",
+      "questionId": "spring.async",
+      "questionVersion": 1,
+      "category": "EVIDENCE_INSUFFICIENT",
+      "answer": "普通这套事务信息放在线程上，换个线程不能直接拿着用。 后台那段需要自己安排有效的事务，不能指望调用方那个自动罩住。 后面线程失败了，不能当成前面那个已结束的事务还能自动回滚。",
+      "availableSourceIds": [],
+      "expected": [
+        {
+          "criterionId": "thread",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        },
+        {
+          "criterionId": "async",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        },
+        {
+          "criterionId": "rollback",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-13",
+      "questionId": "kafka.producer",
+      "questionVersion": 1,
+      "category": "COLLOQUIAL_CORRECT",
+      "answer": "all 要结合同步副本要求看，不能只看这一项就宣称任何故障都不丢。 服务端收到了但确认没回来，我再发一次就有重复风险。 生产端幂等管那边重发的重复，不会顺便让消费端数据库也幂等。",
+      "availableSourceIds": [
+        "kafka.producer.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "acks",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "all 要结合同步副本要求看，不能只看这一项就宣称任何故障都不丢。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "kafka.producer.official"
+          ]
+        },
+        {
+          "criterionId": "retry",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "服务端收到了但确认没回来，我再发一次就有重复风险。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "kafka.producer.official"
+          ]
+        },
+        {
+          "criterionId": "idempotence",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "生产端幂等管那边重发的重复，不会顺便让消费端数据库也幂等。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "kafka.producer.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-14",
+      "questionId": "kafka.duplicate-consume",
+      "questionVersion": 1,
+      "category": "MISSING_POINTS",
+      "answer": "订单已写好但位置还没报上去就挂了，回来就可能再读到。",
+      "availableSourceIds": [
+        "kafka.duplicate-consume.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "window",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "订单已写好但位置还没报上去就挂了，回来就可能再读到。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "kafka.duplicate-consume.official"
+          ]
+        },
+        {
+          "criterionId": "idempotent",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "kafka.duplicate-consume.official"
+          ]
+        },
+        {
+          "criterionId": "scope",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "kafka.duplicate-consume.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-15",
+      "questionId": "kafka.offset",
+      "questionVersion": 1,
+      "category": "FACTUAL_ERROR",
+      "answer": "先提交 offset 会让未完成业务的消息必定自动再次处理。 业务后提交 offset 可以同时消除一切丢失和重复。 应提交当前已处理记录的 offset 减一，表示下一条记录。",
+      "availableSourceIds": [
+        "kafka.offset.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "early",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "先提交 offset 会让未完成业务的消息必定自动再次处理。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "kafka.offset.official"
+          ]
+        },
+        {
+          "criterionId": "late",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "业务后提交 offset 可以同时消除一切丢失和重复。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "kafka.offset.official"
+          ]
+        },
+        {
+          "criterionId": "next",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "应提交当前已处理记录的 offset 减一，表示下一条记录。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "kafka.offset.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-16",
+      "questionId": "kafka.order",
+      "questionVersion": 1,
+      "category": "UNRELATED",
+      "answer": "我周末喜欢散步，今天午饭吃了面条，想聊聊旅行。",
+      "availableSourceIds": [
+        "kafka.order.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "partition",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "kafka.order.official"
+          ]
+        },
+        {
+          "criterionId": "key",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "kafka.order.official"
+          ]
+        },
+        {
+          "criterionId": "processing",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "kafka.order.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-17",
+      "questionId": "java.pool-sizing",
+      "questionVersion": 1,
+      "category": "WRONG_TERMINOLOGY",
+      "answer": "corePoolSize 就是 maximumPoolSize，达到核心数后会先扩到最大数再入队。 到核心数以后先放队列，队列装不下才再往最大数扩。 队列和线程都没法接，或者关掉了，就要按拒绝策略处理。",
+      "availableSourceIds": [
+        "java.pool-sizing.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "core",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "corePoolSize 就是 maximumPoolSize，达到核心数后会先扩到最大数再入队。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "java.pool-sizing.official"
+          ]
+        },
+        {
+          "criterionId": "queue",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "到核心数以后先放队列，队列装不下才再往最大数扩。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "java.pool-sizing.official"
+          ]
+        },
+        {
+          "criterionId": "reject",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "队列和线程都没法接，或者关掉了，就要按拒绝策略处理。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "java.pool-sizing.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-18",
+      "questionId": "java.pool-unbounded",
+      "questionVersion": 1,
+      "category": "EVIDENCE_INSUFFICIENT",
+      "answer": "它一直能排进去，就没有队列满的那个扩容触发条件。 任务一直堆着，等得越来越久，任务对象也要占内存。 我会限制能排多少，并想好满了怎么挡住提交，还要看下游接不接得住。",
+      "availableSourceIds": [],
+      "expected": [
+        {
+          "criterionId": "growth",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        },
+        {
+          "criterionId": "memory",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        },
+        {
+          "criterionId": "bound",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-19",
+      "questionId": "java.pool-rejection",
+      "questionVersion": 1,
+      "category": "COLLOQUIAL_CORRECT",
+      "answer": "它会直接抛拒绝异常，让提交者知道没接下。 还没关闭时可能让提交的人自己干，所以请求线程也可能被拖住。 丢掉就是可能没做，重要任务得有失败记录和补救，不能当成功。",
+      "availableSourceIds": [
+        "java.pool-rejection.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "abort",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "它会直接抛拒绝异常，让提交者知道没接下。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "java.pool-rejection.official"
+          ]
+        },
+        {
+          "criterionId": "caller",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "还没关闭时可能让提交的人自己干，所以请求线程也可能被拖住。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "java.pool-rejection.official"
+          ]
+        },
+        {
+          "criterionId": "discard",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "丢掉就是可能没做，重要任务得有失败记录和补救，不能当成功。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "java.pool-rejection.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-20",
+      "questionId": "java.pool-shutdown",
+      "questionVersion": 1,
+      "category": "MISSING_POINTS",
+      "answer": "先不接新的，让原来的继续做，但这个调用本身不是等它们全部结束。",
+      "availableSourceIds": [
+        "java.pool-shutdown.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "graceful",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "先不接新的，让原来的继续做，但这个调用本身不是等它们全部结束。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "java.pool-shutdown.official"
+          ]
+        },
+        {
+          "criterionId": "interrupt",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "java.pool-shutdown.official"
+          ]
+        },
+        {
+          "criterionId": "await",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "java.pool-shutdown.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-21",
+      "questionId": "jvm.gc",
+      "questionVersion": 1,
+      "category": "FACTUAL_ERROR",
+      "answer": "只看到一次请求慢就能证明发生 Full GC。 任何业务套用同一组最大堆和收集器参数都一定最优。 出现频繁 GC 只要无限增大堆就无需排查对象存活。",
+      "availableSourceIds": [
+        "jvm.gc.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "observe",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "只看到一次请求慢就能证明发生 Full GC。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "jvm.gc.official"
+          ]
+        },
+        {
+          "criterionId": "goal",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "任何业务套用同一组最大堆和收集器参数都一定最优。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "jvm.gc.official"
+          ]
+        },
+        {
+          "criterionId": "cause",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "出现频繁 GC 只要无限增大堆就无需排查对象存活。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "jvm.gc.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-22",
+      "questionId": "jvm.memory",
+      "questionVersion": 1,
+      "category": "UNRELATED",
+      "answer": "我周末喜欢散步，今天午饭吃了面条，想聊聊旅行。",
+      "availableSourceIds": [
+        "jvm.memory.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "regions",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "jvm.memory.official"
+          ]
+        },
+        {
+          "criterionId": "oom",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "jvm.memory.official"
+          ]
+        },
+        {
+          "criterionId": "native",
+          "status": "MISSING",
+          "candidateQuotes": [],
+          "reason": "回答没有说明该要点。",
+          "sourceIds": [
+            "jvm.memory.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-23",
+      "questionId": "jvm.leak",
+      "questionVersion": 1,
+      "category": "WRONG_TERMINOLOGY",
+      "answer": "GC 后的存活集就是当前累计分配过的所有对象，所以瞬时分配高峰就是永久泄漏。 我要顺着是谁还引用着它去找，看看是否缓存或别的对象不该一直握住它。 把不该保留的引用处理掉，再看稳态回收后是不是还涨，单纯加堆只能拖时间。",
+      "availableSourceIds": [
+        "jvm.leak.official"
+      ],
+      "expected": [
+        {
+          "criterionId": "trend",
+          "status": "INCORRECT",
+          "candidateQuotes": [
+            "GC 后的存活集就是当前累计分配过的所有对象，所以瞬时分配高峰就是永久泄漏。"
+          ],
+          "reason": "原话与已核验要点相冲突，应说明机制与边界。",
+          "sourceIds": [
+            "jvm.leak.official"
+          ]
+        },
+        {
+          "criterionId": "reference",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "我要顺着是谁还引用着它去找，看看是否缓存或别的对象不该一直握住它。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "jvm.leak.official"
+          ]
+        },
+        {
+          "criterionId": "fix",
+          "status": "COVERED",
+          "candidateQuotes": [
+            "把不该保留的引用处理掉，再看稳态回收后是不是还涨，单纯加堆只能拖时间。"
+          ],
+          "reason": "口语表达与已核验要点一致。",
+          "sourceIds": [
+            "jvm.leak.official"
+          ]
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    },
+    {
+      "id": "case-24",
+      "questionId": "jvm.heap-dump",
+      "questionVersion": 1,
+      "category": "EVIDENCE_INSUFFICIENT",
+      "answer": "先确认要抓的是哪个进程、我有没有权限，再用对应的堆转储命令。 这不是零成本操作，要留磁盘，想好停顿和采集时机。 里面可能有运行时对象内容，我不会随便公开分享，会管好访问和保存。",
+      "availableSourceIds": [],
+      "expected": [
+        {
+          "criterionId": "command",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        },
+        {
+          "criterionId": "impact",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        },
+        {
+          "criterionId": "content",
+          "status": "UNCERTAIN",
+          "candidateQuotes": [],
+          "reason": "当前未提供该要点的参考依据，暂不作确定判定。",
+          "sourceIds": []
+        }
+      ],
+      "reviewNote": "作者依据评分要点与官方资料整理的预期标签；用于校验和后续模型评测，不是实际模型输出。"
+    }
+  ]
+}

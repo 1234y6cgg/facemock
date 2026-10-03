@@ -17,4 +17,10 @@ frontend/vite.config.d.ts
 *.log
 # 数据卷
 data/
+!backend/src/main/java/com/mockinterview/service/data/
+!backend/src/main/java/com/mockinterview/service/data/*.java
+.venv/
+__pycache__/
 .superpowers/
+
+.claude/

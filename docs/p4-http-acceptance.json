@@ -1,0 +1,2485 @@
+{
+  "syntheticProject": true,
+  "baseUrl": "http://localhost:18082",
+  "checks": {
+    "uploadParseSelectAndIsolation": true,
+    "actualModelPairedConflict": true,
+    "allTemplates": true,
+    "mobileDraftAndReanswer": true,
+    "uiReanswerComparison": true,
+    "updatedRetrievalAndFrozenHistory": true,
+    "deletedCurrentMaterialPreservesHistory": true,
+    "correctedFactsAndStale409": true,
+    "actualEmbeddingChromaCrossProjectIsolation": true,
+    "chromaUnavailable503": true,
+    "chromaRestartRecovered": true,
+    "differingEvaluationVersionNotComparable": true,
+    "desktopAndMobileFollowupCompleted": true,
+    "sameEvaluationVersionComparison": true,
+    "factDraftConfirmationAndMarkdownUI": true
+  },
+  "sessions": {
+    "conflict": "6809d05d-0733-443e-8952-5667687f239f",
+    "OWNERSHIP": "c1714ada-c60b-4c81-b1cb-35752cde578c",
+    "CHOICE": "4abb2b6d-3f05-49d2-9f9f-33a8383f7419",
+    "DEBUGGING": "62f03876-d9c6-42fa-b72c-ee2f18f9afc3",
+    "IMPACT": "600c39ba-74dc-41e3-b659-d8e7c21b18a5",
+    "REFLECTION": "395046e1-2203-4662-9d05-97609161a605",
+    "mobileFollowup": "0b1289e9-cc7d-4df7-b586-ed133118fc18",
+    "desktopFollowup": "63ece500-b670-4cee-9301-f721c9921d82"
+  },
+  "resumeId": 3,
+  "resumeChoice": {
+    "id": 3,
+    "filename": "p4-synthetic-resume.docx",
+    "projectNames": [
+      "订单课程项目 A",
+      "物流测试项目 B"
+    ]
+  },
+  "projectA": "aafc6be0-83f0-4764-b543-5199222d614b",
+  "projectB": "88f95d5f-a404-4b0d-af8b-ff14a76a1340",
+  "conflictSession": {
+    "id": "6809d05d-0733-443e-8952-5667687f239f",
+    "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "template": "INTRO",
+    "prompt": "请用两分钟介绍项目背景、你个人的工作、关键方案和有依据的结果。\n围绕事实卡的这段内容展开（仍需按原材料核对）：“课程订单项目，用于学习库存扣减”",
+    "status": "ACTIVE",
+    "originAttemptId": null,
+    "snapshot": {
+      "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+      "projectName": "订单课程项目 A",
+      "revision": 3,
+      "facts": {
+        "background": "课程订单项目，用于学习库存扣减",
+        "contribution": "我只负责库存模块，订单和支付由其他同事负责",
+        "approach": "Redis Lua 检查库存并扣减",
+        "challenge": "",
+        "result": "只做单机功能验证，未压测",
+        "evidence": "",
+        "improvements": "计划引入 Kafka，尚未实施",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 3,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "课程订单项目，用于学习库存扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 3,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "我只负责库存模块，订单和支付由其他同事负责",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 3,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "Redis Lua 检查库存并扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:result",
+          "version": 3,
+          "title": "result",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "只做单机功能验证，未压测",
+          "planned": false
+        },
+        {
+          "id": "fact:improvements",
+          "version": 3,
+          "title": "improvements",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "计划引入 Kafka，尚未实施",
+          "planned": true
+        },
+        {
+          "id": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+          "version": 1,
+          "title": "库存功能验证记录",
+          "origin": "P4 虚构测试记录 · 本机验证",
+          "content": "旧材料：只在本机功能验证，无压测数据。",
+          "planned": false
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:11:55.282149Z",
+    "attempts": [
+      {
+        "id": "da710849-9111-47f9-9f56-ba5518cd2e81",
+        "clientRequestId": "eff37c25-5f96-4d08-9e47-f12651d63ecf",
+        "number": 1,
+        "answer": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+        "parentAttemptId": null,
+        "createdAt": "2026-10-03T05:11:55.329058Z",
+        "evaluation": {
+          "id": "9c050d5e-ff8b-4b83-9c12-2b5594981eb3",
+          "generation": 1,
+          "status": "SUCCEEDED",
+          "errorCode": null,
+          "modelName": "deepseek-flash",
+          "promptVersion": "project-facts-v1",
+          "durationMs": 15658,
+          "result": {
+            "answerHash": "5607584656186f11bbd534cefd21ab6f8223f45806f812b1edd9c625a0150e0f",
+            "criteria": [
+              {
+                "id": "relevance",
+                "status": "PARTIAL",
+                "reasonCode": "NEEDS_DETAIL",
+                "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  }
+                ]
+              },
+              {
+                "id": "contribution",
+                "status": "CONFLICT",
+                "reasonCode": "CONTRADICTS_MATERIAL",
+                "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  }
+                ]
+              },
+              {
+                "id": "evidence",
+                "status": "CONFLICT",
+                "reasonCode": "CONTRADICTS_MATERIAL",
+                "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  }
+                ]
+              },
+              {
+                "id": "consistency",
+                "status": "CONFLICT",
+                "reasonCode": "CONTRADICTS_MATERIAL",
+                "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  }
+                ]
+              }
+            ],
+            "missingFields": [
+              "background",
+              "approach",
+              "result",
+              "evidence"
+            ],
+            "improvementActions": [
+              "CLARIFY_OWNERSHIP",
+              "MEASURE"
+            ]
+          }
+        },
+        "evaluations": [
+          {
+            "id": "9c050d5e-ff8b-4b83-9c12-2b5594981eb3",
+            "generation": 1,
+            "status": "SUCCEEDED",
+            "errorCode": null,
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v1",
+            "durationMs": 15658,
+            "result": {
+              "answerHash": "5607584656186f11bbd534cefd21ab6f8223f45806f812b1edd9c625a0150e0f",
+              "criteria": [
+                {
+                  "id": "relevance",
+                  "status": "PARTIAL",
+                  "reasonCode": "NEEDS_DETAIL",
+                  "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "contribution",
+                  "status": "CONFLICT",
+                  "reasonCode": "CONTRADICTS_MATERIAL",
+                  "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    }
+                  ]
+                },
+                {
+                  "id": "evidence",
+                  "status": "CONFLICT",
+                  "reasonCode": "CONTRADICTS_MATERIAL",
+                  "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    }
+                  ]
+                },
+                {
+                  "id": "consistency",
+                  "status": "CONFLICT",
+                  "reasonCode": "CONTRADICTS_MATERIAL",
+                  "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    }
+                  ]
+                }
+              ],
+              "missingFields": [
+                "background",
+                "approach",
+                "result",
+                "evidence"
+              ],
+              "improvementActions": [
+                "CLARIFY_OWNERSHIP",
+                "MEASURE"
+              ]
+            }
+          }
+        ],
+        "comparison": null
+      }
+    ]
+  },
+  "updatedSnapshot": {
+    "id": "0b66ef0f-ec48-4e25-a51b-4fa2236eeab9",
+    "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "template": "IMPACT",
+    "prompt": "请说明项目取得的结果、测量口径及证据；没有数据时明确哪些还不能证明。\n围绕事实卡的这段内容展开（仍需按原材料核对）：“只做单机功能验证，未压测”",
+    "status": "ACTIVE",
+    "originAttemptId": null,
+    "snapshot": {
+      "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+      "projectName": "订单课程项目 A",
+      "revision": 4,
+      "facts": {
+        "background": "课程订单项目，用于学习库存扣减",
+        "contribution": "我只负责库存模块，订单和支付由其他同事负责",
+        "approach": "Redis Lua 检查库存并扣减",
+        "challenge": "",
+        "result": "只做单机功能验证，未压测",
+        "evidence": "",
+        "improvements": "计划引入 Kafka，尚未实施",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 4,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "课程订单项目，用于学习库存扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 4,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "我只负责库存模块，订单和支付由其他同事负责",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 4,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "Redis Lua 检查库存并扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:result",
+          "version": 4,
+          "title": "result",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "只做单机功能验证，未压测",
+          "planned": false
+        },
+        {
+          "id": "fact:improvements",
+          "version": 4,
+          "title": "improvements",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "计划引入 Kafka，尚未实施",
+          "planned": true
+        },
+        {
+          "id": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+          "version": 2,
+          "title": "库存功能验证记录",
+          "origin": "P4 虚构测试记录 · 本机验证",
+          "content": "新材料：P4_UPDATE_ONLY 本机库存功能验证完成；没有压测指标。",
+          "planned": false
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:35:40.577673800Z",
+    "attempts": []
+  },
+  "deletedSnapshot": {
+    "id": "c0fac8d2-6739-4c37-b566-43a8124b7c6f",
+    "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "template": "IMPACT",
+    "prompt": "请说明项目取得的结果、测量口径及证据；没有数据时明确哪些还不能证明。\n围绕事实卡的这段内容展开（仍需按原材料核对）：“只做单机功能验证，未压测”",
+    "status": "ACTIVE",
+    "originAttemptId": null,
+    "snapshot": {
+      "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+      "projectName": "订单课程项目 A",
+      "revision": 5,
+      "facts": {
+        "background": "课程订单项目，用于学习库存扣减",
+        "contribution": "我只负责库存模块，订单和支付由其他同事负责",
+        "approach": "Redis Lua 检查库存并扣减",
+        "challenge": "",
+        "result": "只做单机功能验证，未压测",
+        "evidence": "",
+        "improvements": "计划引入 Kafka，尚未实施",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 5,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "课程订单项目，用于学习库存扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 5,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "我只负责库存模块，订单和支付由其他同事负责",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 5,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "Redis Lua 检查库存并扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:result",
+          "version": 5,
+          "title": "result",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "只做单机功能验证，未压测",
+          "planned": false
+        },
+        {
+          "id": "fact:improvements",
+          "version": 5,
+          "title": "improvements",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "计划引入 Kafka，尚未实施",
+          "planned": true
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:35:41.674617400Z",
+    "attempts": []
+  },
+  "correctedSnapshot": {
+    "id": "6f1285c6-00a7-4aa2-871d-b333e1c0e6d3",
+    "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "template": "IMPACT",
+    "prompt": "请说明项目取得的结果、测量口径及证据；没有数据时明确哪些还不能证明。\n围绕事实卡的这段内容展开（仍需按原材料核对）：“只做单机功能验证，未压测”",
+    "status": "ACTIVE",
+    "originAttemptId": null,
+    "snapshot": {
+      "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+      "projectName": "订单课程项目 A",
+      "revision": 6,
+      "facts": {
+        "background": "课程订单项目，用于学习库存扣减",
+        "contribution": "我只负责库存模块的 Lua 校验和扣减；订单和支付仍由其他同事负责（核对修订）",
+        "approach": "Redis Lua 检查库存并扣减",
+        "challenge": "",
+        "result": "只做单机功能验证，未压测",
+        "evidence": "",
+        "improvements": "计划引入 Kafka，尚未实施",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 6,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "课程订单项目，用于学习库存扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 6,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "我只负责库存模块的 Lua 校验和扣减；订单和支付仍由其他同事负责（核对修订）",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 6,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "Redis Lua 检查库存并扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:result",
+          "version": 6,
+          "title": "result",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "只做单机功能验证，未压测",
+          "planned": false
+        },
+        {
+          "id": "fact:improvements",
+          "version": 6,
+          "title": "improvements",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "计划引入 Kafka，尚未实施",
+          "planned": true
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:35:42.854074300Z",
+    "attempts": []
+  },
+  "projectBSnapshot": {
+    "id": "56ebb252-db43-4009-8c8f-82ff5c38aa67",
+    "projectId": "88f95d5f-a404-4b0d-af8b-ff14a76a1340",
+    "template": "IMPACT",
+    "prompt": "请说明项目取得的结果、测量口径及证据；没有数据时明确哪些还不能证明。",
+    "status": "ACTIVE",
+    "originAttemptId": null,
+    "snapshot": {
+      "projectId": "88f95d5f-a404-4b0d-af8b-ff14a76a1340",
+      "projectName": "物流测试项目 B",
+      "revision": 4,
+      "facts": {
+        "background": "纯虚构的跨项目隔离测试数据；测试团队负责路线规划，与项目 A 无关。",
+        "contribution": "测试团队负责路线规划，B_ONLY 为本次验收的虚构数据，与项目 A 无关。",
+        "approach": "技术栈（待核对）：\nPython\nPostgreSQL\n路线规划\n跨项目隔离测试\n测试数据隔离",
+        "challenge": "简历提取（待核对）：\n隔离标记 B_ONLY\n日单量一百万\n延迟降低百分之八十",
+        "result": "",
+        "evidence": "",
+        "improvements": "",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 4,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 1 的提取结果由使用者核对",
+          "content": "纯虚构的跨项目隔离测试数据；测试团队负责路线规划，与项目 A 无关。",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 4,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 1 的提取结果由使用者核对",
+          "content": "测试团队负责路线规划，B_ONLY 为本次验收的虚构数据，与项目 A 无关。",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 4,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 1 的提取结果由使用者核对",
+          "content": "技术栈（待核对）：\nPython\nPostgreSQL\n路线规划\n跨项目隔离测试\n测试数据隔离",
+          "planned": false
+        },
+        {
+          "id": "fact:challenge",
+          "version": 4,
+          "title": "challenge",
+          "origin": "本人事实卡；简历 3 项目 1 的提取结果由使用者核对",
+          "content": "简历提取（待核对）：\n隔离标记 B_ONLY\n日单量一百万\n延迟降低百分之八十",
+          "planned": false
+        },
+        {
+          "id": "c6f8c4c6-cce8-4446-ad07-4f10b262b882",
+          "version": 1,
+          "title": "路线规划记录",
+          "origin": "虚构项目 B 的测试说明",
+          "content": "# 仅供项目 B\nB_MATERIAL_ONLY：路线规划隔离验证记录；不能作为项目 A 的职责或结果。",
+          "planned": false
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:35:43.986008200Z",
+    "attempts": []
+  },
+  "finalProject": {
+    "id": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "resumeId": 3,
+    "resumeProjectIndex": 0,
+    "name": "订单课程项目 A",
+    "revision": 6,
+    "indexStatus": "READY",
+    "indexedRevision": 6,
+    "facts": {
+      "background": "课程订单项目，用于学习库存扣减",
+      "contribution": "我只负责库存模块的 Lua 校验和扣减；订单和支付仍由其他同事负责（核对修订）",
+      "approach": "Redis Lua 检查库存并扣减",
+      "challenge": "",
+      "result": "只做单机功能验证，未压测",
+      "evidence": "",
+      "improvements": "计划引入 Kafka，尚未实施",
+      "confirmed": true
+    },
+    "extraction": "{\"name\":\"订单课程项目 A\",\"desc\":\"课程练习项目，用于学习库存扣减；候选人仅负责库存模块，订单和支付由其他同事负责。\",\"role\":\"库存模块负责人\",\"techStack\":[\"Java\",\"Spring Boot\",\"Redis\",\"Lua\",\"库存扣减\"],\"responsibilities\":[\"负责库存模块\",\"使用 Redis Lua 检查库存并扣减\",\"进行单机功能验证\"],\"highlights\":[\"完成库存检查与扣减的单机功能验证\",\"未进行压测\",\"计划引入 Kafka，尚未实施\"]}",
+    "materials": [
+      {
+        "id": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+        "version": 3,
+        "title": "库存功能验证记录",
+        "origin": "P4 虚构测试记录 · 本机验证",
+        "content": "",
+        "deleted": true,
+        "createdAt": "2026-10-03T05:35:40.605074Z"
+      }
+    ],
+    "templates": [
+      {
+        "id": "INTRO",
+        "title": "两分钟介绍",
+        "field": "background",
+        "question": "请用两分钟介绍项目背景、你个人的工作、关键方案和有依据的结果。",
+        "seconds": 120
+      },
+      {
+        "id": "OWNERSHIP",
+        "title": "个人职责",
+        "field": "contribution",
+        "question": "请区分团队工作和你个人实现、决策及协作的部分。",
+        "seconds": 90
+      },
+      {
+        "id": "CHOICE",
+        "title": "技术选型",
+        "field": "approach",
+        "question": "请选择材料中一个技术方案，说明选择依据、备选方案和适用边界。",
+        "seconds": 120
+      },
+      {
+        "id": "DEBUGGING",
+        "title": "困难定位",
+        "field": "challenge",
+        "question": "请围绕一项实际难点说明现象、定位过程、你的处理和验证。",
+        "seconds": 120
+      },
+      {
+        "id": "IMPACT",
+        "title": "效果证明",
+        "field": "result",
+        "question": "请说明项目取得的结果、测量口径及证据；没有数据时明确哪些还不能证明。",
+        "seconds": 90
+      },
+      {
+        "id": "REFLECTION",
+        "title": "复盘改进",
+        "field": "improvements",
+        "question": "请分别说明已完成的方案和仍未完成的改进，解释可以如何验证改进效果。",
+        "seconds": 90
+      }
+    ]
+  },
+  "chromaUnavailableResponse": {
+    "code": 503,
+    "message": "项目私有检索不可用"
+  },
+  "desktopFollowupSession": {
+    "id": "63ece500-b670-4cee-9301-f721c9921d82",
+    "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "template": "FOLLOWUP",
+    "prompt": "请围绕原问题给出一条主线：项目背景、你的实际行动和有证据的结果，各用一两句话说明。\n针对你刚才的原话：“这是课程订单项目，用于学习库存扣减。我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。当前只做单机功能验证，未压测，没有可靠的吞吐量和性能提升数据。计划引入 Kafka，但尚未实施。”",
+    "status": "COMPLETED",
+    "originAttemptId": "6296d27b-25f6-43bf-bb77-671d749ec9e1",
+    "snapshot": {
+      "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+      "projectName": "订单课程项目 A",
+      "revision": 3,
+      "facts": {
+        "background": "课程订单项目，用于学习库存扣减",
+        "contribution": "我只负责库存模块，订单和支付由其他同事负责",
+        "approach": "Redis Lua 检查库存并扣减",
+        "challenge": "",
+        "result": "只做单机功能验证，未压测",
+        "evidence": "",
+        "improvements": "计划引入 Kafka，尚未实施",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 3,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "课程订单项目，用于学习库存扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 3,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "我只负责库存模块，订单和支付由其他同事负责",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 3,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "Redis Lua 检查库存并扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:result",
+          "version": 3,
+          "title": "result",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "只做单机功能验证，未压测",
+          "planned": false
+        },
+        {
+          "id": "fact:improvements",
+          "version": 3,
+          "title": "improvements",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "计划引入 Kafka，尚未实施",
+          "planned": true
+        },
+        {
+          "id": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+          "version": 1,
+          "title": "库存功能验证记录",
+          "origin": "P4 虚构测试记录 · 本机验证",
+          "content": "旧材料：只在本机功能验证，无压测数据。",
+          "planned": false
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:35:07.725662Z",
+    "attempts": [
+      {
+        "id": "0ca2af69-7fda-4d3b-8496-430b9f34b782",
+        "clientRequestId": "d2623e7e-8f85-475a-a58a-2eb650c4d43e",
+        "number": 1,
+        "answer": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+        "parentAttemptId": null,
+        "createdAt": "2026-10-03T05:35:16.042764Z",
+        "evaluation": {
+          "id": "66510775-2a89-4433-b710-fdcb15a21257",
+          "generation": 1,
+          "status": "SUCCEEDED",
+          "errorCode": null,
+          "modelName": "deepseek-flash",
+          "promptVersion": "project-facts-v5",
+          "durationMs": 23474,
+          "result": {
+            "answerHash": "48b2e7030787bd05665713e71b80ac300229c113a1fbdbe04b3a05ed5a652117",
+            "criteria": [
+              {
+                "id": "relevance",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  },
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              },
+              {
+                "id": "contribution",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              },
+              {
+                "id": "evidence",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                "references": [
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              },
+              {
+                "id": "consistency",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  },
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              }
+            ],
+            "missingFields": [
+              "improvements",
+              "measurement",
+              "scale"
+            ],
+            "improvementActions": [
+              "MEASURE"
+            ]
+          }
+        },
+        "evaluations": [
+          {
+            "id": "66510775-2a89-4433-b710-fdcb15a21257",
+            "generation": 1,
+            "status": "SUCCEEDED",
+            "errorCode": null,
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v5",
+            "durationMs": 23474,
+            "result": {
+              "answerHash": "48b2e7030787bd05665713e71b80ac300229c113a1fbdbe04b3a05ed5a652117",
+              "criteria": [
+                {
+                  "id": "relevance",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    },
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                },
+                {
+                  "id": "contribution",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "evidence",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                  "references": [
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                },
+                {
+                  "id": "consistency",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    },
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                }
+              ],
+              "missingFields": [
+                "improvements",
+                "measurement",
+                "scale"
+              ],
+              "improvementActions": [
+                "MEASURE"
+              ]
+            }
+          }
+        ],
+        "comparison": null
+      }
+    ]
+  },
+  "finalDesktopSession": {
+    "id": "6809d05d-0733-443e-8952-5667687f239f",
+    "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "template": "INTRO",
+    "prompt": "请用两分钟介绍项目背景、你个人的工作、关键方案和有依据的结果。\n围绕事实卡的这段内容展开（仍需按原材料核对）：“课程订单项目，用于学习库存扣减”",
+    "status": "COMPLETED",
+    "originAttemptId": null,
+    "snapshot": {
+      "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+      "projectName": "订单课程项目 A",
+      "revision": 3,
+      "facts": {
+        "background": "课程订单项目，用于学习库存扣减",
+        "contribution": "我只负责库存模块，订单和支付由其他同事负责",
+        "approach": "Redis Lua 检查库存并扣减",
+        "challenge": "",
+        "result": "只做单机功能验证，未压测",
+        "evidence": "",
+        "improvements": "计划引入 Kafka，尚未实施",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 3,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "课程订单项目，用于学习库存扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 3,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "我只负责库存模块，订单和支付由其他同事负责",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 3,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "Redis Lua 检查库存并扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:result",
+          "version": 3,
+          "title": "result",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "只做单机功能验证，未压测",
+          "planned": false
+        },
+        {
+          "id": "fact:improvements",
+          "version": 3,
+          "title": "improvements",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "计划引入 Kafka，尚未实施",
+          "planned": true
+        },
+        {
+          "id": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+          "version": 1,
+          "title": "库存功能验证记录",
+          "origin": "P4 虚构测试记录 · 本机验证",
+          "content": "旧材料：只在本机功能验证，无压测数据。",
+          "planned": false
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:11:55.282149Z",
+    "attempts": [
+      {
+        "id": "da710849-9111-47f9-9f56-ba5518cd2e81",
+        "clientRequestId": "eff37c25-5f96-4d08-9e47-f12651d63ecf",
+        "number": 1,
+        "answer": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+        "parentAttemptId": null,
+        "createdAt": "2026-10-03T05:11:55.329058Z",
+        "evaluation": {
+          "id": "9c050d5e-ff8b-4b83-9c12-2b5594981eb3",
+          "generation": 1,
+          "status": "SUCCEEDED",
+          "errorCode": null,
+          "modelName": "deepseek-flash",
+          "promptVersion": "project-facts-v1",
+          "durationMs": 15658,
+          "result": {
+            "answerHash": "5607584656186f11bbd534cefd21ab6f8223f45806f812b1edd9c625a0150e0f",
+            "criteria": [
+              {
+                "id": "relevance",
+                "status": "PARTIAL",
+                "reasonCode": "NEEDS_DETAIL",
+                "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  }
+                ]
+              },
+              {
+                "id": "contribution",
+                "status": "CONFLICT",
+                "reasonCode": "CONTRADICTS_MATERIAL",
+                "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  }
+                ]
+              },
+              {
+                "id": "evidence",
+                "status": "CONFLICT",
+                "reasonCode": "CONTRADICTS_MATERIAL",
+                "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  }
+                ]
+              },
+              {
+                "id": "consistency",
+                "status": "CONFLICT",
+                "reasonCode": "CONTRADICTS_MATERIAL",
+                "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  }
+                ]
+              }
+            ],
+            "missingFields": [
+              "background",
+              "approach",
+              "result",
+              "evidence"
+            ],
+            "improvementActions": [
+              "CLARIFY_OWNERSHIP",
+              "MEASURE"
+            ]
+          }
+        },
+        "evaluations": [
+          {
+            "id": "9c050d5e-ff8b-4b83-9c12-2b5594981eb3",
+            "generation": 1,
+            "status": "SUCCEEDED",
+            "errorCode": null,
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v1",
+            "durationMs": 15658,
+            "result": {
+              "answerHash": "5607584656186f11bbd534cefd21ab6f8223f45806f812b1edd9c625a0150e0f",
+              "criteria": [
+                {
+                  "id": "relevance",
+                  "status": "PARTIAL",
+                  "reasonCode": "NEEDS_DETAIL",
+                  "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "contribution",
+                  "status": "CONFLICT",
+                  "reasonCode": "CONTRADICTS_MATERIAL",
+                  "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    }
+                  ]
+                },
+                {
+                  "id": "evidence",
+                  "status": "CONFLICT",
+                  "reasonCode": "CONTRADICTS_MATERIAL",
+                  "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    }
+                  ]
+                },
+                {
+                  "id": "consistency",
+                  "status": "CONFLICT",
+                  "reasonCode": "CONTRADICTS_MATERIAL",
+                  "candidateQuote": "整个系统都是我独立完成的，订单和支付模块也全部由我个人实现。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    }
+                  ]
+                }
+              ],
+              "missingFields": [
+                "background",
+                "approach",
+                "result",
+                "evidence"
+              ],
+              "improvementActions": [
+                "CLARIFY_OWNERSHIP",
+                "MEASURE"
+              ]
+            }
+          }
+        ],
+        "comparison": null
+      },
+      {
+        "id": "6296d27b-25f6-43bf-bb77-671d749ec9e1",
+        "clientRequestId": "7a1d3691-c16c-4dd8-84e7-cf39c19467b1",
+        "number": 2,
+        "answer": "这是课程订单项目，用于学习库存扣减。我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。当前只做单机功能验证，未压测，没有可靠的吞吐量和性能提升数据。计划引入 Kafka，但尚未实施。",
+        "parentAttemptId": "da710849-9111-47f9-9f56-ba5518cd2e81",
+        "createdAt": "2026-10-03T05:14:22.450667Z",
+        "evaluation": {
+          "id": "f0bfde90-2d84-48d4-85bf-9deafc9bab6b",
+          "generation": 3,
+          "status": "SUCCEEDED",
+          "errorCode": null,
+          "modelName": "deepseek-flash",
+          "promptVersion": "project-facts-v5",
+          "durationMs": 18709,
+          "result": {
+            "answerHash": "2ba0990e3156b29a5c978b854d1cfba8dcb00aeedd05014d7ad1ac227185fc58",
+            "criteria": [
+              {
+                "id": "relevance",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "这是课程订单项目，用于学习库存扣减。我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。当前只做单机功能验证，未压测，没有可靠的吞吐量和性能提升数据。计划引入 Kafka，但尚未实施。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  },
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              },
+              {
+                "id": "contribution",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  }
+                ]
+              },
+              {
+                "id": "evidence",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我使用 Redis Lua 检查库存并扣减。当前只做单机功能验证，未压测，没有可靠的吞吐量和性能提升数据。计划引入 Kafka，但尚未实施。",
+                "references": [
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  },
+                  {
+                    "sourceId": "fact:improvements",
+                    "version": 3,
+                    "quote": "计划引入 Kafka，尚未实施"
+                  },
+                  {
+                    "sourceId": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+                    "version": 1,
+                    "quote": "旧材料：只在本机功能验证，无压测数据。"
+                  }
+                ]
+              },
+              {
+                "id": "consistency",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "这是课程订单项目，用于学习库存扣减。我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。当前只做单机功能验证，未压测，没有可靠的吞吐量和性能提升数据。计划引入 Kafka，但尚未实施。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  },
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              }
+            ],
+            "missingFields": [
+              "challenge",
+              "measurement",
+              "scale"
+            ],
+            "improvementActions": [
+              "MEASURE",
+              "VERIFY_BOUNDARIES"
+            ]
+          }
+        },
+        "evaluations": [
+          {
+            "id": "b1eb5408-af49-4ed9-823e-3c940e368466",
+            "generation": 1,
+            "status": "FAILED",
+            "errorCode": "MODEL_UNAVAILABLE",
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v1",
+            "durationMs": 37060,
+            "result": null
+          },
+          {
+            "id": "fb34bd91-a816-4ec8-a2fa-e012f8121050",
+            "generation": 2,
+            "status": "FAILED",
+            "errorCode": "INVALID_OUTPUT",
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v1",
+            "durationMs": 32680,
+            "result": null
+          },
+          {
+            "id": "f0bfde90-2d84-48d4-85bf-9deafc9bab6b",
+            "generation": 3,
+            "status": "SUCCEEDED",
+            "errorCode": null,
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v5",
+            "durationMs": 18709,
+            "result": {
+              "answerHash": "2ba0990e3156b29a5c978b854d1cfba8dcb00aeedd05014d7ad1ac227185fc58",
+              "criteria": [
+                {
+                  "id": "relevance",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "这是课程订单项目，用于学习库存扣减。我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。当前只做单机功能验证，未压测，没有可靠的吞吐量和性能提升数据。计划引入 Kafka，但尚未实施。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    },
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                },
+                {
+                  "id": "contribution",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    }
+                  ]
+                },
+                {
+                  "id": "evidence",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我使用 Redis Lua 检查库存并扣减。当前只做单机功能验证，未压测，没有可靠的吞吐量和性能提升数据。计划引入 Kafka，但尚未实施。",
+                  "references": [
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    },
+                    {
+                      "sourceId": "fact:improvements",
+                      "version": 3,
+                      "quote": "计划引入 Kafka，尚未实施"
+                    },
+                    {
+                      "sourceId": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+                      "version": 1,
+                      "quote": "旧材料：只在本机功能验证，无压测数据。"
+                    }
+                  ]
+                },
+                {
+                  "id": "consistency",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "这是课程订单项目，用于学习库存扣减。我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。当前只做单机功能验证，未压测，没有可靠的吞吐量和性能提升数据。计划引入 Kafka，但尚未实施。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    },
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                }
+              ],
+              "missingFields": [
+                "challenge",
+                "measurement",
+                "scale"
+              ],
+              "improvementActions": [
+                "MEASURE",
+                "VERIFY_BOUNDARIES"
+              ]
+            }
+          }
+        ],
+        "comparison": {
+          "comparable": false,
+          "notice": "两次评估的模型或规则版本不同，暂不判断表达是否改进；请在当前版本下继续练习。",
+          "criteria": []
+        }
+      },
+      {
+        "id": "f178dd87-3898-4d16-8b9d-ab58ec986da7",
+        "clientRequestId": "0d441b0a-62ec-484b-a854-aea78ab6a5d6",
+        "number": 3,
+        "answer": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，没有能证明高并发性能的数据。Kafka 只是未实施的改进计划。",
+        "parentAttemptId": "6296d27b-25f6-43bf-bb77-671d749ec9e1",
+        "createdAt": "2026-10-03T05:40:42.83773Z",
+        "evaluation": {
+          "id": "322eedcf-059b-449a-97f9-a96c909da4ba",
+          "generation": 1,
+          "status": "SUCCEEDED",
+          "errorCode": null,
+          "modelName": "deepseek-flash",
+          "promptVersion": "project-facts-v5",
+          "durationMs": 31452,
+          "result": {
+            "answerHash": "48bb22ddee8137ad7b3115322aa25f81b9fcbe8f07abe265fb6eebd8c3004d00",
+            "criteria": [
+              {
+                "id": "relevance",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，没有能证明高并发性能的数据。Kafka 只是未实施的改进计划。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  },
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              },
+              {
+                "id": "contribution",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              },
+              {
+                "id": "evidence",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "结果只做单机功能验证，未压测，没有能证明高并发性能的数据。",
+                "references": [
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              },
+              {
+                "id": "consistency",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，没有能证明高并发性能的数据。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  },
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              }
+            ],
+            "missingFields": [
+              "challenge",
+              "measurement",
+              "scale"
+            ],
+            "improvementActions": [
+              "MEASURE",
+              "VERIFY_BOUNDARIES"
+            ]
+          }
+        },
+        "evaluations": [
+          {
+            "id": "322eedcf-059b-449a-97f9-a96c909da4ba",
+            "generation": 1,
+            "status": "SUCCEEDED",
+            "errorCode": null,
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v5",
+            "durationMs": 31452,
+            "result": {
+              "answerHash": "48bb22ddee8137ad7b3115322aa25f81b9fcbe8f07abe265fb6eebd8c3004d00",
+              "criteria": [
+                {
+                  "id": "relevance",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，没有能证明高并发性能的数据。Kafka 只是未实施的改进计划。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    },
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                },
+                {
+                  "id": "contribution",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "evidence",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "结果只做单机功能验证，未压测，没有能证明高并发性能的数据。",
+                  "references": [
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                },
+                {
+                  "id": "consistency",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，没有能证明高并发性能的数据。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    },
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                }
+              ],
+              "missingFields": [
+                "challenge",
+                "measurement",
+                "scale"
+              ],
+              "improvementActions": [
+                "MEASURE",
+                "VERIFY_BOUNDARIES"
+              ]
+            }
+          }
+        ],
+        "comparison": {
+          "comparable": true,
+          "notice": "同题、同项目材料版本的表达对比，不代表长期掌握或项目真实性验证。",
+          "criteria": [
+            {
+              "criterionId": "relevance",
+              "before": "COVERED",
+              "after": "COVERED",
+              "change": "UNCHANGED"
+            },
+            {
+              "criterionId": "contribution",
+              "before": "COVERED",
+              "after": "COVERED",
+              "change": "UNCHANGED"
+            },
+            {
+              "criterionId": "evidence",
+              "before": "COVERED",
+              "after": "COVERED",
+              "change": "UNCHANGED"
+            },
+            {
+              "criterionId": "consistency",
+              "before": "COVERED",
+              "after": "COVERED",
+              "change": "UNCHANGED"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "mobileFollowupSession": {
+    "id": "0b1289e9-cc7d-4df7-b586-ed133118fc18",
+    "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "template": "FOLLOWUP",
+    "prompt": "请围绕原问题给出一条主线：项目背景、你的实际行动和有证据的结果，各用一两句话说明。\n针对你刚才的原话：“我的个人职责是库存模块。我使用 Redis Lua 检查库存并扣减；团队中的其他同事负责订单和支付。”",
+    "status": "COMPLETED",
+    "originAttemptId": "f7fbef10-a717-488a-a7e8-5d07e97a8084",
+    "snapshot": {
+      "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+      "projectName": "订单课程项目 A",
+      "revision": 3,
+      "facts": {
+        "background": "课程订单项目，用于学习库存扣减",
+        "contribution": "我只负责库存模块，订单和支付由其他同事负责",
+        "approach": "Redis Lua 检查库存并扣减",
+        "challenge": "",
+        "result": "只做单机功能验证，未压测",
+        "evidence": "",
+        "improvements": "计划引入 Kafka，尚未实施",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 3,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "课程订单项目，用于学习库存扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 3,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "我只负责库存模块，订单和支付由其他同事负责",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 3,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "Redis Lua 检查库存并扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:result",
+          "version": 3,
+          "title": "result",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "只做单机功能验证，未压测",
+          "planned": false
+        },
+        {
+          "id": "fact:improvements",
+          "version": 3,
+          "title": "improvements",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "计划引入 Kafka，尚未实施",
+          "planned": true
+        },
+        {
+          "id": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+          "version": 1,
+          "title": "库存功能验证记录",
+          "origin": "P4 虚构测试记录 · 本机验证",
+          "content": "旧材料：只在本机功能验证，无压测数据。",
+          "planned": false
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:20:52.795149Z",
+    "attempts": [
+      {
+        "id": "9d8a6e31-5b84-4aef-b767-35ecfd6436cd",
+        "clientRequestId": "d8861585-b8dd-487d-ae6f-f57dc069066d",
+        "number": 1,
+        "answer": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+        "parentAttemptId": null,
+        "createdAt": "2026-10-03T05:21:11.341567Z",
+        "evaluation": {
+          "id": "b6817273-2911-48f3-a08f-136b32e147bd",
+          "generation": 1,
+          "status": "SUCCEEDED",
+          "errorCode": null,
+          "modelName": "deepseek-flash",
+          "promptVersion": "project-facts-v1",
+          "durationMs": 19284,
+          "result": {
+            "answerHash": "48b2e7030787bd05665713e71b80ac300229c113a1fbdbe04b3a05ed5a652117",
+            "criteria": [
+              {
+                "id": "relevance",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  },
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              },
+              {
+                "id": "contribution",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              },
+              {
+                "id": "evidence",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                "references": [
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  },
+                  {
+                    "sourceId": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+                    "version": 1,
+                    "quote": "旧材料：只在本机功能验证，无压测数据。"
+                  }
+                ]
+              },
+              {
+                "id": "consistency",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                "references": [
+                  {
+                    "sourceId": "fact:background",
+                    "version": 3,
+                    "quote": "课程订单项目，用于学习库存扣减"
+                  },
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  },
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              }
+            ],
+            "missingFields": [],
+            "improvementActions": []
+          }
+        },
+        "evaluations": [
+          {
+            "id": "b6817273-2911-48f3-a08f-136b32e147bd",
+            "generation": 1,
+            "status": "SUCCEEDED",
+            "errorCode": null,
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v1",
+            "durationMs": 19284,
+            "result": {
+              "answerHash": "48b2e7030787bd05665713e71b80ac300229c113a1fbdbe04b3a05ed5a652117",
+              "criteria": [
+                {
+                  "id": "relevance",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    },
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                },
+                {
+                  "id": "contribution",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "evidence",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                  "references": [
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    },
+                    {
+                      "sourceId": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+                      "version": 1,
+                      "quote": "旧材料：只在本机功能验证，无压测数据。"
+                    }
+                  ]
+                },
+                {
+                  "id": "consistency",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "这是用于学习库存扣减的课程订单项目。我只负责库存模块，使用 Redis Lua 检查库存并扣减，订单和支付由其他同事负责。结果只做单机功能验证，未压测，不能据此证明高并发性能。",
+                  "references": [
+                    {
+                      "sourceId": "fact:background",
+                      "version": 3,
+                      "quote": "课程订单项目，用于学习库存扣减"
+                    },
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    },
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                }
+              ],
+              "missingFields": [],
+              "improvementActions": []
+            }
+          }
+        ],
+        "comparison": null
+      }
+    ]
+  },
+  "mobileComparisonSession": {
+    "id": "c1714ada-c60b-4c81-b1cb-35752cde578c",
+    "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+    "template": "OWNERSHIP",
+    "prompt": "请区分团队工作和你个人实现、决策及协作的部分。\n围绕事实卡的这段内容展开（仍需按原材料核对）：“我只负责库存模块，订单和支付由其他同事负责”",
+    "status": "COMPLETED",
+    "originAttemptId": null,
+    "snapshot": {
+      "projectId": "aafc6be0-83f0-4764-b543-5199222d614b",
+      "projectName": "订单课程项目 A",
+      "revision": 3,
+      "facts": {
+        "background": "课程订单项目，用于学习库存扣减",
+        "contribution": "我只负责库存模块，订单和支付由其他同事负责",
+        "approach": "Redis Lua 检查库存并扣减",
+        "challenge": "",
+        "result": "只做单机功能验证，未压测",
+        "evidence": "",
+        "improvements": "计划引入 Kafka，尚未实施",
+        "confirmed": true
+      },
+      "sources": [
+        {
+          "id": "fact:background",
+          "version": 3,
+          "title": "background",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "课程订单项目，用于学习库存扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:contribution",
+          "version": 3,
+          "title": "contribution",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "我只负责库存模块，订单和支付由其他同事负责",
+          "planned": false
+        },
+        {
+          "id": "fact:approach",
+          "version": 3,
+          "title": "approach",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "Redis Lua 检查库存并扣减",
+          "planned": false
+        },
+        {
+          "id": "fact:result",
+          "version": 3,
+          "title": "result",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "只做单机功能验证，未压测",
+          "planned": false
+        },
+        {
+          "id": "fact:improvements",
+          "version": 3,
+          "title": "improvements",
+          "origin": "本人事实卡；简历 3 项目 0 的提取结果由使用者核对",
+          "content": "计划引入 Kafka，尚未实施",
+          "planned": true
+        },
+        {
+          "id": "e131ceed-353f-4cd3-9a37-8ce57737d540",
+          "version": 1,
+          "title": "库存功能验证记录",
+          "origin": "P4 虚构测试记录 · 本机验证",
+          "content": "旧材料：只在本机功能验证，无压测数据。",
+          "planned": false
+        }
+      ]
+    },
+    "createdAt": "2026-10-03T05:12:11.72653Z",
+    "attempts": [
+      {
+        "id": "8bdf8c04-e60c-4883-a40d-b6496e8579a5",
+        "clientRequestId": "3e512089-233a-482d-bada-ae71ed21abfa",
+        "number": 1,
+        "answer": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+        "parentAttemptId": null,
+        "createdAt": "2026-10-03T05:18:24.368693Z",
+        "evaluation": {
+          "id": "67fa3302-f2a7-4af2-b96d-1451309624cf",
+          "generation": 1,
+          "status": "SUCCEEDED",
+          "errorCode": null,
+          "modelName": "deepseek-flash",
+          "promptVersion": "project-facts-v1",
+          "durationMs": 15803,
+          "result": {
+            "answerHash": "79e220bbc787b261255fb5a76e30ac0bf6b8c951cb07c980c5b6180451b84ded",
+            "criteria": [
+              {
+                "id": "relevance",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              },
+              {
+                "id": "contribution",
+                "status": "PARTIAL",
+                "reasonCode": "NEEDS_DETAIL",
+                "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              },
+              {
+                "id": "evidence",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              },
+              {
+                "id": "consistency",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              }
+            ],
+            "missingFields": [],
+            "improvementActions": []
+          }
+        },
+        "evaluations": [
+          {
+            "id": "67fa3302-f2a7-4af2-b96d-1451309624cf",
+            "generation": 1,
+            "status": "SUCCEEDED",
+            "errorCode": null,
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v1",
+            "durationMs": 15803,
+            "result": {
+              "answerHash": "79e220bbc787b261255fb5a76e30ac0bf6b8c951cb07c980c5b6180451b84ded",
+              "criteria": [
+                {
+                  "id": "relevance",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "contribution",
+                  "status": "PARTIAL",
+                  "reasonCode": "NEEDS_DETAIL",
+                  "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "evidence",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "consistency",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我只负责库存模块，订单和支付由其他同事负责。我使用 Redis Lua 检查库存并扣减。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                }
+              ],
+              "missingFields": [],
+              "improvementActions": []
+            }
+          }
+        ],
+        "comparison": null
+      },
+      {
+        "id": "f7fbef10-a717-488a-a7e8-5d07e97a8084",
+        "clientRequestId": "0c62c79d-ee1e-48cc-b1f0-3cdbc5dd74de",
+        "number": 2,
+        "answer": "我的个人职责是库存模块。我使用 Redis Lua 检查库存并扣减；团队中的其他同事负责订单和支付。我没有实现订单和支付，不能把团队成果都算作个人成果。当前只做单机功能验证，未压测，没有性能数据。",
+        "parentAttemptId": "8bdf8c04-e60c-4883-a40d-b6496e8579a5",
+        "createdAt": "2026-10-03T05:19:23.251012Z",
+        "evaluation": {
+          "id": "e6a1c18b-8bde-48a3-b23f-bde50b9a2982",
+          "generation": 1,
+          "status": "SUCCEEDED",
+          "errorCode": null,
+          "modelName": "deepseek-flash",
+          "promptVersion": "project-facts-v1",
+          "durationMs": 24644,
+          "result": {
+            "answerHash": "169f6516b51da412414c39a6e02a72d0513cf05c640eba8316931136ab8afb6e",
+            "criteria": [
+              {
+                "id": "relevance",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我的个人职责是库存模块。我使用 Redis Lua 检查库存并扣减；团队中的其他同事负责订单和支付。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              },
+              {
+                "id": "contribution",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我的个人职责是库存模块。我使用 Redis Lua 检查库存并扣减；团队中的其他同事负责订单和支付。我没有实现订单和支付，不能把团队成果都算作个人成果。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  },
+                  {
+                    "sourceId": "fact:approach",
+                    "version": 3,
+                    "quote": "Redis Lua 检查库存并扣减"
+                  }
+                ]
+              },
+              {
+                "id": "evidence",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "当前只做单机功能验证，未压测，没有性能数据。",
+                "references": [
+                  {
+                    "sourceId": "fact:result",
+                    "version": 3,
+                    "quote": "只做单机功能验证，未压测"
+                  }
+                ]
+              },
+              {
+                "id": "consistency",
+                "status": "COVERED",
+                "reasonCode": "ANSWERED",
+                "candidateQuote": "我没有实现订单和支付，不能把团队成果都算作个人成果。",
+                "references": [
+                  {
+                    "sourceId": "fact:contribution",
+                    "version": 3,
+                    "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                  }
+                ]
+              }
+            ],
+            "missingFields": [],
+            "improvementActions": []
+          }
+        },
+        "evaluations": [
+          {
+            "id": "e6a1c18b-8bde-48a3-b23f-bde50b9a2982",
+            "generation": 1,
+            "status": "SUCCEEDED",
+            "errorCode": null,
+            "modelName": "deepseek-flash",
+            "promptVersion": "project-facts-v1",
+            "durationMs": 24644,
+            "result": {
+              "answerHash": "169f6516b51da412414c39a6e02a72d0513cf05c640eba8316931136ab8afb6e",
+              "criteria": [
+                {
+                  "id": "relevance",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我的个人职责是库存模块。我使用 Redis Lua 检查库存并扣减；团队中的其他同事负责订单和支付。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "contribution",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我的个人职责是库存模块。我使用 Redis Lua 检查库存并扣减；团队中的其他同事负责订单和支付。我没有实现订单和支付，不能把团队成果都算作个人成果。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    },
+                    {
+                      "sourceId": "fact:approach",
+                      "version": 3,
+                      "quote": "Redis Lua 检查库存并扣减"
+                    }
+                  ]
+                },
+                {
+                  "id": "evidence",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "当前只做单机功能验证，未压测，没有性能数据。",
+                  "references": [
+                    {
+                      "sourceId": "fact:result",
+                      "version": 3,
+                      "quote": "只做单机功能验证，未压测"
+                    }
+                  ]
+                },
+                {
+                  "id": "consistency",
+                  "status": "COVERED",
+                  "reasonCode": "ANSWERED",
+                  "candidateQuote": "我没有实现订单和支付，不能把团队成果都算作个人成果。",
+                  "references": [
+                    {
+                      "sourceId": "fact:contribution",
+                      "version": 3,
+                      "quote": "我只负责库存模块，订单和支付由其他同事负责"
+                    }
+                  ]
+                }
+              ],
+              "missingFields": [],
+              "improvementActions": []
+            }
+          }
+        ],
+        "comparison": {
+          "comparable": true,
+          "notice": "同题、同项目材料版本的表达对比，不代表长期掌握或项目真实性验证。",
+          "criteria": [
+            {
+              "criterionId": "relevance",
+              "before": "COVERED",
+              "after": "COVERED",
+              "change": "UNCHANGED"
+            },
+            {
+              "criterionId": "contribution",
+              "before": "PARTIAL",
+              "after": "COVERED",
+              "change": "IMPROVED"
+            },
+            {
+              "criterionId": "evidence",
+              "before": "COVERED",
+              "after": "COVERED",
+              "change": "UNCHANGED"
+            },
+            {
+              "criterionId": "consistency",
+              "before": "COVERED",
+              "after": "COVERED",
+              "change": "UNCHANGED"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "verifiedAt": "2026-10-03T05:47:34.1157321+00:00",
+  "scope": "Synthetic DOCX and two fictional projects only; actual model, BGE embeddings, MySQL, Chroma and Redis; no private resume data. Viewport checks do not represent physical mobile device testing.",
+  "browser": {
+    "finalConsoleErrors": 0,
+    "horizontalOverflow": false,
+    "desktop": "1280x720",
+    "mobile": "390x844"
+  }
+}

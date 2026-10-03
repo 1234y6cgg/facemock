@@ -1,0 +1,109 @@
+{
+  "verifiedAt": "2026-10-03T08:55:52.745185+00:00",
+  "syntheticAnswers": true,
+  "historicalDatesInjectedOnlyInDisposableDatabase": true,
+  "baselineSession": "32a6e2dd-74f4-4ed3-a1f4-1f23318c8d04",
+  "firstReview": "50ef3e6e-7167-46e1-bd27-8529f3c86f66",
+  "secondReview": "7acce944-9808-4b7c-996b-3522278bb835",
+  "pointId": "redis.inventory.race",
+  "questionId": "redis.lua-stock",
+  "comparison": {
+    "comparable": true,
+    "notice": "本次重答使用过辅助，用于检验刚才的改进，不代表长期掌握。",
+    "criteria": [
+      {
+        "criterionId": "race",
+        "label": "分开读取、判断和扣减会出现并发竞态，应把检查和扣减放在同一短脚本内。",
+        "before": "PARTIAL",
+        "after": "COVERED",
+        "change": "NEWLY_COVERED"
+      },
+      {
+        "criterionId": "scope",
+        "label": "脚本执行期间其他命令不会穿插；原子性覆盖 Redis 脚本操作，不自动覆盖外…",
+        "before": "PARTIAL",
+        "after": "COVERED",
+        "change": "NEWLY_COVERED"
+      },
+      {
+        "criterionId": "bound",
+        "label": "脚本会阻塞服务器其他活动，必须控制执行时间和输入规模。",
+        "before": "MISSING",
+        "after": "COVERED",
+        "change": "NEWLY_COVERED"
+      }
+    ]
+  },
+  "progress": {
+    "id": "redis.inventory.race",
+    "title": "分开读取、判断和扣减会出现并发竞态，应把检查和扣减放在同一短脚本内。",
+    "topic": "REDIS",
+    "state": "CONSOLIDATED",
+    "dueDate": "2026-10-10",
+    "lastStatus": "COVERED",
+    "validAnswers": 4,
+    "independentPasses": 2,
+    "latestSessionId": "7acce944-9808-4b7c-996b-3522278bb835",
+    "evidence": [
+      {
+        "evaluationId": "592c8863-b8c5-41c7-a436-66d5d3bd36c2",
+        "attemptId": "e185a497-96fb-44b6-b126-db586e01bf9c",
+        "sessionId": "7acce944-9808-4b7c-996b-3522278bb835",
+        "questionId": "redis.lua-stock",
+        "status": "COVERED",
+        "answeredAt": "2026-10-03T08:55:45.583738Z",
+        "assisted": false,
+        "delayed": true,
+        "passed": true,
+        "quote": "两个人都读到还剩一件就可能一起扣，我会让检查和扣减在一次脚本里完成。"
+      },
+      {
+        "evaluationId": "d77557be-4088-4b00-9679-420c0d35d1c9",
+        "attemptId": "85ab026e-3df1-4cf5-acc1-2729bbc6681b",
+        "sessionId": "50ef3e6e-7167-46e1-bd27-8529f3c86f66",
+        "questionId": "redis.lua-stock",
+        "status": "COVERED",
+        "answeredAt": "2026-09-27T08:55:45Z",
+        "assisted": false,
+        "delayed": true,
+        "passed": true,
+        "quote": "两个人都读到还剩一件就可能一起扣，我会让检查和扣减在一次脚本里完成。"
+      },
+      {
+        "evaluationId": "bd2c307d-0682-4ec8-9f47-0baf19af6906",
+        "attemptId": "ca17b9a0-f69d-4b6b-97c1-5056c92f1be8",
+        "sessionId": "32a6e2dd-74f4-4ed3-a1f4-1f23318c8d04",
+        "questionId": "redis.lua-stock",
+        "status": "COVERED",
+        "answeredAt": "2026-09-26T08:55:38Z",
+        "assisted": true,
+        "delayed": false,
+        "passed": false,
+        "quote": "两个人都读到还剩一件就可能一起扣，我会让检查和扣减在一次脚本里完成。"
+      },
+      {
+        "evaluationId": "2b04aac0-f8cf-4fd5-9d3e-c86c9e26e914",
+        "attemptId": "da8dbfcc-5612-47c0-aa68-687837536948",
+        "sessionId": "32a6e2dd-74f4-4ed3-a1f4-1f23318c8d04",
+        "questionId": "redis.lua-stock",
+        "status": "PARTIAL",
+        "answeredAt": "2026-09-25T08:55:32Z",
+        "assisted": false,
+        "delayed": false,
+        "passed": false,
+        "quote": "用 Redis Lua，因为 Lua 是原子的。"
+      }
+    ],
+    "uncertainAnswers": 0
+  },
+  "exportVerified": true,
+  "telemetryVerified": true,
+  "repeatIdempotent": true,
+  "assistanceNotConsolidation": true,
+  "reviewReferenceBlocked": true,
+  "pausedResumed": true,
+  "actualModel": true,
+  "actualMysql": true,
+  "actualChroma": true,
+  "actualBge": true
+}

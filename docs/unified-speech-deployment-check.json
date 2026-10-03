@@ -1,0 +1,45 @@
+{
+  "health": {
+    "status": "UP"
+  },
+  "provider": "xfyun-iat",
+  "speechConfigured": true,
+  "modelSettingsPreserved": true,
+  "dataCountsPreserved": true,
+  "counts": {
+    "resumes": 15,
+    "interviews": 1,
+    "practiceSessions": 4,
+    "practiceAttempts": 1,
+    "projects": 1,
+    "projectSessions": 1,
+    "recordings": 2
+  },
+  "interviewSpeechScopes": [
+    {
+      "recordings": 0,
+      "scopeCorrect": true
+    }
+  ],
+  "legacyBrowserRecognitionRemoved": true,
+  "knowledgeAvailable": true,
+  "backendChecks": {
+    "tests": 227,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 48
+  },
+  "frontendAudioChecks": 3,
+  "uiFixture": {
+    "isSynthetic": true,
+    "chargedCalls": 0,
+    "submittedAnswers": 1,
+    "failureThenRetryPassed": true,
+    "editedTextSubmitted": true,
+    "refreshRecoveryPassed": true,
+    "mobileWidth": 390,
+    "horizontalOverflow": false,
+    "consoleErrors": 0
+  },
+  "cancelledTemplatesRemoved": true
+}

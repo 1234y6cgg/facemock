@@ -3,6 +3,8 @@ package com.mockinterview.agent;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class InterviewStateMachineTest {
 
@@ -16,6 +18,7 @@ class InterviewStateMachineTest {
                 .stage(stage).layer(layer)
                 .currentProjectIdx(idx).totalProjects(total)
                 .questionCount(q).consecutiveStuck(stuck)
+                .difficulty(2).pressureUsed(false)
                 .build();
     }
 
@@ -36,18 +39,29 @@ class InterviewStateMachineTest {
     }
 
     @Test
-    void goodAnswerAtLastLayerJumpsToNextProject() {
+    void goodAnswerAtLastLayerTriggersPressureFirst() {
         InterviewState s = state(Stage.PROJECT_DIG, Layer.L5_TRADEOFF, 0, 2, 4, 0);
         InterviewState next = machine.apply(s, GOOD);
-        assertEquals(1, next.getCurrentProjectIdx());
-        assertEquals(Layer.L1_BACKGROUND, next.getLayer());
+        assertTrue(next.isPressureUsed());
+        assertEquals(Layer.L5_TRADEOFF, next.getLayer());
     }
 
     @Test
-    void goodAnswerAtLastProjectCloses() {
-        InterviewState s = state(Stage.PROJECT_DIG, Layer.L5_TRADEOFF, 1, 2, 4, 0);
+    void goodAnswerAfterPressureJumpsToNextProject() {
+        InterviewState s = state(Stage.PROJECT_DIG, Layer.L5_TRADEOFF, 0, 2, 5, 0)
+                .toBuilder().pressureUsed(true).build();
         InterviewState next = machine.apply(s, GOOD);
-        assertEquals(Stage.CLOSING, next.getStage());
+        assertEquals(1, next.getCurrentProjectIdx());
+        assertEquals(Layer.L1_BACKGROUND, next.getLayer());
+        assertFalse(next.isPressureUsed());
+    }
+
+    @Test
+    void goodAnswerAtLastProjectAfterPressureGoesExtension() {
+        InterviewState s = state(Stage.PROJECT_DIG, Layer.L5_TRADEOFF, 1, 2, 5, 0)
+                .toBuilder().pressureUsed(true).build();
+        InterviewState next = machine.apply(s, GOOD);
+        assertEquals(Stage.EXTENSION, next.getStage());
     }
 
     @Test
@@ -77,7 +91,7 @@ class InterviewStateMachineTest {
 
     @Test
     void maxQuestionsCloses() {
-        InterviewState s = state(Stage.PROJECT_DIG, Layer.L2_SOLUTION, 0, 2, 7, 0);
+        InterviewState s = state(Stage.PROJECT_DIG, Layer.L2_SOLUTION, 0, 2, 13, 0);
         InterviewState next = machine.apply(s, GOOD);
         assertEquals(Stage.CLOSING, next.getStage());
     }

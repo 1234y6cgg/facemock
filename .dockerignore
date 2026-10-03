@@ -1,0 +1,15 @@
+.git
+.env
+.env.*
+!.env.example
+**/node_modules
+**/target
+**/dist
+**/*.tsbuildinfo
+**/*.log
+.idea
+.vscode
+.venv
+.superpowers
+data
+docs
